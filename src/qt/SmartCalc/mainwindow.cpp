@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
   ui->setupUi(this);
   setFixedSize(geometry().width(),geometry().height());
-  //connect(ui->button_1, SIGNAL (released()), ui->plainTextEdit, SLOT (appendPlainText("1")) );
+  bool plusflag = 0;
 }
 
 MainWindow::~MainWindow() { delete ui; }
@@ -81,13 +81,16 @@ void MainWindow::on_button_enter_released()
 
 void MainWindow::on_button_clear_released()
 {
+    ui->plainTextEdit->setPlainText("");
 
 }
 
 
 void MainWindow::on_button_plus_released()
 {
-
+    QTextCursor c = ui->plainTextEdit->textCursor();
+    c.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor,1);
+    ui->plainTextEdit->insertPlainText("+");
 }
 
 
