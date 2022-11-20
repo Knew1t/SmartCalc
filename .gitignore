@@ -69,6 +69,7 @@ run_tests_for_coverage
 report
 *.info
 
+.DS_Store
 #readme files
 README.md
 README_RUS.mdkms.conf
