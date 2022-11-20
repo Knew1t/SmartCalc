@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "QtWidgets/qpushbutton.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -16,35 +17,23 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_button_1_released();
+    double resultSoFar;
+    void digitClicked();
+    void unaryOperatorClicked();
+    void additiveOperatorClicked();
+    void multiplicativeOperatorClicked();
+    void equalClicked();
+    void pointClicked();
+    void changeSignClicked();
+    void backspaceClicked();
+    void clear();
+    void clearAll();
 
-    void on_button_2_released();
-
-    void on_button_3_released();
-
-    void on_button_4_released();
-
-    void on_button_5_released();
-
-    void on_button_6_released();
-
-    void on_button_7_released();
-
-    void on_button_8_released();
-
-    void on_button_9_released();
-
-    void on_pushButton_0_released();
-
-    void on_button_enter_released();
-
-    void on_button_clear_released();
-
-    void on_button_plus_released();
-
-    void on_button_minus_released();
 
 private:
     Ui::MainWindow *ui;
+    Button *createButton(const QString &text, const char *member);
+    void abortOperation();
+    bool calculate(double rightOperand, const QString &pendingOperator);
 };
 #endif // MAINWINDOW_H

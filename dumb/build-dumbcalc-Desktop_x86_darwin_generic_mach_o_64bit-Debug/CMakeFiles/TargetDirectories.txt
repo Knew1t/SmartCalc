@@ -1,0 +1,4 @@
+/Users/longshot/projects/SmartCalc/dumb/build-dumbcalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/dumbcalc.dir
+/Users/longshot/projects/SmartCalc/dumb/build-dumbcalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/edit_cache.dir
+/Users/longshot/projects/SmartCalc/dumb/build-dumbcalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/rebuild_cache.dir
+/Users/longshot/projects/SmartCalc/dumb/build-dumbcalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/dumbcalc_autogen.dir

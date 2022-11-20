@@ -3,7 +3,7 @@
 //#include "QtCore/qobjectdefs.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow) {
+    : QMainWindow(parent), ui(new Ui::MainWindow), resultSoFar(0.0) {
   ui->setupUi(this);
   setFixedSize(geometry().width(),geometry().height());
   bool plusflag = 0;
