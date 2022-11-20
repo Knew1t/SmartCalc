@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dumbcalc_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/dumbcalc_autogen.dir/ParseCache.txt"
   "dumbcalc_autogen"
+  "CMakeFiles/dumbcalc.dir/button.cpp.o"
+  "CMakeFiles/dumbcalc.dir/button.cpp.o.d"
   "CMakeFiles/dumbcalc.dir/dumbcalc.cpp.o"
   "CMakeFiles/dumbcalc.dir/dumbcalc.cpp.o.d"
   "CMakeFiles/dumbcalc.dir/dumbcalc_autogen/mocs_compilation.cpp.o"

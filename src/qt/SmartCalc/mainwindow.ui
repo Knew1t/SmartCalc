@@ -333,7 +333,7 @@
      <string>Ln</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_0">
+   <widget class="QPushButton" name="button_0">
     <property name="geometry">
      <rect>
       <x>90</x>

@@ -3,98 +3,27 @@
 //#include "QtCore/qobjectdefs.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow), resultSoFar(0.0) {
+    : QMainWindow(parent), ui(new Ui::MainWindow) {
   ui->setupUi(this);
-  setFixedSize(geometry().width(),geometry().height());
-  bool plusflag = 0;
+  setFixedSize(geometry().width(), geometry().height());
+  ui->plainTextEdit->setReadOnly(true);
+  QPushButton *digitButtons[] = {ui->button_0, ui->button_1, ui->button_1,
+                                 ui->button_2, ui->button_3, ui->button_4,
+                                 ui->button_5, ui->button_6, ui->button_7,
+                                 ui->button_8, ui->button_9};
 }
 
 MainWindow::~MainWindow() { delete ui; }
 
-
-void MainWindow::on_button_1_released() {
-    ui->plainTextEdit->insertPlainText("1");
-}
-
-void MainWindow::on_button_2_released()
-{
-    ui->plainTextEdit->insertPlainText("2");
-
-}
-
-void MainWindow::on_button_3_released()
-{
-    ui->plainTextEdit->insertPlainText("3");
-
-}
-
-
-void MainWindow::on_button_4_released()
-{
-    ui->plainTextEdit->insertPlainText("4");
-
-}
-
-
-void MainWindow::on_button_5_released()
-{
-    ui->plainTextEdit->insertPlainText("5");
-}
-
-
-void MainWindow::on_button_6_released()
-{
-    ui->plainTextEdit->insertPlainText("6");
-}
-
-
-void MainWindow::on_button_7_released()
-{
-    ui->plainTextEdit->insertPlainText("7");
-}
-
-
-void MainWindow::on_button_8_released()
-{
-    ui->plainTextEdit->insertPlainText("8");
-}
-
-
-void MainWindow::on_button_9_released()
-{
-    ui->plainTextEdit->insertPlainText("9");
+void MainWindow::digitClicked() {
+  QPushButton *clickedButton = qobject_cast<QPushButton *>(sender());
+  double digitValue = clickedButton->text().toDouble();
+  ui->plainTextEdit->appendPlainText(QString::number(digitValue));
 }
 
 
 
-void MainWindow::on_pushButton_0_released()
-{
-    ui->plainTextEdit->insertPlainText("0");
-}
-
-
-void MainWindow::on_button_enter_released()
-{
-
-}
-
-
-void MainWindow::on_button_clear_released()
-{
-    ui->plainTextEdit->setPlainText("");
-
-}
-
-
-void MainWindow::on_button_plus_released()
-{
-    QTextCursor c = ui->plainTextEdit->textCursor();
-    c.movePosition(QTextCursor::PreviousCharacter, QTextCursor::KeepAnchor,1);
-    ui->plainTextEdit->insertPlainText("+");
-}
-
-
-void MainWindow::on_button_minus_released()
+void MainWindow::on_button_1_released()
 {
 
 }

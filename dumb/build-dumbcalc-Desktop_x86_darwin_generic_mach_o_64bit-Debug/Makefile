@@ -142,6 +142,30 @@ dumbcalc_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dumbcalc_autogen.dir/build.make CMakeFiles/dumbcalc_autogen.dir/build
 .PHONY : dumbcalc_autogen/fast
 
+button.o: button.cpp.o
+.PHONY : button.o
+
+# target to build an object file
+button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dumbcalc.dir/build.make CMakeFiles/dumbcalc.dir/button.cpp.o
+.PHONY : button.cpp.o
+
+button.i: button.cpp.i
+.PHONY : button.i
+
+# target to preprocess a source file
+button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dumbcalc.dir/build.make CMakeFiles/dumbcalc.dir/button.cpp.i
+.PHONY : button.cpp.i
+
+button.s: button.cpp.s
+.PHONY : button.s
+
+# target to generate assembly for a file
+button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dumbcalc.dir/build.make CMakeFiles/dumbcalc.dir/button.cpp.s
+.PHONY : button.cpp.s
+
 dumbcalc.o: dumbcalc.cpp.o
 .PHONY : dumbcalc.o
 
@@ -224,6 +248,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... dumbcalc_autogen"
 	@echo "... dumbcalc"
+	@echo "... button.o"
+	@echo "... button.i"
+	@echo "... button.s"
 	@echo "... dumbcalc.o"
 	@echo "... dumbcalc.i"
 	@echo "... dumbcalc.s"

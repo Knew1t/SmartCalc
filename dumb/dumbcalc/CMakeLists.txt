@@ -18,6 +18,8 @@ set(PROJECT_SOURCES
         main.cpp
         dumbcalc.cpp
         dumbcalc.h
+        button.h
+        button.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

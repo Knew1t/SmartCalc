@@ -1,9 +1,11 @@
 #ifndef DUMBCALC_H
 #define DUMBCALC_H
-
 #include <QWidget>
 #include <QLineEdit>
 #include <QGridLayout>
+#include <QToolButton>
+#include "button.h"
+
 
 class dumbcalc : public QWidget
 {
@@ -27,10 +29,12 @@ private slots:
     void readMemory();
     void setMemory();
     void addToMemory();
+
 private:
     Button *createButton(const QString &text, const char *member);
     void abortOperation();
     bool calculate(double rightOperand, const QString &pendingOperator);
+   // эти переменные отражают состояние калькулятора
     double sumInMemory;
     double sumSoFar;
     double factorSoFar;
@@ -38,9 +42,12 @@ private:
     QString pendingMultiplicativeOperator;
     bool waitingForOperand;
 
+    /* */
     QLineEdit *display;
 
     enum { NumDigitButtons = 10 };
     Button *digitButtons[NumDigitButtons];
 };
+
+
 #endif // DUMBCALC_H

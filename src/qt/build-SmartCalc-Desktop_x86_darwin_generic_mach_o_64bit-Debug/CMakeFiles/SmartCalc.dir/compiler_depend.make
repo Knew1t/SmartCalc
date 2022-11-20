@@ -164,8 +164,7 @@ CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o: SmartCalc_aut
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cassert \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/assert.h \
   /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/mainwindow.h \
-  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
-  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+  /usr/local/include/QtWidgets/qpushbutton.h \
   /usr/local/include/QtWidgets/qtwidgetsglobal.h \
   /usr/local/include/QtGui/qtguiglobal.h \
   /usr/local/include/QtCore/qglobal.h \
@@ -200,13 +199,12 @@ CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o: SmartCalc_aut
   /usr/local/include/QtCore/qversiontagging.h \
   /usr/local/include/QtGui/qtgui-config.h \
   /usr/local/include/QtWidgets/qtwidgets-config.h \
-  /usr/local/include/QtWidgets/qwidget.h \
-  /usr/local/include/QtGui/qwindowdefs.h \
-  /usr/local/include/QtCore/qobjectdefs.h \
+  /usr/local/include/QtWidgets/qabstractbutton.h \
+  /usr/local/include/QtGui/qicon.h \
+  /usr/local/include/QtCore/qsize.h \
   /usr/local/include/QtCore/qnamespace.h \
   /usr/local/include/QtCore/qtmetamacros.h \
-  /usr/local/include/QtCore/qobjectdefs_impl.h \
-  /usr/local/include/QtCore/qobject.h \
+  /usr/local/include/QtCore/qhashfunctions.h \
   /usr/local/include/QtCore/qstring.h \
   /usr/local/include/QtCore/qchar.h \
   /usr/local/include/QtCore/qstringview.h \
@@ -234,14 +232,28 @@ CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o: SmartCalc_aut
   /usr/local/include/QtCore/qanystringview.h \
   /usr/local/include/QtCore/qutf8stringview.h \
   /usr/local/include/QtCore/qstringtokenizer.h \
-  /usr/local/include/QtCore/qlist.h \
-  /usr/local/include/QtCore/qhashfunctions.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
+  /usr/local/include/QtCore/qmargins.h \
+  /usr/local/include/QtCore/qlist.h \
   /usr/local/include/QtCore/qiterator.h \
   /usr/local/include/QtCore/qbytearraylist.h \
   /usr/local/include/QtCore/qstringlist.h \
   /usr/local/include/QtCore/qalgorithms.h \
   /usr/local/include/QtCore/qstringmatcher.h \
+  /usr/local/include/QtGui/qpixmap.h \
+  /usr/local/include/QtGui/qpaintdevice.h \
+  /usr/local/include/QtGui/qwindowdefs.h \
+  /usr/local/include/QtCore/qobjectdefs.h \
+  /usr/local/include/QtCore/qobjectdefs_impl.h \
+  /usr/local/include/QtCore/qrect.h \
+  /usr/local/include/QtCore/qpoint.h \
+  /usr/local/include/QtGui/qcolor.h \
+  /usr/local/include/QtGui/qrgb.h \
+  /usr/local/include/QtGui/qrgba64.h \
+  /usr/local/include/QtCore/qsharedpointer.h \
+  /usr/local/include/QtCore/qshareddata.h \
+  /usr/local/include/QtCore/qsharedpointer_impl.h \
+  /usr/local/include/QtCore/qobject.h \
   /usr/local/include/QtCore/qscopedpointer.h \
   /usr/local/include/QtCore/qmetatype.h \
   /usr/local/include/QtCore/qcompare.h \
@@ -263,40 +275,31 @@ CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o: SmartCalc_aut
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__node_handle \
   /usr/local/include/QtCore/qobject_impl.h \
   /usr/local/include/QtCore/qbindingstorage.h \
-  /usr/local/include/QtCore/qmargins.h \
-  /usr/local/include/QtGui/qpaintdevice.h \
-  /usr/local/include/QtCore/qrect.h \
-  /usr/local/include/QtCore/qsize.h \
-  /usr/local/include/QtCore/qpoint.h \
-  /usr/local/include/QtGui/qpalette.h \
-  /usr/local/include/QtGui/qcolor.h \
-  /usr/local/include/QtGui/qrgb.h \
-  /usr/local/include/QtGui/qrgba64.h \
-  /usr/local/include/QtGui/qbrush.h \
   /usr/local/include/QtGui/qimage.h \
   /usr/local/include/QtGui/qpixelformat.h \
   /usr/local/include/QtGui/qtransform.h \
   /usr/local/include/QtGui/qpolygon.h \
   /usr/local/include/QtGui/qregion.h \
   /usr/local/include/QtCore/qline.h \
-  /usr/local/include/QtGui/qpixmap.h \
-  /usr/local/include/QtCore/qsharedpointer.h \
-  /usr/local/include/QtCore/qshareddata.h \
-  /usr/local/include/QtCore/qsharedpointer_impl.h \
+  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/include/QtWidgets/qwidget.h \
+  /usr/local/include/QtGui/qpalette.h \
+  /usr/local/include/QtGui/qbrush.h \
   /usr/local/include/QtGui/qfont.h \
   /usr/local/include/QtGui/qfontmetrics.h \
   /usr/local/include/QtGui/qfontinfo.h \
   /usr/local/include/QtWidgets/qsizepolicy.h \
   /usr/local/include/QtGui/qcursor.h \
   /usr/local/include/QtGui/qbitmap.h \
-  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
+  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
   /usr/local/include/QtWidgets/qtabwidget.h \
-  /usr/local/include/QtGui/qicon.h
+  /usr/local/lib/QtWidgets.framework/Headers/QToolButton \
+  /usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h
 
 CMakeFiles/SmartCalc.dir/main.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/main.cpp \
   /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/mainwindow.h \
-  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
-  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+  /usr/local/include/QtWidgets/qpushbutton.h \
   /usr/local/include/QtWidgets/qtwidgetsglobal.h \
   /usr/local/include/QtGui/qtguiglobal.h \
   /usr/local/include/QtCore/qglobal.h \
@@ -491,13 +494,12 @@ CMakeFiles/SmartCalc.dir/main.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/S
   /usr/local/include/QtCore/qversiontagging.h \
   /usr/local/include/QtGui/qtgui-config.h \
   /usr/local/include/QtWidgets/qtwidgets-config.h \
-  /usr/local/include/QtWidgets/qwidget.h \
-  /usr/local/include/QtGui/qwindowdefs.h \
-  /usr/local/include/QtCore/qobjectdefs.h \
+  /usr/local/include/QtWidgets/qabstractbutton.h \
+  /usr/local/include/QtGui/qicon.h \
+  /usr/local/include/QtCore/qsize.h \
   /usr/local/include/QtCore/qnamespace.h \
   /usr/local/include/QtCore/qtmetamacros.h \
-  /usr/local/include/QtCore/qobjectdefs_impl.h \
-  /usr/local/include/QtCore/qobject.h \
+  /usr/local/include/QtCore/qhashfunctions.h \
   /usr/local/include/QtCore/qstring.h \
   /usr/local/include/QtCore/qchar.h \
   /usr/local/include/QtCore/qstringview.h \
@@ -525,14 +527,28 @@ CMakeFiles/SmartCalc.dir/main.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/S
   /usr/local/include/QtCore/qanystringview.h \
   /usr/local/include/QtCore/qutf8stringview.h \
   /usr/local/include/QtCore/qstringtokenizer.h \
-  /usr/local/include/QtCore/qlist.h \
-  /usr/local/include/QtCore/qhashfunctions.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
+  /usr/local/include/QtCore/qmargins.h \
+  /usr/local/include/QtCore/qlist.h \
   /usr/local/include/QtCore/qiterator.h \
   /usr/local/include/QtCore/qbytearraylist.h \
   /usr/local/include/QtCore/qstringlist.h \
   /usr/local/include/QtCore/qalgorithms.h \
   /usr/local/include/QtCore/qstringmatcher.h \
+  /usr/local/include/QtGui/qpixmap.h \
+  /usr/local/include/QtGui/qpaintdevice.h \
+  /usr/local/include/QtGui/qwindowdefs.h \
+  /usr/local/include/QtCore/qobjectdefs.h \
+  /usr/local/include/QtCore/qobjectdefs_impl.h \
+  /usr/local/include/QtCore/qrect.h \
+  /usr/local/include/QtCore/qpoint.h \
+  /usr/local/include/QtGui/qcolor.h \
+  /usr/local/include/QtGui/qrgb.h \
+  /usr/local/include/QtGui/qrgba64.h \
+  /usr/local/include/QtCore/qsharedpointer.h \
+  /usr/local/include/QtCore/qshareddata.h \
+  /usr/local/include/QtCore/qsharedpointer_impl.h \
+  /usr/local/include/QtCore/qobject.h \
   /usr/local/include/QtCore/qscopedpointer.h \
   /usr/local/include/QtCore/qmetatype.h \
   /usr/local/include/QtCore/qcompare.h \
@@ -554,35 +570,27 @@ CMakeFiles/SmartCalc.dir/main.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/S
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__node_handle \
   /usr/local/include/QtCore/qobject_impl.h \
   /usr/local/include/QtCore/qbindingstorage.h \
-  /usr/local/include/QtCore/qmargins.h \
-  /usr/local/include/QtGui/qpaintdevice.h \
-  /usr/local/include/QtCore/qrect.h \
-  /usr/local/include/QtCore/qsize.h \
-  /usr/local/include/QtCore/qpoint.h \
-  /usr/local/include/QtGui/qpalette.h \
-  /usr/local/include/QtGui/qcolor.h \
-  /usr/local/include/QtGui/qrgb.h \
-  /usr/local/include/QtGui/qrgba64.h \
-  /usr/local/include/QtGui/qbrush.h \
   /usr/local/include/QtGui/qimage.h \
   /usr/local/include/QtGui/qpixelformat.h \
   /usr/local/include/QtGui/qtransform.h \
   /usr/local/include/QtGui/qpolygon.h \
   /usr/local/include/QtGui/qregion.h \
   /usr/local/include/QtCore/qline.h \
-  /usr/local/include/QtGui/qpixmap.h \
-  /usr/local/include/QtCore/qsharedpointer.h \
-  /usr/local/include/QtCore/qshareddata.h \
-  /usr/local/include/QtCore/qsharedpointer_impl.h \
+  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/include/QtWidgets/qwidget.h \
+  /usr/local/include/QtGui/qpalette.h \
+  /usr/local/include/QtGui/qbrush.h \
   /usr/local/include/QtGui/qfont.h \
   /usr/local/include/QtGui/qfontmetrics.h \
   /usr/local/include/QtGui/qfontinfo.h \
   /usr/local/include/QtWidgets/qsizepolicy.h \
   /usr/local/include/QtGui/qcursor.h \
   /usr/local/include/QtGui/qbitmap.h \
-  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
+  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
   /usr/local/include/QtWidgets/qtabwidget.h \
-  /usr/local/include/QtGui/qicon.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QToolButton \
+  /usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h \
   /usr/local/lib/QtWidgets.framework/Headers/QApplication \
   /usr/local/lib/QtWidgets.framework/Headers/qapplication.h \
   /usr/local/include/QtCore/qcoreapplication.h \
@@ -606,8 +614,7 @@ CMakeFiles/SmartCalc.dir/main.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/S
 
 CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/mainwindow.cpp \
   /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/mainwindow.h \
-  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
-  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
+  /usr/local/include/QtWidgets/qpushbutton.h \
   /usr/local/include/QtWidgets/qtwidgetsglobal.h \
   /usr/local/include/QtGui/qtguiglobal.h \
   /usr/local/include/QtCore/qglobal.h \
@@ -802,13 +809,12 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
   /usr/local/include/QtCore/qversiontagging.h \
   /usr/local/include/QtGui/qtgui-config.h \
   /usr/local/include/QtWidgets/qtwidgets-config.h \
-  /usr/local/include/QtWidgets/qwidget.h \
-  /usr/local/include/QtGui/qwindowdefs.h \
-  /usr/local/include/QtCore/qobjectdefs.h \
+  /usr/local/include/QtWidgets/qabstractbutton.h \
+  /usr/local/include/QtGui/qicon.h \
+  /usr/local/include/QtCore/qsize.h \
   /usr/local/include/QtCore/qnamespace.h \
   /usr/local/include/QtCore/qtmetamacros.h \
-  /usr/local/include/QtCore/qobjectdefs_impl.h \
-  /usr/local/include/QtCore/qobject.h \
+  /usr/local/include/QtCore/qhashfunctions.h \
   /usr/local/include/QtCore/qstring.h \
   /usr/local/include/QtCore/qchar.h \
   /usr/local/include/QtCore/qstringview.h \
@@ -836,14 +842,28 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
   /usr/local/include/QtCore/qanystringview.h \
   /usr/local/include/QtCore/qutf8stringview.h \
   /usr/local/include/QtCore/qstringtokenizer.h \
-  /usr/local/include/QtCore/qlist.h \
-  /usr/local/include/QtCore/qhashfunctions.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
+  /usr/local/include/QtCore/qmargins.h \
+  /usr/local/include/QtCore/qlist.h \
   /usr/local/include/QtCore/qiterator.h \
   /usr/local/include/QtCore/qbytearraylist.h \
   /usr/local/include/QtCore/qstringlist.h \
   /usr/local/include/QtCore/qalgorithms.h \
   /usr/local/include/QtCore/qstringmatcher.h \
+  /usr/local/include/QtGui/qpixmap.h \
+  /usr/local/include/QtGui/qpaintdevice.h \
+  /usr/local/include/QtGui/qwindowdefs.h \
+  /usr/local/include/QtCore/qobjectdefs.h \
+  /usr/local/include/QtCore/qobjectdefs_impl.h \
+  /usr/local/include/QtCore/qrect.h \
+  /usr/local/include/QtCore/qpoint.h \
+  /usr/local/include/QtGui/qcolor.h \
+  /usr/local/include/QtGui/qrgb.h \
+  /usr/local/include/QtGui/qrgba64.h \
+  /usr/local/include/QtCore/qsharedpointer.h \
+  /usr/local/include/QtCore/qshareddata.h \
+  /usr/local/include/QtCore/qsharedpointer_impl.h \
+  /usr/local/include/QtCore/qobject.h \
   /usr/local/include/QtCore/qscopedpointer.h \
   /usr/local/include/QtCore/qmetatype.h \
   /usr/local/include/QtCore/qcompare.h \
@@ -865,35 +885,27 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__node_handle \
   /usr/local/include/QtCore/qobject_impl.h \
   /usr/local/include/QtCore/qbindingstorage.h \
-  /usr/local/include/QtCore/qmargins.h \
-  /usr/local/include/QtGui/qpaintdevice.h \
-  /usr/local/include/QtCore/qrect.h \
-  /usr/local/include/QtCore/qsize.h \
-  /usr/local/include/QtCore/qpoint.h \
-  /usr/local/include/QtGui/qpalette.h \
-  /usr/local/include/QtGui/qcolor.h \
-  /usr/local/include/QtGui/qrgb.h \
-  /usr/local/include/QtGui/qrgba64.h \
-  /usr/local/include/QtGui/qbrush.h \
   /usr/local/include/QtGui/qimage.h \
   /usr/local/include/QtGui/qpixelformat.h \
   /usr/local/include/QtGui/qtransform.h \
   /usr/local/include/QtGui/qpolygon.h \
   /usr/local/include/QtGui/qregion.h \
   /usr/local/include/QtCore/qline.h \
-  /usr/local/include/QtGui/qpixmap.h \
-  /usr/local/include/QtCore/qsharedpointer.h \
-  /usr/local/include/QtCore/qshareddata.h \
-  /usr/local/include/QtCore/qsharedpointer_impl.h \
+  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/include/QtWidgets/qwidget.h \
+  /usr/local/include/QtGui/qpalette.h \
+  /usr/local/include/QtGui/qbrush.h \
   /usr/local/include/QtGui/qfont.h \
   /usr/local/include/QtGui/qfontmetrics.h \
   /usr/local/include/QtGui/qfontinfo.h \
   /usr/local/include/QtWidgets/qsizepolicy.h \
   /usr/local/include/QtGui/qcursor.h \
   /usr/local/include/QtGui/qbitmap.h \
-  /usr/local/include/QtGui/qkeysequence.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
+  /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h \
   /usr/local/include/QtWidgets/qtabwidget.h \
-  /usr/local/include/QtGui/qicon.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QToolButton \
+  /usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h \
   SmartCalc_autogen/include/ui_mainwindow.h \
   /usr/local/include/QtCore/QVariant \
   /usr/local/lib/QtCore.framework/Headers/qvariant.h \
@@ -960,7 +972,6 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
   /usr/local/include/QtGui/qfontdatabase.h \
   /usr/local/include/QtWidgets/QPushButton \
   /usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h \
-  /usr/local/include/QtWidgets/qabstractbutton.h \
   /usr/local/include/QtWidgets/QStatusBar \
   /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h \
   /usr/local/include/QtWidgets/QWidget \
@@ -970,8 +981,6 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 /usr/local/include/QtWidgets/QWidget:
 
 /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h:
-
-/usr/local/include/QtWidgets/qabstractbutton.h:
 
 /usr/local/include/QtWidgets/QPushButton:
 
@@ -1043,9 +1052,7 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 
 /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/main.cpp:
 
-/usr/local/include/QtWidgets/QStatusBar:
-
-/usr/local/include/QtGui/qkeysequence.h:
+/usr/local/lib/QtWidgets.framework/Headers/QToolButton:
 
 /usr/local/include/QtGui/qbitmap.h:
 
@@ -1057,23 +1064,7 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 
 /usr/local/include/QtGui/qfont.h:
 
-/usr/local/include/QtCore/qsharedpointer_impl.h:
-
-/usr/local/include/QtCore/qshareddata.h:
-
-/usr/local/include/QtGui/qpixmap.h:
-
-/usr/local/include/QtGui/qpolygon.h:
-
-/usr/local/include/QtGui/qcursor.h:
-
-/usr/local/include/QtCore/qsharedpointer.h:
-
-/usr/local/include/QtGui/qimage.h:
-
 /usr/local/include/QtGui/qbrush.h:
-
-/usr/local/include/QtGui/qrgb.h:
 
 /usr/local/lib/QtWidgets.framework/Headers/qwidget.h:
 
@@ -1081,9 +1072,13 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 
 /usr/local/include/QtGui/qpalette.h:
 
-/usr/local/include/QtCore/qpoint.h:
+/usr/local/include/QtWidgets/qwidget.h:
 
-/usr/local/include/QtCore/qmargins.h:
+/usr/local/include/QtWidgets/QStatusBar:
+
+/usr/local/include/QtGui/qkeysequence.h:
+
+/usr/local/include/QtGui/qpolygon.h:
 
 /usr/local/include/QtCore/qbindingstorage.h:
 
@@ -1099,13 +1094,35 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 
 /usr/local/include/QtCore/qvarlengtharray.h:
 
+/usr/local/include/QtCore/qobject.h:
+
+/usr/local/include/QtCore/qsharedpointer_impl.h:
+
+/usr/local/include/QtCore/qshareddata.h:
+
+/usr/local/include/QtGui/qcursor.h:
+
+/usr/local/include/QtGui/qimage.h:
+
+/usr/local/include/QtCore/qsharedpointer.h:
+
+/usr/local/include/QtGui/qrgb.h:
+
+/usr/local/include/QtCore/qpoint.h:
+
+/usr/local/include/QtCore/qobjectdefs_impl.h:
+
+/usr/local/include/QtGui/qpixmap.h:
+
 /usr/local/include/QtCore/qbytearraylist.h:
 
 /usr/local/include/QtCore/qiterator.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric:
-
 /usr/local/include/QtCore/qlist.h:
+
+/usr/local/include/QtCore/qmargins.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric:
 
 /usr/local/include/QtCore/qutf8stringview.h:
 
@@ -1155,17 +1172,13 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 
 /usr/local/include/QtCore/qstring.h:
 
-/usr/local/include/QtCore/qobject.h:
-
-/usr/local/include/QtCore/qobjectdefs_impl.h:
-
 /usr/local/include/QtCore/qnamespace.h:
-
-/usr/local/include/QtCore/qsize.h:
 
 /usr/local/include/QtCore/qobjectdefs.h:
 
-/usr/local/include/QtWidgets/qwidget.h:
+/usr/local/include/QtCore/qsize.h:
+
+/usr/local/include/QtWidgets/qabstractbutton.h:
 
 /usr/local/include/QtCore/qglobalstatic.h:
 
@@ -1218,16 +1231,6 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_va_list.h:
 
 /usr/local/include/QtWidgets/qtwidgetsglobal.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/libkern/_OSByteOrder.h:
-
-/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h:
-
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdarg.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/signal.h:
-
-/usr/local/lib/QtWidgets.framework/Headers/QMainWindow:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/vector:
 
@@ -1322,6 +1325,10 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/ratio:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/libkern/i386/_OSByteOrder.h:
+
+/usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/libkern/_OSByteOrder.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_endian.h:
 
@@ -1475,6 +1482,8 @@ SmartCalc_autogen/mocs_compilation.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/i386/signal.h:
 
+/usr/local/include/QtWidgets/qpushbutton.h:
+
 /usr/local/include/QtCore/qgenericatomic.h:
 
 /usr/local/include/QtCore/qeventloop.h:
@@ -1520,6 +1529,12 @@ SmartCalc_autogen/mocs_compilation.cpp:
 /usr/local/include/QtGui/qtextformat.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
+
+/usr/local/lib/QtWidgets.framework/Headers/QMainWindow:
+
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdarg.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/signal.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/i386/types.h:
 
@@ -1567,6 +1582,10 @@ SmartCalc_autogen/mocs_compilation.cpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__debug:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ssize_t.h:
+
+/usr/local/include/QtGui/qtgui-config.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/allocator_traits.h:
 
 /usr/local/lib/QtCore.framework/Headers/qvariant.h:
@@ -1580,10 +1599,6 @@ SmartCalc_autogen/mocs_compilation.cpp:
 /usr/local/include/QtCore/qstringtokenizer.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/errno.h:
-
-/usr/local/include/QtGui/qtgui-config.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_ssize_t.h:
 
 /usr/local/include/QtWidgets/qabstractscrollarea.h:
 
@@ -1674,6 +1689,8 @@ SmartCalc_autogen/include/ui_mainwindow.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mach_port_t.h:
 
 /usr/local/include/QtWidgets/QApplication:
+
+/usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/type_traits:
 

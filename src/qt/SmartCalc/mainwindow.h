@@ -3,6 +3,7 @@
 
 #include "QtWidgets/qpushbutton.h"
 #include <QMainWindow>
+#include <QToolButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,23 +18,13 @@ public:
     ~MainWindow();
 
 private slots:
-    double resultSoFar;
     void digitClicked();
-    void unaryOperatorClicked();
-    void additiveOperatorClicked();
-    void multiplicativeOperatorClicked();
-    void equalClicked();
-    void pointClicked();
-    void changeSignClicked();
-    void backspaceClicked();
-    void clear();
-    void clearAll();
 
+    void on_button_6_released();
+
+    void on_button_1_released();
 
 private:
     Ui::MainWindow *ui;
-    Button *createButton(const QString &text, const char *member);
-    void abortOperation();
-    bool calculate(double rightOperand, const QString &pendingOperator);
 };
 #endif // MAINWINDOW_H
