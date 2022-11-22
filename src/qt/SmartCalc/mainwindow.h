@@ -18,12 +18,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void digitClicked();
-
-    void on_button_6_released();
-
-    void on_button_1_released();
-
+    void digitPressed();
 private:
     Ui::MainWindow *ui;
 };

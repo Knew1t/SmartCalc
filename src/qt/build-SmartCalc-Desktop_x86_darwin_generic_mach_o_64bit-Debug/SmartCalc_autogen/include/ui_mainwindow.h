@@ -13,9 +13,9 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -34,7 +34,7 @@ public:
     QPushButton *button_open_parent;
     QPushButton *button_sin;
     QPushButton *button_9;
-    QPlainTextEdit *plainTextEdit;
+    QTextEdit *Display;
     QPushButton *button_divide;
     QPushButton *button_5;
     QPushButton *button_close_parent;
@@ -112,9 +112,9 @@ public:
         button_9->setObjectName(QString::fromUtf8("button_9"));
         button_9->setGeometry(QRect(180, 240, 80, 80));
         button_9->setFont(font1);
-        plainTextEdit = new QPlainTextEdit(centralwidget);
-        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
-        plainTextEdit->setGeometry(QRect(0, 0, 441, 71));
+        Display = new QTextEdit(centralwidget);
+        Display->setObjectName(QString::fromUtf8("Display"));
+        Display->setGeometry(QRect(0, 0, 441, 71));
         button_divide = new QPushButton(centralwidget);
         button_divide->setObjectName(QString::fromUtf8("button_divide"));
         button_divide->setGeometry(QRect(270, 200, 81, 41));

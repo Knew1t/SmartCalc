@@ -937,9 +937,12 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o
  /usr/local/lib/QtWidgets.framework/Headers/qmenubar.h
  /usr/local/include/QtWidgets/qmenu.h
  /usr/local/include/QtGui/qaction.h
- /usr/local/include/QtWidgets/QPlainTextEdit
- /usr/local/lib/QtWidgets.framework/Headers/qplaintextedit.h
- /usr/local/include/QtWidgets/qtextedit.h
+ /usr/local/include/QtWidgets/QPushButton
+ /usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h
+ /usr/local/include/QtWidgets/QStatusBar
+ /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h
+ /usr/local/include/QtWidgets/QTextEdit
+ /usr/local/lib/QtWidgets.framework/Headers/qtextedit.h
  /usr/local/include/QtWidgets/qabstractscrollarea.h
  /usr/local/include/QtWidgets/qframe.h
  /usr/local/include/QtGui/qtextdocument.h
@@ -948,35 +951,6 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o
  /usr/local/include/QtGui/qtextcursor.h
  /usr/local/include/QtGui/qtextformat.h
  /usr/local/include/QtGui/qpen.h
- /usr/local/include/QtGui/qabstracttextdocumentlayout.h
- /usr/local/include/QtGui/qtextlayout.h
- /usr/local/include/QtGui/qevent.h
- /usr/local/include/QtCore/qiodevice.h
- /usr/local/include/QtCore/qpointer.h
- /usr/local/include/QtGui/qeventpoint.h
- /usr/local/include/QtGui/qvector2d.h
- /usr/local/include/QtGui/qvectornd.h
- /usr/local/include/QtGui/qpointingdevice.h
- /usr/local/include/QtGui/qinputdevice.h
- /usr/local/include/QtGui/qscreen.h
- /usr/local/include/QtCore/QList
- /usr/local/lib/QtCore.framework/Headers/qlist.h
- /usr/local/include/QtCore/QObject
- /usr/local/lib/QtCore.framework/Headers/qobject.h
- /usr/local/include/QtCore/QRect
- /usr/local/lib/QtCore.framework/Headers/qrect.h
- /usr/local/include/QtCore/QSize
- /usr/local/lib/QtCore.framework/Headers/qsize.h
- /usr/local/include/QtCore/QSizeF
- /usr/local/include/QtGui/QTransform
- /usr/local/lib/QtGui.framework/Headers/qtransform.h
- /usr/local/include/QtGui/qglyphrun.h
- /usr/local/include/QtGui/qrawfont.h
- /usr/local/include/QtGui/qfontdatabase.h
- /usr/local/include/QtWidgets/QPushButton
- /usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h
- /usr/local/include/QtWidgets/QStatusBar
- /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h
  /usr/local/include/QtWidgets/QWidget
  /usr/local/lib/QtWidgets.framework/Headers/qwidget.h
 

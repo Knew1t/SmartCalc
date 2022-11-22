@@ -2,29 +2,34 @@
 #include "./ui_mainwindow.h"
 //#include "QtCore/qobjectdefs.h"
 
+char math_expression[255] = "";
+bool addTrigger = false;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
   ui->setupUi(this);
   setFixedSize(geometry().width(), geometry().height());
-  ui->plainTextEdit->setReadOnly(true);
-  QPushButton *digitButtons[] = {ui->button_0, ui->button_1, ui->button_1,
-                                 ui->button_2, ui->button_3, ui->button_4,
-                                 ui->button_5, ui->button_6, ui->button_7,
-                                 ui->button_8, ui->button_9};
+//  ui->Display->setReadOnly(true);
+  ui->Display->setText(QString::fromLocal8Bit(math_expression));
+  ui->Display->setAlignment(Qt::AlignRight);
+  QPushButton *digitButtons[10];
+  for (int i = 0; i < 10; i++){
+     QString buttonName = "button_" + QString::number(i);
+     digitButtons[i] = MainWindow::findChild<QPushButton *>(buttonName);
+     connect(digitButtons[i], SIGNAL (released()),this,  SLOT (digitPressed())) ;
+  }
+
 }
 
 MainWindow::~MainWindow() { delete ui; }
 
-void MainWindow::digitClicked() {
-  QPushButton *clickedButton = qobject_cast<QPushButton *>(sender());
-  double digitValue = clickedButton->text().toDouble();
-  ui->plainTextEdit->appendPlainText(QString::number(digitValue));
+void MainWindow::digitPressed(){
+   QPushButton *button = (QPushButton *)sender();
+   QString buttonValue = button->text();
+   //QString displayVal = ui->Display->placeholderText();
+   //QString newVal = displayVal + butval;
+   ui->Display->insertPlainText(buttonValue);
 }
 
 
 
-void MainWindow::on_button_1_released()
-{
-
-}
 
