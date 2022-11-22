@@ -149,7 +149,7 @@
      </font>
     </property>
     <property name="text">
-     <string>-</string>
+     <string>―</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_open_parent">
@@ -235,7 +235,7 @@
      </font>
     </property>
     <property name="text">
-     <string>:</string>
+     <string>÷</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_5">
@@ -311,7 +311,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Tg</string>
+     <string>ţg</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_19">
@@ -476,7 +476,7 @@
      </font>
     </property>
     <property name="text">
-     <string>x</string>
+     <string>•</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_asin">

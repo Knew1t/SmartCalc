@@ -209,15 +209,15 @@ public:
         button_6->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
         button_2->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
         button_log->setText(QCoreApplication::translate("MainWindow", "Log", nullptr));
-        button_minus->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
+        button_minus->setText(QCoreApplication::translate("MainWindow", "\342\200\225", nullptr));
         button_open_parent->setText(QCoreApplication::translate("MainWindow", "(", nullptr));
         button_sin->setText(QCoreApplication::translate("MainWindow", "Sin", nullptr));
         button_9->setText(QCoreApplication::translate("MainWindow", "9", nullptr));
-        button_divide->setText(QCoreApplication::translate("MainWindow", ":", nullptr));
+        button_divide->setText(QCoreApplication::translate("MainWindow", "\303\267", nullptr));
         button_5->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         button_close_parent->setText(QCoreApplication::translate("MainWindow", ")", nullptr));
         button_cos->setText(QCoreApplication::translate("MainWindow", "Cos", nullptr));
-        button_tg->setText(QCoreApplication::translate("MainWindow", "Tg", nullptr));
+        button_tg->setText(QCoreApplication::translate("MainWindow", "\305\243g", nullptr));
         pushButton_19->setText(QCoreApplication::translate("MainWindow", "Ln", nullptr));
         button_0->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         button_1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
@@ -226,7 +226,7 @@ public:
         button_3->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
         button_enter->setText(QCoreApplication::translate("MainWindow", "=", nullptr));
         button_sqrt->setText(QCoreApplication::translate("MainWindow", "Sqrt", nullptr));
-        button_multiply->setText(QCoreApplication::translate("MainWindow", "x", nullptr));
+        button_multiply->setText(QCoreApplication::translate("MainWindow", "\342\200\242", nullptr));
         button_asin->setText(QCoreApplication::translate("MainWindow", "Asin", nullptr));
         button_plus->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
         button_8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));

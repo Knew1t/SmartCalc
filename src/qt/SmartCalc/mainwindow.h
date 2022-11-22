@@ -19,6 +19,7 @@ public:
 
 private slots:
     void digitPressed();
+    void clearPressed();
 private:
     Ui::MainWindow *ui;
 };
