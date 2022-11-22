@@ -54,7 +54,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Acos</string>
+     <string>acos</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_clear">
@@ -130,7 +130,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Log</string>
+     <string>log</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_minus">
@@ -187,7 +187,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Sin</string>
+     <string>sin</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_9">
@@ -292,7 +292,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Cos</string>
+     <string>cos</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_tg">
@@ -311,10 +311,10 @@
      </font>
     </property>
     <property name="text">
-     <string>ţg</string>
+     <string>tg</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_19">
+   <widget class="QPushButton" name="button_ln">
     <property name="geometry">
      <rect>
       <x>360</x>
@@ -330,7 +330,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Ln</string>
+     <string>ln</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_0">
@@ -371,7 +371,7 @@
      <string>1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_point">
+   <widget class="QPushButton" name="button_dot">
     <property name="geometry">
      <rect>
       <x>270</x>
@@ -406,7 +406,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Atan</string>
+     <string>atan</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_3">
@@ -428,7 +428,7 @@
      <string>3</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_enter">
+   <widget class="QPushButton" name="button_equal">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -495,7 +495,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Asin</string>
+     <string>asin</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_plus">
