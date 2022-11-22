@@ -75,15 +75,12 @@ void MainWindow::digitPressed() {
   dotTrigger = false;
 }
 void MainWindow::openParentPressed() {
-  if (!dotTrigger) {
+    if (!dotTrigger)
     ui->Display->insertPlainText("(");
-    dotTrigger = true;
-  }
 }
 void MainWindow::closeParentPressed() {
   if (!dotTrigger)
     ui->Display->insertPlainText(")");
-  dotTrigger = true;
 }
 void MainWindow::dotPressed() {
   if (!dotTrigger) {
