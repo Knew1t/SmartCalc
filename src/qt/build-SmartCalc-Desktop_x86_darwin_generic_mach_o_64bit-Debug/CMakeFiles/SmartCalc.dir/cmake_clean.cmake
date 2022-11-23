@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "SmartCalc_autogen"
   "CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o.d"
+  "CMakeFiles/SmartCalc.dir/backend.c.o"
+  "CMakeFiles/SmartCalc.dir/backend.c.o.d"
   "CMakeFiles/SmartCalc.dir/main.cpp.o"
   "CMakeFiles/SmartCalc.dir/main.cpp.o.d"
   "CMakeFiles/SmartCalc.dir/mainwindow.cpp.o"
@@ -13,6 +15,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang C CXX)
   include(CMakeFiles/SmartCalc.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

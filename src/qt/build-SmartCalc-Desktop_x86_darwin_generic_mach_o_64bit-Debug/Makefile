@@ -3,7 +3,6 @@
 
 # Default target executed when no arguments are given to make.
 default_target: all
-	open SmartCalc.app
 .PHONY : default_target
 
 # Allow only one "make -f Makefile2" at a time, but pass parallelism.
@@ -167,6 +166,30 @@ SmartCalc_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartCalc.dir/build.make CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.s
 .PHONY : SmartCalc_autogen/mocs_compilation.cpp.s
 
+backend.o: backend.c.o
+.PHONY : backend.o
+
+# target to build an object file
+backend.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartCalc.dir/build.make CMakeFiles/SmartCalc.dir/backend.c.o
+.PHONY : backend.c.o
+
+backend.i: backend.c.i
+.PHONY : backend.i
+
+# target to preprocess a source file
+backend.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartCalc.dir/build.make CMakeFiles/SmartCalc.dir/backend.c.i
+.PHONY : backend.c.i
+
+backend.s: backend.c.s
+.PHONY : backend.s
+
+# target to generate assembly for a file
+backend.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartCalc.dir/build.make CMakeFiles/SmartCalc.dir/backend.c.s
+.PHONY : backend.c.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -228,6 +251,9 @@ help:
 	@echo "... SmartCalc_autogen/mocs_compilation.o"
 	@echo "... SmartCalc_autogen/mocs_compilation.i"
 	@echo "... SmartCalc_autogen/mocs_compilation.s"
+	@echo "... backend.o"
+	@echo "... backend.i"
+	@echo "... backend.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

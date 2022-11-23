@@ -1,8 +1,11 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+extern "C" {
+#include "backend.h"
+}
 //#include "QtCore/qobjectdefs.h"
 
-// char math_expression[255] = "";
+char mathExpression[255] = "";
 bool addTrigger = false;
 bool divTrigger = false;
 bool multTrigger = false;
@@ -112,8 +115,11 @@ void MainWindow::dividePressed() {
 }
 //==================================================
 void MainWindow::equalPressed() {
-  QString mathExpression = ui->Display->toPlainText();
-  ui->Display->setText(mathExpression);
+  QByteArray array = ui->Display->toPlainText().toLocal8Bit();
+  char * ptr = mathExpression;
+ ptr = array.data();
+ parseMathExpression(ptr);
+  ui->Display->setText(ptr);
   ui->Display->setAlignment(Qt::AlignRight);
   ui->Display->moveCursor(QTextCursor::End);
 }
