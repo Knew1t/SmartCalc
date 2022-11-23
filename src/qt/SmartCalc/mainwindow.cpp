@@ -32,10 +32,10 @@ MainWindow::MainWindow(QWidget *parent)
   connect(ui->button_close_parent, SIGNAL(released()), this,
           SLOT(closeParentPressed()));
 
-  QPushButton *trigonometryButtons[8] = {
+  QPushButton *trigonometryButtons[9] = {
       ui->button_sin,  ui->button_cos,  ui->button_tg, ui->button_acos,
-      ui->button_asin, ui->button_atan, ui->button_ln, ui->button_log};
-  for (int i = 0; i < 8; i++) {
+      ui->button_asin, ui->button_atan, ui->button_ln, ui->button_log, ui->button_sqrt};
+  for (int i = 0; i < 9; i++) {
     connect(trigonometryButtons[i], SIGNAL(released()), this,
             SLOT(trigonometryButtonPressed()));
   }
@@ -78,7 +78,7 @@ void MainWindow::digitPressed() {
   dotTrigger = false;
 }
 void MainWindow::openParentPressed() {
-    if (!dotTrigger)
+  if (!dotTrigger)
     ui->Display->insertPlainText("(");
 }
 void MainWindow::closeParentPressed() {
@@ -116,9 +116,9 @@ void MainWindow::dividePressed() {
 //==================================================
 void MainWindow::equalPressed() {
   QByteArray array = ui->Display->toPlainText().toLocal8Bit();
-  char * ptr = mathExpression;
- ptr = array.data();
- parseMathExpression(ptr);
+  char *ptr = mathExpression;
+  ptr = array.data();
+  parseMathExpression(ptr);
   ui->Display->setText(ptr);
   ui->Display->setAlignment(Qt::AlignRight);
   ui->Display->moveCursor(QTextCursor::End);
