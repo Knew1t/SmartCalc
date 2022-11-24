@@ -9,7 +9,7 @@
 typedef struct ConversionStackLexemes {
   char *lexeme;
 
-  // ConversionStackLexemes *link;
+  /* ConversionStackLexemes *link; */
 } ConversionStackLexemes;
 
 typedef struct ReversedPolishNotationLine {
@@ -22,8 +22,12 @@ enum { OK, FAILURE };
 
 int Calculate(char string[255]);
 int ParseMathExpression(char string[255]);
+int GetNumberLexeme(char **lexeme, char **letter_pointer);
+
 int ToStack(char *lexeme);
-int ToLine(char *lexeme);
+int ToLine(ReversedPolishNotationLine *head, char *lexeme);
+
+bool IsInputCorrect(char input_string[]);
 bool CheckIfAllocationFailed(void *ptr);
 bool IsDigit(char const *letter_pointer);
 bool IsLetter(char const *lexeme);

@@ -5,6 +5,6 @@ int main(int argc, char *argv[]) {
   strcat(string, argv[argc - 1]);
   printf("before calculation %s\n", string);
   Calculate(string);
-  printf("after  calculation %s\n", string);
+  printf("%s\n", string);
   return 0;
 }
