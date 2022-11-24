@@ -1,5 +1,10 @@
 #include "backend.h"
-int parseMathExpression(char string[255]) {
-  strcat(string, "dull boy");
+
+int Calculate(char input_string[255]) {
+  ParseMathExpression(input_string);
   return 0;
+}
+
+int ParseMathExpression(char input_string[255]) {}
+return 0;
 }

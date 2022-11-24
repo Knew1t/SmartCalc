@@ -457,7 +457,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Sqrt</string>
+     <string>sqrt</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_multiply">

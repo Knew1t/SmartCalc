@@ -5,7 +5,7 @@ extern "C" {
 }
 //#include "QtCore/qobjectdefs.h"
 
-char mathExpression[255] = "";
+char mathExpression[255] = {0};
 bool addTrigger = false;
 bool divTrigger = false;
 bool multTrigger = false;
@@ -33,8 +33,9 @@ MainWindow::MainWindow(QWidget *parent)
           SLOT(closeParentPressed()));
 
   QPushButton *trigonometryButtons[9] = {
-      ui->button_sin,  ui->button_cos,  ui->button_tg, ui->button_acos,
-      ui->button_asin, ui->button_atan, ui->button_ln, ui->button_log, ui->button_sqrt};
+      ui->button_sin,  ui->button_cos,  ui->button_tg,
+      ui->button_acos, ui->button_asin, ui->button_atan,
+      ui->button_ln,   ui->button_log,  ui->button_sqrt};
   for (int i = 0; i < 9; i++) {
     connect(trigonometryButtons[i], SIGNAL(released()), this,
             SLOT(trigonometryButtonPressed()));
@@ -118,7 +119,7 @@ void MainWindow::equalPressed() {
   QByteArray array = ui->Display->toPlainText().toLocal8Bit();
   char *ptr = mathExpression;
   ptr = array.data();
-  parseMathExpression(ptr);
+  calculate(ptr);
   ui->Display->setText(ptr);
   ui->Display->setAlignment(Qt::AlignRight);
   ui->Display->moveCursor(QTextCursor::End);
