@@ -9,13 +9,13 @@
 typedef struct ConversionStackLexemes {
   char *lexeme;
 
-  ConversionStackLexemes *link;
+  // ConversionStackLexemes *link;
 } ConversionStackLexemes;
 
 typedef struct ReversedPolishNotationLine {
   char *lexeme;
 
-  ReversedPolishNotationLine *link;
+  // ReversedPolishNotationLine *link;
 } ReversedPolishNotationLine;
 
 enum { OK, FAILURE };

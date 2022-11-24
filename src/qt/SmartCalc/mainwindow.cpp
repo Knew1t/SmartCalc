@@ -119,7 +119,7 @@ void MainWindow::equalPressed() {
   QByteArray array = ui->Display->toPlainText().toLocal8Bit();
   char *ptr = mathExpression;
   ptr = array.data();
-  calculate(ptr);
+  Calculate(ptr);
   ui->Display->setText(ptr);
   ui->Display->setAlignment(Qt::AlignRight);
   ui->Display->moveCursor(QTextCursor::End);

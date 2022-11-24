@@ -6,8 +6,6 @@ int Calculate(char input_string[255]) {
 }
 
 int ParseMathExpression(char input_string[255]) {
-  char *lexeme = calloc(1, sizeof(char));
-  CheckIfAllocationFailed(lexeme);
   for (char *letter_pointer = input_string; *letter_pointer != '\0';
        letter_pointer++) {
     if (IsDigit(letter_pointer)) {
@@ -16,9 +14,14 @@ int ParseMathExpression(char input_string[255]) {
         ++count_digits;
         ++letter_pointer;
       } while (IsDigit(letter_pointer));
-      lexeme = realloc(lexeme, count_digits + 1);
+      char *lexeme = malloc(sizeof(char) * count_digits + 1);
       CheckIfAllocationFailed(lexeme);
-      memcpy(lexeme, letter_pointer, sizeof(char) * count_digits);
+      memcpy(lexeme, letter_pointer - count_digits,
+             sizeof(char) * count_digits);
+      lexeme[count_digits] = '\0'; // adds null terminator
+      memset(input_string, 0, 255);
+      memcpy(lexeme, input_string, sizeof(char) * count_digits);
+      free(lexeme);
     }
     if (IsLetter(letter_pointer)) {
     }
@@ -28,7 +31,7 @@ int ParseMathExpression(char input_string[255]) {
   return 0;
 }
 
-int CheckIfAocationFailed(void *ptr) {
+bool CheckIfAllocationFailed(void *ptr) {
   if (ptr == NULL)
     exit(FAILURE);
   return 0;
