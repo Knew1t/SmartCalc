@@ -2,9 +2,10 @@
 
 int main(int argc, char *argv[]) {
   char string[255] = {0};
+
   strcat(string, argv[argc - 1]);
   printf("before calculation %s\n", string);
   Calculate(string);
-  printf("%s\n", string);
+  /* printf("%s\n", string); */
   return 0;
 }

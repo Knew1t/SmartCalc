@@ -6,26 +6,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct ConversionStackLexemes {
+typedef struct LexemeList {
   char *lexeme;
-
-  /* ConversionStackLexemes *link; */
-} ConversionStackLexemes;
-
-typedef struct ReversedPolishNotationLine {
-  char *lexeme;
-
-  // ReversedPolishNotationLine *link;
-} ReversedPolishNotationLine;
+  struct LexemeList *link;
+} LexemeList;
 
 enum { OK, FAILURE };
 
 int Calculate(char string[255]);
-int ParseMathExpression(char string[255]);
+int ParseMathExpression(LexemeList *head, char string[255]);
 int GetNumberLexeme(char **lexeme, char **letter_pointer);
 
+int CreateLinkedList(LexemeList **head);
+int DeleteLinkedList(LexemeList *head);
+int AddNodeAtTheEnd(LexemeList **current_node);
 int ToStack(char *lexeme);
-int ToLine(ReversedPolishNotationLine *head, char *lexeme);
+int ToLine(LexemeList *head, char *lexeme);
+void PrintRPNLine(LexemeList *rpn_line_head);
 
 bool IsInputCorrect(char input_string[]);
 bool CheckIfAllocationFailed(void *ptr);
