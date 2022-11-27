@@ -73,3 +73,5 @@ report
 #readme files
 README.md
 README_RUS.mdkms.conf
+#compile_commands
+*.json

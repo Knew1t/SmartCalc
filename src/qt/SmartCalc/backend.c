@@ -172,6 +172,7 @@ int AddNodeAtTheEnd(LexemeList **head, char *incoming_lexeme) {
 
 int DeleteHeadNode(LexemeList **head) {
   LexemeList *new_head = (*head)->link_next;
+  free((*head)->lexeme);
   free(*head);
   *head = new_head;
   return 0;
