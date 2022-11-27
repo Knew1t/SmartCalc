@@ -8,13 +8,22 @@
 
 typedef struct LexemeList {
   char *lexeme;
-  struct LexemeList *link;
+  bool unary;
+  struct LexemeList *link_next;
+  struct LexemeList *link_previous;
 } LexemeList;
+
+typedef struct PreviousSymbolsFlags {
+  bool previous_sym_is_bracket;
+  bool previous_sym_is_operator;
+  bool first_symbol;
+} PreviousSymbolsFlags;
 
 enum { OK, FAILURE };
 
-int Calculate(char string[255]);
+int Calculate(char string[256]);
 int ParseMathExpression(LexemeList *head, char string[255]);
+int EvaluateExpression(LexemeList *head);
 int GetNumberLexeme(char **lexeme, char **pointer_to_symbol);
 int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol);
 int GetLexeme(char **lexeme, char **pointer_to_symbol,
@@ -24,17 +33,19 @@ void GetPriority(int *priority, const char *operato);
 
 int CreateLinkedList(LexemeList **head);
 int DeleteLinkedList(LexemeList **head);
-int AddNodeAtTheEnd(LexemeList **current_node);
+int AddNodeAtTheEnd(LexemeList **head, char *incoming_lexeme);
 int ToRPNQue(LexemeList *head, char *lexeme);
 int ToStack(LexemeList **head, char *lexeme);
 int DeleteHeadNode(LexemeList **head);
 void PrintRPNLine(LexemeList *rpn_line_head);
 
-bool IsInputCorrect(char input_string[]);
+int IsInputCorrect(char input_string[]);
 bool CheckIfAllocationFailed(void *ptr);
 bool IsDigit(char const *pointer_to_symbol);
 bool IsLetter(char const *lexeme);
 bool IsOperator(char const *lexeme);
 bool IsFunction(char const *lexeme);
 
+int CountBrackets(char input_string[]);
+bool CheckIfUnary(char *pointer_to_symbol, PreviousSymbolsFlags *check);
 #endif /* ifndef BACKEND_H */
