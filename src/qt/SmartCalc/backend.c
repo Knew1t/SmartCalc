@@ -20,19 +20,40 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
   LexemeList *stack_head = NULL;
   CreateLinkedList(&stack_head);
 
-  for (char *letter_pointer = input_string; *letter_pointer != '\0';
-       letter_pointer++) {
-    if (IsDigit(letter_pointer)) {
+  for (char *pointer_to_symbol = input_string; *pointer_to_symbol != '\0';
+       pointer_to_symbol++) {
+    if (IsDigit(pointer_to_symbol)) {
       char *lexeme = NULL;
-      GetNumberLexeme(&lexeme, &letter_pointer);
+      GetNumberLexeme(&lexeme, &pointer_to_symbol);
       ToRPNQue(rpn_line_head, lexeme);
       free(lexeme);
     }
-    if (IsLetter(letter_pointer)) {
+    if (*pointer_to_symbol == '(') {
+      char lexeme[2] = {0};
+      lexeme[0] = *pointer_to_symbol;
+      ToStack(&stack_head, pointer_to_symbol);
     }
-    if (IsOperator(letter_pointer)) {
+    if (IsFunction(pointer_to_symbol)) {
+      char *lexeme = NULL;
+      GetFunctionLexeme(&lexeme, &pointer_to_symbol);
+      ToStack(&stack_head, pointer_to_symbol);
+    }
+    if (*pointer_to_symbol == ')') {
+      while (stack_head->lexeme && *(stack_head->lexeme) != '(') {
+        ToRPNQue(rpn_line_head, stack_head->lexeme);
+        DeleteHeadNode(&stack_head);
+      }
+      if (stack_head->lexeme == NULL)
+        exit(FAILURE);
+      DeleteHeadNode(&stack_head);
+      if (IsFunction(stack_head->lexeme)) {
+        ToRPNQue(rpn_line_head, stack_head->lexeme);
+        DeleteHeadNode(&stack_head);
+      }
+    }
+    if (IsOperator(pointer_to_symbol)) {
       char operator[2] = {0};
-      operator[0] = * letter_pointer;
+      operator[0] = * pointer_to_symbol;
       while (stack_head->lexeme &&
              CompareToStackOperator(stack_head, operator)) {
         ToRPNQue(rpn_line_head, stack_head->lexeme);
@@ -41,6 +62,7 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
       ToStack(&stack_head, operator);
     }
   }
+  // puts remaining lexemes to RPNline
   while (stack_head->lexeme) {
     ToRPNQue(rpn_line_head, stack_head->lexeme);
     DeleteHeadNode(&stack_head);
@@ -128,15 +150,30 @@ int DeleteLinkedList(LexemeList **head) {
   return 0;
 }
 
-int GetNumberLexeme(char **lexeme, char **letter_pointer) {
+int GetNumberLexeme(char **lexeme, char **pointer_to_symbol) {
   int count_digits = 0;
   do {
     ++count_digits;
-    *(letter_pointer) += 1;
-  } while (IsDigit(*letter_pointer));
+    *(pointer_to_symbol) += 1;
+  } while (IsDigit(*pointer_to_symbol));
   *lexeme = malloc(sizeof(char) * count_digits + 1);
   CheckIfAllocationFailed(*lexeme);
-  memcpy(*lexeme, *(letter_pointer)-count_digits, sizeof(char) * count_digits);
+  memcpy(*lexeme, *(pointer_to_symbol)-count_digits,
+         sizeof(char) * count_digits);
+  *((*lexeme) + count_digits) = '\0'; // adds null terminator
+  return 0;
+}
+
+int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol) {
+  int count_digits = 0;
+  do {
+    ++count_digits;
+    *(pointer_to_symbol) += 1;
+  } while (IsLetter(*pointer_to_symbol));
+  *lexeme = malloc(sizeof(char) * count_digits + 1);
+  CheckIfAllocationFailed(*lexeme);
+  memcpy(*lexeme, *(pointer_to_symbol)-count_digits,
+         sizeof(char) * count_digits);
   *((*lexeme) + count_digits) = '\0'; // adds null terminator
   return 0;
 }
@@ -155,22 +192,29 @@ bool CheckIfAllocationFailed(void *ptr) {
   return 0;
 }
 
-bool IsDigit(char const *letter_pointer) {
-  return (*letter_pointer >= 48 && *letter_pointer <= 57) ||
-         *letter_pointer == '.';
+bool IsDigit(char const *pointer_to_symbol) {
+  return (*pointer_to_symbol >= 48 && *pointer_to_symbol <= 57) ||
+         *pointer_to_symbol == '.';
 }
 
-bool IsLetter(char const *letter_pointer) {
-  return (*letter_pointer >= 65 && *letter_pointer <= 90) ||
-         (*letter_pointer >= 97 && *letter_pointer <= 122);
+bool IsLetter(char const *pointer_to_symbol) {
+  return (*pointer_to_symbol >= 65 && *pointer_to_symbol <= 90) ||
+         (*pointer_to_symbol >= 97 && *pointer_to_symbol <= 122);
 }
 
-bool IsOperator(char const *letter_pointer) {
-  return *letter_pointer == '+' || *letter_pointer == '-' ||
-         *letter_pointer == '*' || *letter_pointer == '/';
+bool IsOperator(char const *pointer_to_symbol) {
+  return *pointer_to_symbol == '+' || *pointer_to_symbol == '-' ||
+         *pointer_to_symbol == '*' || *pointer_to_symbol == '/';
 }
 
 bool IsInputCorrect(char input_string[]) {
+
+  //
+  return true;
+}
+
+bool IsFunction(char const *lexeme) {
+
   //
   return true;
 }

@@ -15,7 +15,8 @@ enum { OK, FAILURE };
 
 int Calculate(char string[255]);
 int ParseMathExpression(LexemeList *head, char string[255]);
-int GetNumberLexeme(char **lexeme, char **letter_pointer);
+int GetNumberLexeme(char **lexeme, char **pointer_to_symbol);
+int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol);
 int CompareToStackOperator(LexemeList *head, char operato[]);
 void GetPriority(int *priority, const char *operato);
 
@@ -29,8 +30,9 @@ void PrintRPNLine(LexemeList *rpn_line_head);
 
 bool IsInputCorrect(char input_string[]);
 bool CheckIfAllocationFailed(void *ptr);
-bool IsDigit(char const *letter_pointer);
+bool IsDigit(char const *pointer_to_symbol);
 bool IsLetter(char const *lexeme);
 bool IsOperator(char const *lexeme);
+bool IsFunction(char const *lexeme);
 
 #endif /* ifndef BACKEND_H */
