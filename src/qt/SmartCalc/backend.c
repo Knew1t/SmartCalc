@@ -8,7 +8,7 @@ int Calculate(char input_string[255]) {
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
     /* PrintRPNList(rpn_line_head); */
-    DeleteLinkedList(rpn_line_head);
+    DeleteLinkedList(&rpn_line_head);
   }
   return 0;
 }
@@ -31,29 +31,34 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
     if (IsLetter(letter_pointer)) {
     }
     if (IsOperator(letter_pointer)) {
-      char operator= *(letter_pointer);
-      if (stack_head->lexeme) {
-        while (CompareToStackOperator(stack_head, operator)) {
-          ToRPNQue(rpn_line_head, stack_head->lexeme);
-          DeleteHeadNode(&stack_head);
-        };
-      }
-      ToStack(&stack_head, &operator);
+      char operator[2] = {0};
+      operator[0] = * letter_pointer;
+      while (stack_head->lexeme &&
+             CompareToStackOperator(stack_head, operator)) {
+        ToRPNQue(rpn_line_head, stack_head->lexeme);
+        DeleteHeadNode(&stack_head);
+      };
+      ToStack(&stack_head, operator);
     }
   }
-  DeleteLinkedList(stack_head);
+  while (stack_head->lexeme) {
+    ToRPNQue(rpn_line_head, stack_head->lexeme);
+    DeleteHeadNode(&stack_head);
+  }
+  PrintRPNLine(rpn_line_head);
+  DeleteLinkedList(&stack_head);
   return OK;
 }
 
-int CompareToStackOperator(LexemeList *head, char operator) {
+int CompareToStackOperator(LexemeList *head, char operator[]) {
   int priority = 0;
   int stack_operator_priority = 0;
-  AssignPriority(&priority, &operator);
-  AssignPriority(&stack_operator_priority, head->lexeme);
+  GetPriority(&priority, operator);
+  GetPriority(&stack_operator_priority, head->lexeme);
   return priority < stack_operator_priority;
 }
 
-void AssignPriority(int *priority, const char *operator) {
+void GetPriority(int *priority, const char *operator) {
   if (*operator== '-') {
     *priority = 1;
   }
@@ -67,6 +72,7 @@ void AssignPriority(int *priority, const char *operator) {
     *priority = 4;
   }
 }
+
 int CreateLinkedList(LexemeList **head) {
   LexemeList *first_node = calloc(1, sizeof(LexemeList));
   CheckIfAllocationFailed(first_node);
@@ -82,14 +88,15 @@ int ToRPNQue(LexemeList *head, char *incoming_lexeme) {
     tmp = tmp->link;
   }
   AddNodeAtTheEnd(&(tmp->link));
-  tmp->lexeme = calloc(1, sizeof(incoming_lexeme));
+  tmp->lexeme = calloc(strlen(incoming_lexeme) + 1, sizeof(char));
   CheckIfAllocationFailed(tmp->lexeme);
   strcpy(tmp->lexeme, incoming_lexeme);
   return OK;
 }
 
 int ToStack(LexemeList **head, char *incoming_lexeme) {
-  LexemeList *tmp = calloc(1, sizeof(incoming_lexeme));
+  LexemeList *tmp = calloc(1, sizeof(LexemeList));
+  tmp->lexeme = calloc(strlen(incoming_lexeme) + 1, sizeof(char));
   strcpy(tmp->lexeme, incoming_lexeme);
   tmp->link = (*head);
   *head = tmp;
@@ -110,13 +117,13 @@ int DeleteHeadNode(LexemeList **head) {
   return 0;
 }
 
-int DeleteLinkedList(LexemeList *head) {
-  LexemeList *tmp = head;
+int DeleteLinkedList(LexemeList **head) {
+  LexemeList *tmp = *head;
   while (tmp != NULL) {
     tmp = tmp->link;
-    free(head);
-    free(head->lexeme);
-    head = tmp;
+    free((*head)->lexeme);
+    free(*head);
+    *head = tmp;
   }
   return 0;
 }
