@@ -17,6 +17,8 @@ int Calculate(char string[255]);
 int ParseMathExpression(LexemeList *head, char string[255]);
 int GetNumberLexeme(char **lexeme, char **pointer_to_symbol);
 int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol);
+int GetLexeme(char **lexeme, char **pointer_to_symbol,
+              bool (*checker_function)(char const *));
 int CompareToStackOperator(LexemeList *head, char operato[]);
 void GetPriority(int *priority, const char *operato);
 

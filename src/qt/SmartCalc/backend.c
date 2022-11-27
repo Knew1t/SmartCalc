@@ -24,19 +24,29 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
        pointer_to_symbol++) {
     if (IsDigit(pointer_to_symbol)) {
       char *lexeme = NULL;
-      GetNumberLexeme(&lexeme, &pointer_to_symbol);
+      GetLexeme(&lexeme, &pointer_to_symbol, IsDigit);
       ToRPNQue(rpn_line_head, lexeme);
       free(lexeme);
+    }
+    if (IsFunction(pointer_to_symbol)) {
+      char *lexeme = NULL;
+      GetLexeme(&lexeme, &pointer_to_symbol, IsLetter);
+      ToStack(&stack_head, lexeme);
     }
     if (*pointer_to_symbol == '(') {
       char lexeme[2] = {0};
       lexeme[0] = *pointer_to_symbol;
       ToStack(&stack_head, pointer_to_symbol);
     }
-    if (IsFunction(pointer_to_symbol)) {
-      char *lexeme = NULL;
-      GetFunctionLexeme(&lexeme, &pointer_to_symbol);
-      ToStack(&stack_head, pointer_to_symbol);
+    if (IsOperator(pointer_to_symbol)) {
+      char operator[2] = {0};
+      operator[0] = * pointer_to_symbol;
+      while (stack_head->lexeme &&
+             CompareToStackOperator(stack_head, operator)) {
+        ToRPNQue(rpn_line_head, stack_head->lexeme);
+        DeleteHeadNode(&stack_head);
+      };
+      ToStack(&stack_head, operator);
     }
     if (*pointer_to_symbol == ')') {
       while (stack_head->lexeme && *(stack_head->lexeme) != '(') {
@@ -50,16 +60,6 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
         ToRPNQue(rpn_line_head, stack_head->lexeme);
         DeleteHeadNode(&stack_head);
       }
-    }
-    if (IsOperator(pointer_to_symbol)) {
-      char operator[2] = {0};
-      operator[0] = * pointer_to_symbol;
-      while (stack_head->lexeme &&
-             CompareToStackOperator(stack_head, operator)) {
-        ToRPNQue(rpn_line_head, stack_head->lexeme);
-        DeleteHeadNode(&stack_head);
-      };
-      ToStack(&stack_head, operator);
     }
   }
   // puts remaining lexemes to RPNline
@@ -150,33 +150,49 @@ int DeleteLinkedList(LexemeList **head) {
   return 0;
 }
 
-int GetNumberLexeme(char **lexeme, char **pointer_to_symbol) {
-  int count_digits = 0;
+/* Gets lexemes, depending on function pointer it count digits or symbols */
+int GetLexeme(char **lexeme, char **pointer_to_symbol,
+              bool (*checker)(char const *pointer_to_symbol)) {
+  int count_symbols = 0;
   do {
-    ++count_digits;
+    ++count_symbols;
     *(pointer_to_symbol) += 1;
-  } while (IsDigit(*pointer_to_symbol));
-  *lexeme = malloc(sizeof(char) * count_digits + 1);
+  } while (checker(*pointer_to_symbol));
+  *lexeme = malloc(sizeof(char) * count_symbols + 1);
   CheckIfAllocationFailed(*lexeme);
-  memcpy(*lexeme, *(pointer_to_symbol)-count_digits,
-         sizeof(char) * count_digits);
-  *((*lexeme) + count_digits) = '\0'; // adds null terminator
+  memcpy(*lexeme, *(pointer_to_symbol)-count_symbols,
+         sizeof(char) * count_symbols);
+  *((*lexeme) + count_symbols) = '\0'; // adds null terminator
   return 0;
 }
 
-int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol) {
-  int count_digits = 0;
-  do {
-    ++count_digits;
-    *(pointer_to_symbol) += 1;
-  } while (IsLetter(*pointer_to_symbol));
-  *lexeme = malloc(sizeof(char) * count_digits + 1);
-  CheckIfAllocationFailed(*lexeme);
-  memcpy(*lexeme, *(pointer_to_symbol)-count_digits,
-         sizeof(char) * count_digits);
-  *((*lexeme) + count_digits) = '\0'; // adds null terminator
-  return 0;
-}
+/* int GetNumberLexeme(char **lexeme, char **pointer_to_symbol) { */
+/*   int count_digits = 0; */
+/*   do { */
+/*     ++count_digits; */
+/*     *(pointer_to_symbol) += 1; */
+/*   } while (IsDigit(*pointer_to_symbol)); */
+/*   *lexeme = malloc(sizeof(char) * count_digits + 1); */
+/*   CheckIfAllocationFailed(*lexeme); */
+/*   memcpy(*lexeme, *(pointer_to_symbol)-count_digits, */
+/*          sizeof(char) * count_digits); */
+/*   *((*lexeme) + count_digits) = '\0'; // adds null terminator */
+/*   return 0; */
+/* } */
+
+/* int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol) { */
+/*   int count_digits = 0; */
+/*   do { */
+/*     ++count_digits; */
+/*     *(pointer_to_symbol) += 1; */
+/*   } while (IsLetter(*pointer_to_symbol)); */
+/*   *lexeme = malloc(sizeof(char) * count_digits + 1); */
+/*   CheckIfAllocationFailed(*lexeme); */
+/*   memcpy(*lexeme, *(pointer_to_symbol)-count_digits, */
+/*          sizeof(char) * count_digits); */
+/*   *((*lexeme) + count_digits) = '\0'; // adds null terminator */
+/*   return 0; */
+/* } */
 
 void PrintRPNLine(LexemeList *rpn_line_head) {
   LexemeList *ptr = rpn_line_head;
@@ -213,8 +229,4 @@ bool IsInputCorrect(char input_string[]) {
   return true;
 }
 
-bool IsFunction(char const *lexeme) {
-
-  //
-  return true;
-}
+bool IsFunction(char const *lexeme) { return IsLetter(lexeme); }
