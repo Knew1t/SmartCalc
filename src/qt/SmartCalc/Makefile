@@ -1,3 +1,5 @@
+CFLAGS = -Wall -Werror -Wextra -std=c11 -pedantic
+
 all: dev
 
 dev:

@@ -24,10 +24,8 @@ int EvaluateExpression(LexemeList *head) {
 int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
   if (strlen(input_string) == 0)
     return OK;
-
   LexemeList *stack_head = NULL;
   CreateLinkedList(&stack_head);
-
   PreviousSymbolsFlags previous_sym = {.previous_sym_is_bracket = false,
                                        .previous_sym_is_operator = false,
                                        .first_symbol = true};
