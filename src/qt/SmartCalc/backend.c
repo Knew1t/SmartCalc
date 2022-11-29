@@ -54,9 +54,7 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
       operator[0] = * pointer_to_symbol;
       if (*pointer_to_symbol == '-') {
         if (CheckIfUnary(pointer_to_symbol, input_string)) {
-          char unary_minus[] = "unary_minus";
-          ToStack(&stack_head, unary_minus);
-          continue;
+          operator[0] = '~';
         }
       }
       while (stack_head->lexeme &&
@@ -109,6 +107,12 @@ void GetPriority(int *priority, const char *operator) {
   }
   if (*operator== '*') {
     *priority = 4;
+  }
+  if (*operator== '^') {
+    *priority = 5;
+  }
+  if (*operator== '~') {
+    *priority = 6;
   }
 }
 
@@ -261,12 +265,10 @@ bool CheckIfUnary(char *pointer_to_symbol, char input_string[]) {
   if (input_string == pointer_to_symbol) {
     return_value = true;
   } else {
-    for (char *tmp_ptr = pointer_to_symbol - 1; tmp_ptr != input_string;
-         --tmp_ptr) {
-      if (*tmp_ptr == '(' || *tmp_ptr == '*' || *tmp_ptr == '/') {
-        return_value = true;
-        break;
-      }
+    char *tmp_ptr = pointer_to_symbol - 1;
+    if (*tmp_ptr == '(' || *tmp_ptr == '*' || *tmp_ptr == '/' ||
+        *tmp_ptr == '-' || *tmp_ptr == '+') {
+      return_value = true;
     }
   }
   return return_value;
