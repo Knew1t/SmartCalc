@@ -8,21 +8,20 @@
 
 typedef struct LexemeList {
   char *lexeme;
+  double number;
   struct LexemeList *link_next;
   struct LexemeList *link_previous;
 } LexemeList;
-
-/* typedef struct PreviousSymbolsFlags { */
-/*   bool previous_sym_is_bracket; */
-/*   bool previous_sym_is_operator; */
-/*   bool first_symbol; */
-/* } PreviousSymbolsFlags; */
 
 enum { OK, FAILURE };
 
 int Calculate(char string[256]);
 int ParseMathExpression(LexemeList *head, char string[255]);
-int EvaluateExpression(LexemeList *head);
+double EvaluateExpression(LexemeList *head);
+void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
+                                 LexemeList **head);
+double CalculatePreviousNodes(LexemeList **lexeme_pointer, LexemeList **head);
+void ConvertStringsToNumbers(LexemeList *rpn_line_head);
 int GetNumberLexeme(char **lexeme, char **pointer_to_symbol);
 int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol);
 int GetLexeme(char **lexeme, char **pointer_to_symbol,

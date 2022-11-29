@@ -6,7 +6,9 @@ int Calculate(char input_string[256]) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
-    EvaluateExpression(rpn_line_head);
+    ConvertStringsToNumbers(rpn_line_head);
+    PrintRPNLine(rpn_line_head);
+    /* EvaluateExpression(rpn_line_head); */
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 0) {
     memset(input_string, 0, sizeof(char) * 256);
@@ -15,10 +17,14 @@ int Calculate(char input_string[256]) {
   return 0;
 }
 
-int EvaluateExpression(LexemeList *head) {
-
-  //
-  return 0;
+double EvaluateExpression(LexemeList *head) {
+  double result_value = 0;
+  LexemeList *lexeme_pointer = head;
+  while (head != NULL) {
+    FindFirstFunctionOrOperator(&lexeme_pointer, &head);
+    result_value = CalculatePreviousNodes(&lexeme_pointer, &head);
+  }
+  return result_value;
 }
 
 int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
@@ -83,10 +89,10 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
     ToRPNQue(rpn_line_head, stack_head->lexeme);
     DeleteHeadNode(&stack_head);
   }
-  PrintRPNLine(rpn_line_head);
   DeleteLinkedList(&stack_head);
   return OK;
 }
+
 int CompareToStackOperator(LexemeList *head, char operator[]) {
   int priority = 0;
   int stack_operator_priority = 0;
@@ -139,7 +145,9 @@ int ToRPNQue(LexemeList *head, char *incoming_lexeme) {
 
 int ToStack(LexemeList **head, char *incoming_lexeme) {
   LexemeList *tmp = calloc(1, sizeof(LexemeList));
+  CheckIfAllocationFailed(tmp);
   tmp->lexeme = calloc(strlen(incoming_lexeme) + 1, sizeof(char));
+  CheckIfAllocationFailed(tmp);
   strcpy(tmp->lexeme, incoming_lexeme);
   tmp->link_next = (*head);
   tmp->link_previous = NULL; // just in case
@@ -204,9 +212,13 @@ int GetLexeme(char **lexeme, char **pointer_to_symbol,
 void PrintRPNLine(LexemeList *rpn_line_head) {
   LexemeList *ptr = rpn_line_head;
   while (ptr != NULL) {
-    printf("%s\n", ptr->lexeme);
+    if (IsDigit(ptr->lexeme))
+      printf("%g\n", ptr->number);
+    else
+      printf("%s ", ptr->lexeme);
     ptr = ptr->link_next;
   }
+  printf("\n");
 }
 
 bool CheckIfAllocationFailed(void *ptr) {
@@ -227,7 +239,8 @@ bool IsLetter(char const *pointer_to_symbol) {
 
 bool IsOperator(char const *pointer_to_symbol) {
   return *pointer_to_symbol == '+' || *pointer_to_symbol == '-' ||
-         *pointer_to_symbol == '*' || *pointer_to_symbol == '/';
+         *pointer_to_symbol == '*' || *pointer_to_symbol == '/' ||
+         *pointer_to_symbol == '~' || *pointer_to_symbol == '^';
 }
 
 int IsInputCorrect(char input_string[]) {
@@ -272,4 +285,47 @@ bool CheckIfUnary(char *pointer_to_symbol, char input_string[]) {
     }
   }
   return return_value;
+}
+
+void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
+                                 LexemeList **head) {
+  while (!IsFunction((*lexeme_pointer)->lexeme) &&
+         !IsOperator((*lexeme_pointer)->lexeme)) {
+    ++(*lexeme_pointer);
+  }
+}
+
+void ConvertStringsToNumbers(LexemeList *rpn_line_head) {
+  while (rpn_line_head != NULL) {
+    if (IsDigit(rpn_line_head->lexeme)) {
+      rpn_line_head->number = atof(rpn_line_head->lexeme);
+    }
+    rpn_line_head = rpn_line_head->link_next;
+  }
+}
+
+double s21_add();
+double s21_sub();
+double s21_mult();
+double s21_div();
+double s21_unary_minus();
+double s21_mod();
+double s21_pow();
+
+double CalculatePreviousNodes(LexemeList **lexeme_pointer, LexemeList **head) {
+  double first_value_holder = 0, second_value_holder = 0, result_value = 0;
+  char *oper = (*lexeme_pointer)->lexeme;
+  (*lexeme_pointer) = (*lexeme_pointer)->link_previous;
+  second_value_holder = (*lexeme_pointer)->number;
+  if ((*lexeme_pointer)->link_previous != NULL) {
+    (*lexeme_pointer) = (*lexeme_pointer)->link_previous;
+    first_value_holder = (*lexeme_pointer)->number;
+  } else {
+    if (*oper == '-')
+      result_value = -second_value_holder;
+    if (strcmp(oper, "sin"))
+      result_value = sin(second_value_holder);
+  }
+
+  return first_value_holder + second_value_holder;
 }
