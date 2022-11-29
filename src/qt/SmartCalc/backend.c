@@ -26,12 +26,8 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
     return OK;
   LexemeList *stack_head = NULL;
   CreateLinkedList(&stack_head);
-  PreviousSymbolsFlags previous_sym = {.previous_sym_is_bracket = false,
-                                       .previous_sym_is_operator = false,
-                                       .first_symbol = true};
-
   for (char *pointer_to_symbol = input_string; *pointer_to_symbol != '\0';
-       pointer_to_symbol++) {
+       ++pointer_to_symbol) {
     if (IsDigit(pointer_to_symbol)) {
       char *lexeme = NULL;
       GetLexeme(&lexeme, &pointer_to_symbol, IsDigit);
@@ -50,16 +46,17 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
     }
     if (IsOperator(pointer_to_symbol)) {
       if (*pointer_to_symbol == '+') {
-        if (CheckIfUnary(pointer_to_symbol, &previous_sym)) {
+        if (CheckIfUnary(pointer_to_symbol, input_string)) {
           continue;
         }
       }
       char operator[2] = {0};
       operator[0] = * pointer_to_symbol;
       if (*pointer_to_symbol == '-') {
-        if (CheckIfUnary(pointer_to_symbol, &previous_sym)) {
-          ToStack(&stack_head, operator);
-          stack_head->unary = true;
+        if (CheckIfUnary(pointer_to_symbol, input_string)) {
+          char unary_minus[] = "unary_minus";
+          ToStack(&stack_head, unary_minus);
+          continue;
         }
       }
       while (stack_head->lexeme &&
@@ -70,6 +67,10 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
       ToStack(&stack_head, operator);
     }
     if (*pointer_to_symbol == ')') {
+      if (IsFunction(stack_head->lexeme)) {
+        ToRPNQue(rpn_line_head, stack_head->lexeme);
+        DeleteHeadNode(&stack_head);
+      }
       while (stack_head->lexeme && *(stack_head->lexeme) != '(') {
         ToRPNQue(rpn_line_head, stack_head->lexeme);
         DeleteHeadNode(&stack_head);
@@ -77,10 +78,6 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
       if (stack_head->lexeme == NULL)
         exit(FAILURE);
       DeleteHeadNode(&stack_head);
-      if (IsFunction(stack_head->lexeme)) {
-        ToRPNQue(rpn_line_head, stack_head->lexeme);
-        DeleteHeadNode(&stack_head);
-      }
     }
   }
   // puts remaining lexemes to RPNline
@@ -92,7 +89,6 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
   DeleteLinkedList(&stack_head);
   return OK;
 }
-
 int CompareToStackOperator(LexemeList *head, char operator[]) {
   int priority = 0;
   int stack_operator_priority = 0;
@@ -122,7 +118,6 @@ int CreateLinkedList(LexemeList **head) {
   first_node->link_next = NULL;
   first_node->lexeme = NULL;
   first_node->link_previous = NULL;
-  first_node->unary = false;
   *head = first_node;
   return OK;
 }
@@ -144,7 +139,6 @@ int ToStack(LexemeList **head, char *incoming_lexeme) {
   strcpy(tmp->lexeme, incoming_lexeme);
   tmp->link_next = (*head);
   tmp->link_previous = NULL; // just in case
-  tmp->unary = false;
   *head = tmp;
   return 0;
 }
@@ -161,7 +155,6 @@ int AddNodeAtTheEnd(LexemeList **head, char *incoming_lexeme) {
   tmp = tmp->link_next;
   tmp->link_next = NULL;
   tmp->link_previous = ptr_to_previous_node;
-  tmp->unary = false;
   tmp->lexeme = calloc(strlen(incoming_lexeme) + 1, sizeof(char));
   CheckIfAllocationFailed(tmp->lexeme);
   strcpy(tmp->lexeme, incoming_lexeme);
@@ -235,7 +228,7 @@ bool IsOperator(char const *pointer_to_symbol) {
 
 int IsInputCorrect(char input_string[]) {
   int return_value = 2;
-  for (char *ptr = input_string; *ptr != '\0'; ptr++) {
+  for (char *ptr = input_string; *ptr != '\0'; ++ptr) {
     if (IsDigit(ptr)) {
     } else {
       return_value = 1;
@@ -253,7 +246,7 @@ bool IsFunction(char const *lexeme) { return IsLetter(lexeme); }
 int CountBrackets(char input_string[]) {
   short open_bracket_count = 0;
   short close_bracket_count = 0;
-  for (char *ptr = input_string; *ptr != '\0'; ptr++) {
+  for (char *ptr = input_string; *ptr != '\0'; ++ptr) {
     if (*ptr == '(')
       ++open_bracket_count;
     if (*ptr == ')')
@@ -263,8 +256,18 @@ int CountBrackets(char input_string[]) {
   return close_bracket_count == open_bracket_count;
 }
 
-bool CheckIfUnary(char *pointer_to_symbol, PreviousSymbolsFlags *check) {
-  /* FindPreviousSymbol(pointer_to_symbol); */
-
-  return false;
+bool CheckIfUnary(char *pointer_to_symbol, char input_string[]) {
+  bool return_value = false;
+  if (input_string == pointer_to_symbol) {
+    return_value = true;
+  } else {
+    for (char *tmp_ptr = pointer_to_symbol - 1; tmp_ptr != input_string;
+         --tmp_ptr) {
+      if (*tmp_ptr == '(' || *tmp_ptr == '*' || *tmp_ptr == '/') {
+        return_value = true;
+        break;
+      }
+    }
+  }
+  return return_value;
 }

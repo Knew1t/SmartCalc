@@ -12,5 +12,6 @@ int main(int argc, char *argv[]) {
   printf("before calculation %s\n", string);
   Calculate(string);
   printf("answer %s\n", string);
+
   return 0;
 }

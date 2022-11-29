@@ -8,16 +8,15 @@
 
 typedef struct LexemeList {
   char *lexeme;
-  bool unary;
   struct LexemeList *link_next;
   struct LexemeList *link_previous;
 } LexemeList;
 
-typedef struct PreviousSymbolsFlags {
-  bool previous_sym_is_bracket;
-  bool previous_sym_is_operator;
-  bool first_symbol;
-} PreviousSymbolsFlags;
+/* typedef struct PreviousSymbolsFlags { */
+/*   bool previous_sym_is_bracket; */
+/*   bool previous_sym_is_operator; */
+/*   bool first_symbol; */
+/* } PreviousSymbolsFlags; */
 
 enum { OK, FAILURE };
 
@@ -47,5 +46,5 @@ bool IsOperator(char const *lexeme);
 bool IsFunction(char const *lexeme);
 
 int CountBrackets(char input_string[]);
-bool CheckIfUnary(char *pointer_to_symbol, PreviousSymbolsFlags *check);
+bool CheckIfUnary(char *pointer_to_symbol, char input_string[]);
 #endif /* ifndef BACKEND_H */
