@@ -10,6 +10,7 @@ int Calculate(char input_string[256]) {
     ConvertStringsToNumbers(rpn_line_head);
     PrintRPNLine(rpn_line_head);
     EvaluateExpression(&rpn_line_head);
+    PrintRPNLine(rpn_line_head);
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 0) {
     memset(input_string, 0, sizeof(char) * 256);
@@ -25,7 +26,6 @@ double EvaluateExpression(LexemeList **head) {
     FindFirstFunctionOrOperator(&lexeme_pointer, head);
     // FLAWD
     CalculatePreviousNodes(&result_value, &lexeme_pointer, head);
-    printf("%g\n", result_value);
     break;
   }
   return result_value;
@@ -199,7 +199,19 @@ int DeleteLinkedList(LexemeList **head) {
 
 // deletes node and puts pointer to the next one if possible
 int DeleteSelectedNode(LexemeList **node, LexemeList **head) {
+  if (*head == NULL || *node == NULL)
+    return 1;
+  if (*head == *node)
+    (*head)->link_next = (*node)->link_next;
 
+  if ((*node)->link_next != NULL)
+    (*node)->link_next->link_previous = (*node)->link_previous;
+
+  if ((*node)->link_previous != NULL)
+    (*node)->link_previous->link_next = (*node)->link_next;
+
+  free((*node)->lexeme);
+  free(*node);
   return 0;
 }
 
@@ -332,7 +344,6 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
   LexemeList *pointer_to_operation_node = *lexeme_pointer;
   char *operator=(*lexeme_pointer)->lexeme;
   if ((*lexeme_pointer)->link_previous->link_previous != NULL) {
-    (*lexeme_pointer) = (*lexeme_pointer)->link_previous;
     if (*operator== '-') {
       *result_value = first_value_holder - second_value_holder;
     }
@@ -349,6 +360,9 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
       *result_value = pow(first_value_holder, second_value_holder);
     }
     (*lexeme_pointer)->lexeme[0] = '0';
+    (*lexeme_pointer)->number = *result_value;
+    DeleteSelectedNode(&((*lexeme_pointer)->link_previous), head);
+    DeleteSelectedNode(&((*lexeme_pointer)->link_previous), head);
   } else {
     if (*operator== '-')
       *result_value = -second_value_holder;
