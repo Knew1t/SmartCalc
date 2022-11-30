@@ -8,7 +8,7 @@ int Calculate(char input_string[256]) {
     ParseMathExpression(rpn_line_head, input_string);
     ConvertStringsToNumbers(rpn_line_head);
     PrintRPNLine(rpn_line_head);
-    /* EvaluateExpression(rpn_line_head); */
+    /* EvaluateExpression(&rpn_line_head); */
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 0) {
     memset(input_string, 0, sizeof(char) * 256);
@@ -17,12 +17,12 @@ int Calculate(char input_string[256]) {
   return 0;
 }
 
-double EvaluateExpression(LexemeList *head) {
+double EvaluateExpression(LexemeList **head) {
   double result_value = 0;
-  LexemeList *lexeme_pointer = head;
-  while (head != NULL) {
-    FindFirstFunctionOrOperator(&lexeme_pointer, &head);
-    result_value = CalculatePreviousNodes(&lexeme_pointer, &head);
+  LexemeList *lexeme_pointer = *head;
+  while (*head != NULL) {
+    FindFirstFunctionOrOperator(&lexeme_pointer, head);
+    result_value = CalculatePreviousNodes(&lexeme_pointer, head);
   }
   return result_value;
 }
@@ -44,6 +44,7 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
       char *lexeme = NULL;
       GetLexeme(&lexeme, &pointer_to_symbol, IsLetter);
       ToStack(&stack_head, lexeme);
+      free(lexeme);
     }
     if (*pointer_to_symbol == '(') {
       char lexeme[2] = {0};
@@ -192,7 +193,7 @@ int DeleteLinkedList(LexemeList **head) {
   return 0;
 }
 
-/* Gets lexemes, depending on function pointer it count digits or symbols */
+// Gets lexemes, depending on function pointer it count digits or symbols
 
 int GetLexeme(char **lexeme, char **pointer_to_symbol,
               bool (*checker)(char const *pointer_to_symbol)) {
@@ -201,7 +202,7 @@ int GetLexeme(char **lexeme, char **pointer_to_symbol,
     ++count_symbols;
     *(pointer_to_symbol) += 1;
   } while (checker(*pointer_to_symbol));
-  *lexeme = malloc(sizeof(char) * count_symbols + 1);
+  *lexeme = malloc(sizeof(char) * (count_symbols + 1));
   CheckIfAllocationFailed(*lexeme);
   memcpy(*lexeme, *(pointer_to_symbol)-count_symbols,
          sizeof(char) * count_symbols);
@@ -215,7 +216,7 @@ void PrintRPNLine(LexemeList *rpn_line_head) {
     if (IsDigit(ptr->lexeme))
       printf("%g\n", ptr->number);
     else
-      printf("%s ", ptr->lexeme);
+      printf("%s\n", ptr->lexeme);
     ptr = ptr->link_next;
   }
   printf("\n");
@@ -314,18 +315,18 @@ double s21_pow();
 
 double CalculatePreviousNodes(LexemeList **lexeme_pointer, LexemeList **head) {
   double first_value_holder = 0, second_value_holder = 0, result_value = 0;
-  char *oper = (*lexeme_pointer)->lexeme;
+  char *operator=(*lexeme_pointer)->lexeme;
   (*lexeme_pointer) = (*lexeme_pointer)->link_previous;
   second_value_holder = (*lexeme_pointer)->number;
   if ((*lexeme_pointer)->link_previous != NULL) {
     (*lexeme_pointer) = (*lexeme_pointer)->link_previous;
     first_value_holder = (*lexeme_pointer)->number;
   } else {
-    if (*oper == '-')
+    if (*operator== '-')
       result_value = -second_value_holder;
-    if (strcmp(oper, "sin"))
+    if (strcmp(operator, "sin"))
       result_value = sin(second_value_holder);
   }
 
-  return first_value_holder + second_value_holder;
+  return result_value;
 }

@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 typedef struct LexemeList {
   char *lexeme;
@@ -17,7 +18,7 @@ enum { OK, FAILURE };
 
 int Calculate(char string[256]);
 int ParseMathExpression(LexemeList *head, char string[255]);
-double EvaluateExpression(LexemeList *head);
+double EvaluateExpression(LexemeList **head);
 void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
                                  LexemeList **head);
 double CalculatePreviousNodes(LexemeList **lexeme_pointer, LexemeList **head);

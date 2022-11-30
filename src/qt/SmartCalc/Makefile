@@ -1,9 +1,9 @@
-CFLAGS = -Wall -Werror -Wextra -std=c11 -pedantic
+CFLAGS = -Wall -Werror -Wextra -std=c11 -pedantic 
 
 all: dev
 
 dev:
-	gcc -g dev.c backend.c -fsanitize=address
+	gcc -g -lm dev.c backend.c -fsanitize=address
 
 clean: 
 	rm -rf *.out
