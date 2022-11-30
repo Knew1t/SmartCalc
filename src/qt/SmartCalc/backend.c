@@ -1,4 +1,5 @@
 #include "backend.h"
+#include <stdio.h>
 
 int Calculate(char input_string[256]) {
   int error = IsInputCorrect(input_string);
@@ -8,7 +9,7 @@ int Calculate(char input_string[256]) {
     ParseMathExpression(rpn_line_head, input_string);
     ConvertStringsToNumbers(rpn_line_head);
     PrintRPNLine(rpn_line_head);
-    /* EvaluateExpression(&rpn_line_head); */
+    EvaluateExpression(&rpn_line_head);
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 0) {
     memset(input_string, 0, sizeof(char) * 256);
@@ -19,10 +20,13 @@ int Calculate(char input_string[256]) {
 
 double EvaluateExpression(LexemeList **head) {
   double result_value = 0;
-  LexemeList *lexeme_pointer = *head;
   while (*head != NULL) {
+    LexemeList *lexeme_pointer = *head;
     FindFirstFunctionOrOperator(&lexeme_pointer, head);
-    result_value = CalculatePreviousNodes(&lexeme_pointer, head);
+    // FLAWD
+    CalculatePreviousNodes(&result_value, &lexeme_pointer, head);
+    printf("%lf", result_value);
+    break;
   }
   return result_value;
 }
@@ -193,6 +197,12 @@ int DeleteLinkedList(LexemeList **head) {
   return 0;
 }
 
+// deletes node and puts pointer to the next one if possible
+int DeleteSelectedNode(LexemeList **node) {
+  //
+  return 0;
+}
+
 // Gets lexemes, depending on function pointer it count digits or symbols
 
 int GetLexeme(char **lexeme, char **pointer_to_symbol,
@@ -292,7 +302,7 @@ void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
                                  LexemeList **head) {
   while (!IsFunction((*lexeme_pointer)->lexeme) &&
          !IsOperator((*lexeme_pointer)->lexeme)) {
-    ++(*lexeme_pointer);
+    (*lexeme_pointer)=(*lexeme_pointer)->link_next;
   }
 }
 
@@ -313,20 +323,33 @@ double s21_unary_minus();
 double s21_mod();
 double s21_pow();
 
-double CalculatePreviousNodes(LexemeList **lexeme_pointer, LexemeList **head) {
-  double first_value_holder = 0, second_value_holder = 0, result_value = 0;
+double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
+                              LexemeList **head) {
+  double first_value_holder =
+      (*lexeme_pointer)->link_previous->link_previous->number;
+  double second_value_holder = (*lexeme_pointer)->link_previous->number;
+  double result = 0;
+  LexemeList *pointer_to_operation_node = *lexeme_pointer;
   char *operator=(*lexeme_pointer)->lexeme;
-  (*lexeme_pointer) = (*lexeme_pointer)->link_previous;
-  second_value_holder = (*lexeme_pointer)->number;
   if ((*lexeme_pointer)->link_previous != NULL) {
     (*lexeme_pointer) = (*lexeme_pointer)->link_previous;
     first_value_holder = (*lexeme_pointer)->number;
+    if (*operator== '-') {
+      *result_value = first_value_holder - second_value_holder;
+      (*lexeme_pointer)->lexeme[0] = '0';
+    }
+    if (*operator== '+') {
+      *result_value = first_value_holder + second_value_holder;
+      (*lexeme_pointer)->lexeme[0] = '0';
+    }
   } else {
     if (*operator== '-')
-      result_value = -second_value_holder;
+      *result_value = -second_value_holder;
     if (strcmp(operator, "sin"))
-      result_value = sin(second_value_holder);
+      *result_value = sin(second_value_holder);
+    if (strcmp(operator, "cos"))
+      *result_value = cos(second_value_holder);
   }
 
-  return result_value;
+  return 0;
 }

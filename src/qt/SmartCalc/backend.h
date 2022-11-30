@@ -21,7 +21,7 @@ int ParseMathExpression(LexemeList *head, char string[255]);
 double EvaluateExpression(LexemeList **head);
 void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
                                  LexemeList **head);
-double CalculatePreviousNodes(LexemeList **lexeme_pointer, LexemeList **head);
+double CalculatePreviousNodes(double*result_of_calculation, LexemeList **lexeme_pointer, LexemeList **head);
 void ConvertStringsToNumbers(LexemeList *rpn_line_head);
 int GetNumberLexeme(char **lexeme, char **pointer_to_symbol);
 int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol);
@@ -32,10 +32,11 @@ void GetPriority(int *priority, const char *operato);
 
 int CreateLinkedList(LexemeList **head);
 int DeleteLinkedList(LexemeList **head);
+int DeleteHeadNode(LexemeList **head);
+int DeleteSelectedNode(LexemeList **node);
 int AddNodeAtTheEnd(LexemeList **head, char *incoming_lexeme);
 int ToRPNQue(LexemeList *head, char *lexeme);
 int ToStack(LexemeList **head, char *lexeme);
-int DeleteHeadNode(LexemeList **head);
 void PrintRPNLine(LexemeList *rpn_line_head);
 
 int IsInputCorrect(char input_string[]);
