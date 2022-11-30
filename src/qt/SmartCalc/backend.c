@@ -25,7 +25,7 @@ double EvaluateExpression(LexemeList **head) {
     FindFirstFunctionOrOperator(&lexeme_pointer, head);
     // FLAWD
     CalculatePreviousNodes(&result_value, &lexeme_pointer, head);
-    printf("%lf", result_value);
+    printf("%g\n", result_value);
     break;
   }
   return result_value;
@@ -198,8 +198,8 @@ int DeleteLinkedList(LexemeList **head) {
 }
 
 // deletes node and puts pointer to the next one if possible
-int DeleteSelectedNode(LexemeList **node) {
-  //
+int DeleteSelectedNode(LexemeList **node, LexemeList **head) {
+
   return 0;
 }
 
@@ -302,7 +302,7 @@ void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
                                  LexemeList **head) {
   while (!IsFunction((*lexeme_pointer)->lexeme) &&
          !IsOperator((*lexeme_pointer)->lexeme)) {
-    (*lexeme_pointer)=(*lexeme_pointer)->link_next;
+    (*lexeme_pointer) = (*lexeme_pointer)->link_next;
   }
 }
 
@@ -331,17 +331,24 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
   double result = 0;
   LexemeList *pointer_to_operation_node = *lexeme_pointer;
   char *operator=(*lexeme_pointer)->lexeme;
-  if ((*lexeme_pointer)->link_previous != NULL) {
+  if ((*lexeme_pointer)->link_previous->link_previous != NULL) {
     (*lexeme_pointer) = (*lexeme_pointer)->link_previous;
-    first_value_holder = (*lexeme_pointer)->number;
     if (*operator== '-') {
       *result_value = first_value_holder - second_value_holder;
-      (*lexeme_pointer)->lexeme[0] = '0';
     }
     if (*operator== '+') {
       *result_value = first_value_holder + second_value_holder;
-      (*lexeme_pointer)->lexeme[0] = '0';
     }
+    if (*operator== '*') {
+      *result_value = first_value_holder * second_value_holder;
+    }
+    if (*operator== '/') {
+      *result_value = first_value_holder / second_value_holder;
+    }
+    if (*operator== '^') {
+      *result_value = pow(first_value_holder, second_value_holder);
+    }
+    (*lexeme_pointer)->lexeme[0] = '0';
   } else {
     if (*operator== '-')
       *result_value = -second_value_holder;

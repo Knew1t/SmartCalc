@@ -1,11 +1,11 @@
 #ifndef BACKEND_H
 #define BACKEND_H
 
+#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
 
 typedef struct LexemeList {
   char *lexeme;
@@ -21,7 +21,8 @@ int ParseMathExpression(LexemeList *head, char string[255]);
 double EvaluateExpression(LexemeList **head);
 void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
                                  LexemeList **head);
-double CalculatePreviousNodes(double*result_of_calculation, LexemeList **lexeme_pointer, LexemeList **head);
+double CalculatePreviousNodes(double *result_of_calculation,
+                              LexemeList **lexeme_pointer, LexemeList **head);
 void ConvertStringsToNumbers(LexemeList *rpn_line_head);
 int GetNumberLexeme(char **lexeme, char **pointer_to_symbol);
 int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol);
@@ -33,7 +34,7 @@ void GetPriority(int *priority, const char *operato);
 int CreateLinkedList(LexemeList **head);
 int DeleteLinkedList(LexemeList **head);
 int DeleteHeadNode(LexemeList **head);
-int DeleteSelectedNode(LexemeList **node);
+int DeleteSelectedNode(LexemeList **node, LexemeList **head);
 int AddNodeAtTheEnd(LexemeList **head, char *incoming_lexeme);
 int ToRPNQue(LexemeList *head, char *lexeme);
 int ToStack(LexemeList **head, char *lexeme);
