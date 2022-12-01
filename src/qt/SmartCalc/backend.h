@@ -23,7 +23,7 @@ void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
                                  LexemeList **head);
 double CalculatePreviousNodes(double *result_of_calculation,
                               LexemeList **lexeme_pointer, LexemeList **head);
-void ConvertStringsToNumbers(LexemeList *rpn_line_head);
+bool ConvertStringsToNumbers(LexemeList *rpn_line_head);
 int GetNumberLexeme(char **lexeme, char **pointer_to_symbol);
 int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol);
 int GetLexeme(char **lexeme, char **pointer_to_symbol,
@@ -42,6 +42,7 @@ void PrintRPNLine(LexemeList *rpn_line_head);
 
 int IsInputCorrect(char input_string[]);
 bool CheckIfAllocationFailed(void *ptr);
+void ErrorOutput(char input_string[], char *error_string);
 bool IsDigit(char const *pointer_to_symbol);
 bool IsLetter(char const *lexeme);
 bool IsOperator(char const *lexeme);

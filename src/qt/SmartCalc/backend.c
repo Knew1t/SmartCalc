@@ -3,22 +3,24 @@
 
 int Calculate(char input_string[256], double *answer) {
   int error = IsInputCorrect(input_string);
-  if (error == 1) {
+  if (error == 2) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
-    ConvertStringsToNumbers(rpn_line_head);
-    /* PrintRPNLine(rpn_line_head); */
-    EvaluateExpression(&rpn_line_head);
-    /* PrintRPNLine(rpn_line_head); */
-    /* printf("answer = %g \n", rpn_line_head->number); */
-    *answer = rpn_line_head->number;
-    DeleteLinkedList(&rpn_line_head);
+    if (ConvertStringsToNumbers(rpn_line_head)) {
+      EvaluateExpression(&rpn_line_head);
+      *answer = rpn_line_head->number;
+      DeleteLinkedList(&rpn_line_head);
+    } else {
+      ErrorOutput(input_string, "WRONG INPUT");
+      error = 0;
+    }
+  } else if (error == 1) {
+    ; // do nothing
   } else if (error == 0) {
-    memset(input_string, 0, sizeof(char) * 256);
-    strcat(input_string, "Wrong Input (check parenthesis)");
+    ErrorOutput(input_string, "WRONG INPUT (CHECK PARENTHESIS!)");
   }
-  return 0;
+  return error;
 }
 
 double EvaluateExpression(LexemeList **head) {
@@ -197,7 +199,6 @@ int DeleteLinkedList(LexemeList **head) {
   return 0;
 }
 
-// deletes node and puts pointer to the next one if possible
 int DeleteSelectedNode(LexemeList **node, LexemeList **head) {
   if (*head == NULL || *node == NULL)
     return 1;
@@ -246,6 +247,10 @@ void PrintRPNLine(LexemeList *rpn_line_head) {
   printf("\n");
 }
 
+void ErrorOutput(char input_string[], char *error_string) {
+  memset(input_string, 0, sizeof(char) * 256);
+  strcat(input_string, error_string);
+}
 bool CheckIfAllocationFailed(void *ptr) {
   if (ptr == NULL)
     exit(FAILURE);
@@ -270,6 +275,7 @@ bool IsOperator(char const *pointer_to_symbol) {
 
 int IsInputCorrect(char input_string[]) {
   int return_value = 2;
+  // check if only numbers
   for (char *ptr = input_string; *ptr != '\0'; ++ptr) {
     if (IsDigit(ptr)) {
     } else {
@@ -278,7 +284,7 @@ int IsInputCorrect(char input_string[]) {
     }
   }
   if (return_value == 1) {
-    return_value = CountBrackets(input_string);
+    return_value = CountBrackets(input_string) ? 2 : 0;
   }
   return return_value;
 }
@@ -286,16 +292,19 @@ int IsInputCorrect(char input_string[]) {
 bool IsFunction(char const *lexeme) { return IsLetter(lexeme); }
 
 int CountBrackets(char input_string[]) {
+  int return_value = 1;
   short open_bracket_count = 0;
   short close_bracket_count = 0;
-  for (char *ptr = input_string; *ptr != '\0'; ++ptr) {
+  for (char *ptr = input_string;
+       *ptr != '\0' && (open_bracket_count >= close_bracket_count); ++ptr) {
     if (*ptr == '(')
       ++open_bracket_count;
     if (*ptr == ')')
       ++close_bracket_count;
   }
 
-  return close_bracket_count == open_bracket_count;
+  return_value = close_bracket_count == open_bracket_count;
+  return return_value;
 }
 
 bool CheckIfUnary(char *pointer_to_symbol, char input_string[]) {
@@ -320,13 +329,16 @@ void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
   }
 }
 
-void ConvertStringsToNumbers(LexemeList *rpn_line_head) {
+bool ConvertStringsToNumbers(LexemeList *rpn_line_head) {
+  if (!IsDigit(rpn_line_head->lexeme))
+    return false;
   while (rpn_line_head != NULL) {
     if (IsDigit(rpn_line_head->lexeme)) {
       rpn_line_head->number = atof(rpn_line_head->lexeme);
     }
     rpn_line_head = rpn_line_head->link_next;
   }
+  return true;
 }
 
 double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,

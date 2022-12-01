@@ -120,8 +120,13 @@ void MainWindow::equalPressed() {
   double answer = 0;
   char *ptr = mathExpression;
   ptr = array.data();
-  Calculate(ptr, &answer);
-  ui->Display->setText(QString::number(answer));
-  ui->Display->setAlignment(Qt::AlignRight);
-  ui->Display->moveCursor(QTextCursor::End);
+  if (Calculate(ptr, &answer)) {
+    ui->Display->setText(QString::number(answer));
+    ui->Display->setAlignment(Qt::AlignRight);
+    ui->Display->moveCursor(QTextCursor::End);
+  } else {
+    ui->Display->setText(ptr);
+    ui->Display->setAlignment(Qt::AlignRight);
+    ui->Display->moveCursor(QTextCursor::End);
+  }
 }
