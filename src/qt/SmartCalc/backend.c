@@ -10,7 +10,8 @@ int Calculate(char input_string[256]) {
     ConvertStringsToNumbers(rpn_line_head);
     PrintRPNLine(rpn_line_head);
     EvaluateExpression(&rpn_line_head);
-    PrintRPNLine(rpn_line_head);
+    /* PrintRPNLine(rpn_line_head); */
+    printf("answer = %g \n", rpn_line_head->number);
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 0) {
     memset(input_string, 0, sizeof(char) * 256);
@@ -21,11 +22,10 @@ int Calculate(char input_string[256]) {
 
 double EvaluateExpression(LexemeList **head) {
   double result_value = 0;
-  while (*head != NULL) {
+  while ((*head)->link_next != NULL) {
     LexemeList *lexeme_pointer = *head;
     FindFirstFunctionOrOperator(&lexeme_pointer, head);
     CalculatePreviousNodes(&result_value, &lexeme_pointer, head);
-    break;
   }
   return result_value;
 }
@@ -367,7 +367,7 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     delete_this_node = pointer_to_operation_node->link_previous;
     DeleteSelectedNode(&delete_this_node, head);
   } else {
-    if (*operator== '-')
+    if (*operator== '~')
       *result_value = -second_value_holder;
     if (strcmp(operator, "sin"))
       *result_value = sin(second_value_holder);
