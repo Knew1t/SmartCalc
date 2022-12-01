@@ -338,13 +338,12 @@ double s21_pow();
 
 double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
                               LexemeList **head) {
-  double first_value_holder =
-      (*lexeme_pointer)->link_previous->link_previous->number;
   double second_value_holder = (*lexeme_pointer)->link_previous->number;
-  double result = 0;
   LexemeList *pointer_to_operation_node = *lexeme_pointer;
   char *operator=(*lexeme_pointer)->lexeme;
-  if ((*lexeme_pointer)->link_previous->link_previous != NULL) {
+  if ((*lexeme_pointer)->link_previous != *head) {
+    double first_value_holder =
+        (*lexeme_pointer)->link_previous->link_previous->number;
     if (*operator== '-') {
       *result_value = first_value_holder - second_value_holder;
     }
@@ -368,11 +367,27 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     DeleteSelectedNode(&delete_this_node, head);
   } else {
     if (*operator== '~')
-      *result_value = -second_value_holder;
-    if (strcmp(operator, "sin"))
+      *result_value = second_value_holder * -1;
+    if (!strcmp(operator, "sin"))
       *result_value = sin(second_value_holder);
-    if (strcmp(operator, "cos"))
+    if (!strcmp(operator, "cos"))
       *result_value = cos(second_value_holder);
+    if (!strcmp(operator, "tg"))
+      *result_value = tan(second_value_holder);
+    if (!strcmp(operator, "asin"))
+      *result_value = asin(second_value_holder);
+    if (!strcmp(operator, "acos"))
+      *result_value = acos(second_value_holder);
+    if (!strcmp(operator, "atan"))
+      *result_value = atan(second_value_holder);
+    if (!strcmp(operator, "sqrt"))
+      *result_value = sqrt(second_value_holder);
+    if (!strcmp(operator, "ln"))
+      *result_value = log(second_value_holder);
+    (*lexeme_pointer)->lexeme[0] = '0';
+    (*lexeme_pointer)->number = *result_value;
+    LexemeList *delete_this_node = pointer_to_operation_node->link_previous;
+    DeleteSelectedNode(&delete_this_node, head);
   }
 
   return 0;
