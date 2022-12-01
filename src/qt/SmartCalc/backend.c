@@ -384,6 +384,8 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
       *result_value = sqrt(second_value_holder);
     if (!strcmp(operator, "ln"))
       *result_value = log(second_value_holder);
+    if (!strcmp(operator, "log"))
+      *result_value = log10(second_value_holder);
     (*lexeme_pointer)->lexeme[0] = '0';
     (*lexeme_pointer)->number = *result_value;
     LexemeList *delete_this_node = pointer_to_operation_node->link_previous;
