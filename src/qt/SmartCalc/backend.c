@@ -1,17 +1,18 @@
 #include "backend.h"
 #include <stdio.h>
 
-int Calculate(char input_string[256]) {
+int Calculate(char input_string[256], double *answer) {
   int error = IsInputCorrect(input_string);
   if (error == 1) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
     ConvertStringsToNumbers(rpn_line_head);
-    PrintRPNLine(rpn_line_head);
+    /* PrintRPNLine(rpn_line_head); */
     EvaluateExpression(&rpn_line_head);
     /* PrintRPNLine(rpn_line_head); */
-    printf("answer = %g \n", rpn_line_head->number);
+    /* printf("answer = %g \n", rpn_line_head->number); */
+    *answer = rpn_line_head->number;
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 0) {
     memset(input_string, 0, sizeof(char) * 256);
@@ -327,14 +328,6 @@ void ConvertStringsToNumbers(LexemeList *rpn_line_head) {
     rpn_line_head = rpn_line_head->link_next;
   }
 }
-
-double s21_add();
-double s21_sub();
-double s21_mult();
-double s21_div();
-double s21_unary_minus();
-double s21_mod();
-double s21_pow();
 
 double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
                               LexemeList **head) {

@@ -16,7 +16,7 @@ typedef struct LexemeList {
 
 enum { OK, FAILURE };
 
-int Calculate(char string[256]);
+int Calculate(char string[256], double *answer);
 int ParseMathExpression(LexemeList *head, char string[255]);
 double EvaluateExpression(LexemeList **head);
 void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
