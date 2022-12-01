@@ -130,3 +130,8 @@ void MainWindow::equalPressed() {
     ui->Display->moveCursor(QTextCursor::End);
   }
 }
+
+void MainWindow::keyPressEvent (QKeyEvent *event){
+    if (event->key() == Qt::Key_Space)
+        ui->Display->insertPlainText("space");
+}

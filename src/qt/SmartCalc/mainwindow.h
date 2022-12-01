@@ -4,6 +4,7 @@
 #include "QtWidgets/qpushbutton.h"
 #include <QMainWindow>
 #include <QToolButton>
+#include "QKeyEvent"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,6 +31,7 @@ private slots:
   void closeParentPressed();
   void dotPressed();
   void trigonometryButtonPressed();
+  void keyPressEvent();
 
 private:
   Ui::MainWindow *ui;

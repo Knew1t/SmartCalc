@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
     printf("before calculation %s\n", string);
     Calculate(string, &answer);
     printf("answer %g\n", answer);
+    printf("%s\n", string);
   } else {
     printf("error: no arguments given\n");
   }
