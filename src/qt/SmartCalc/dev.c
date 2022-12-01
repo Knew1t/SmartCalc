@@ -8,10 +8,11 @@ int main(int argc, char *argv[]) {
 
   if (argc > 1) {
     char string[256] = {0};
+    double answer = 0;
     strcat(string, argv[argc - 1]);
     printf("before calculation %s\n", string);
-    Calculate(string);
-    printf("answer %s\n", string);
+    Calculate(string, &answer);
+    printf("answer %g\n", answer);
   } else {
     printf("error: no arguments given\n");
   }
