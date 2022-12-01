@@ -24,7 +24,6 @@ double EvaluateExpression(LexemeList **head) {
   while (*head != NULL) {
     LexemeList *lexeme_pointer = *head;
     FindFirstFunctionOrOperator(&lexeme_pointer, head);
-    // FLAWD
     CalculatePreviousNodes(&result_value, &lexeme_pointer, head);
     break;
   }
@@ -201,8 +200,10 @@ int DeleteLinkedList(LexemeList **head) {
 int DeleteSelectedNode(LexemeList **node, LexemeList **head) {
   if (*head == NULL || *node == NULL)
     return 1;
-  if (*head == *node)
-    (*head)->link_next = (*node)->link_next;
+
+  if (*head == *node) {
+    (*head) = (*node)->link_next;
+  }
 
   if ((*node)->link_next != NULL)
     (*node)->link_next->link_previous = (*node)->link_previous;
@@ -361,8 +362,10 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     }
     (*lexeme_pointer)->lexeme[0] = '0';
     (*lexeme_pointer)->number = *result_value;
-    DeleteSelectedNode(&((*lexeme_pointer)->link_previous), head);
-    DeleteSelectedNode(&((*lexeme_pointer)->link_previous), head);
+    LexemeList *delete_this_node = pointer_to_operation_node->link_previous;
+    DeleteSelectedNode(&delete_this_node, head);
+    delete_this_node = pointer_to_operation_node->link_previous;
+    DeleteSelectedNode(&delete_this_node, head);
   } else {
     if (*operator== '-')
       *result_value = -second_value_holder;
