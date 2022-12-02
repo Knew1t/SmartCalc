@@ -1090,6 +1090,11 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
   /usr/local/include/QtGui/qinputmethod.h \
   /usr/local/include/QtCore/qlocale.h \
   /usr/local/include/QtGui/qguiapplication_platform.h \
+  /usr/local/include/QtWidgets/QLabel \
+  /usr/local/lib/QtWidgets.framework/Headers/qlabel.h \
+  /usr/local/include/QtWidgets/qframe.h \
+  /usr/local/include/QtGui/qpicture.h \
+  /usr/local/include/QtGui/qtextdocument.h \
   /usr/local/include/QtWidgets/QMainWindow \
   /usr/local/include/QtWidgets/QMenuBar \
   /usr/local/lib/QtWidgets.framework/Headers/qmenubar.h \
@@ -1102,8 +1107,6 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
   /usr/local/include/QtWidgets/QTextEdit \
   /usr/local/lib/QtWidgets.framework/Headers/qtextedit.h \
   /usr/local/include/QtWidgets/qabstractscrollarea.h \
-  /usr/local/include/QtWidgets/qframe.h \
-  /usr/local/include/QtGui/qtextdocument.h \
   /usr/local/include/QtGui/qtextoption.h \
   /usr/local/include/QtGui/qtextcursor.h \
   /usr/local/include/QtGui/qtextformat.h \
@@ -1121,8 +1124,6 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 
 /usr/local/include/QtGui/qtextoption.h:
 
-/usr/local/include/QtGui/qtextdocument.h:
-
 /usr/local/lib/QtWidgets.framework/Headers/qtextedit.h:
 
 /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h:
@@ -1132,6 +1133,8 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 /usr/local/include/QtGui/qaction.h:
 
 /usr/local/include/QtWidgets/QMenuBar:
+
+/usr/local/include/QtGui/qtextdocument.h:
 
 /usr/local/include/QtCore/QVariant:
 
@@ -1307,6 +1310,8 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 
 /usr/local/include/QtWidgets/qmenu.h:
 
+/usr/local/lib/QtWidgets.framework/Headers/qlabel.h:
+
 /usr/local/include/QtCore/qstringview.h:
 
 /usr/local/include/QtCore/QSize:
@@ -1350,6 +1355,8 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__threading_support:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/variant:
+
+/usr/local/include/QtWidgets/QLabel:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/limits.h:
 
@@ -1812,6 +1819,8 @@ SmartCalc_autogen/EWIEGA46WW/moc_mainwindow.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_time_t.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/cstddef:
+
+/usr/local/include/QtGui/qpicture.h:
 
 /usr/local/include/QtCore/qscopedpointer.h:
 

@@ -11,17 +11,9 @@ int Calculate(char input_string[256], double *answer) {
       EvaluateExpression(&rpn_line_head);
       *answer = rpn_line_head->number;
       DeleteLinkedList(&rpn_line_head);
-    } else {
-      ErrorOutput(input_string, "WRONG INPUT");
-      error = 0;
-    }
-  } else if (error == 1) {
-    ; // do nothing
-  } else if (error == 0) {
-    ErrorOutput(input_string, "WRONG INPUT (CHECK PARENTHESIS!)");
   }
   return error;
-}
+}}
 
 double EvaluateExpression(LexemeList **head) {
   double result_value = 0;
@@ -396,6 +388,5 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     LexemeList *delete_this_node = pointer_to_operation_node->link_previous;
     DeleteSelectedNode(&delete_this_node, head);
   }
-
   return 0;
 }

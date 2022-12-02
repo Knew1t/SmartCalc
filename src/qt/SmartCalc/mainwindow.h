@@ -31,7 +31,7 @@ private slots:
   void closeParentPressed();
   void dotPressed();
   void trigonometryButtonPressed();
-  void keyPressEvent();
+//  void keyPressEvent();
 
 private:
   Ui::MainWindow *ui;
