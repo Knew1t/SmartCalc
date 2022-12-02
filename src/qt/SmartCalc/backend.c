@@ -11,9 +11,12 @@ int Calculate(char input_string[256], double *answer) {
       EvaluateExpression(&rpn_line_head);
       *answer = rpn_line_head->number;
       DeleteLinkedList(&rpn_line_head);
+    } else{
+      DeleteLinkedList(&rpn_line_head);
+    }
   }
-  return error;
-}}
+    return error;
+}
 
 double EvaluateExpression(LexemeList **head) {
   double result_value = 0;
