@@ -11,7 +11,6 @@ bool divTrigger = false;
 bool multTrigger = false;
 bool digitTrigger = false;
 bool dotTrigger = false;
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
   ui->setupUi(this);
@@ -131,8 +130,3 @@ void MainWindow::equalPressed() {
     ui->Display->moveCursor(QTextCursor::End);
   }
 }
-
-//void MainWindow::keyPressEvent (QKeyEvent *event){
-//   if (event->key() == Qt::Key_Space)
-//       ui->Display->insertPlainText("space");
-//}

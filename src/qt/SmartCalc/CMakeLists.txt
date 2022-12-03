@@ -4,6 +4,7 @@ project(SmartCalc VERSION 0.1 LANGUAGES C CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -24,6 +25,9 @@ set(PROJECT_SOURCES
         backend.h
         mainwindow.ui
 )
+
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(SmartCalc

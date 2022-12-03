@@ -11,11 +11,10 @@ int Calculate(char input_string[256], double *answer) {
       EvaluateExpression(&rpn_line_head);
       *answer = rpn_line_head->number;
       DeleteLinkedList(&rpn_line_head);
-    } else{
-      DeleteLinkedList(&rpn_line_head);
+    } else {
     }
   }
-    return error;
+  return error;
 }
 
 double EvaluateExpression(LexemeList **head) {
@@ -361,11 +360,10 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     }
     (*lexeme_pointer)->lexeme[0] = '0';
     (*lexeme_pointer)->number = *result_value;
-    LexemeList *delete_this_node = pointer_to_operation_node->link_previous;
-    DeleteSelectedNode(&delete_this_node, head);
-    delete_this_node = pointer_to_operation_node->link_previous;
-    DeleteSelectedNode(&delete_this_node, head);
-  } else {
+    // LexemeList *delete_this_node = pointer_to_operation_node->link_previous;
+    // DeleteSelectedNode(&delete_this_node, head);
+    // delete_this_node = pointer_to_operation_node->link_previous;
+    // DeleteSelectedNode(&delete_this_node, head);
     if (*operator== '~')
       *result_value = second_value_holder * -1;
     if (!strcmp(operator, "sin"))
@@ -388,8 +386,8 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
       *result_value = log10(second_value_holder);
     (*lexeme_pointer)->lexeme[0] = '0';
     (*lexeme_pointer)->number = *result_value;
-    LexemeList *delete_this_node = pointer_to_operation_node->link_previous;
-    DeleteSelectedNode(&delete_this_node, head);
+    // LexemeList *delete_this_node = pointer_to_operation_node->link_previous;
+    // DeleteSelectedNode(&delete_this_node, head);
   }
   return 0;
 }
