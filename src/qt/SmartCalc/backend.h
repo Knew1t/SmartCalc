@@ -34,6 +34,7 @@ void GetPriority(int *priority, const char *operato);
 int CreateLinkedList(LexemeList **head);
 int DeleteLinkedList(LexemeList **head);
 int DeleteHeadNode(LexemeList **head);
+int DeleteTailNode(LexemeList **node);
 int DeleteSelectedNode(LexemeList **node, LexemeList **head);
 int AddNodeAtTheEnd(LexemeList **head, char *incoming_lexeme);
 int ToRPNQue(LexemeList *head, char *lexeme);
