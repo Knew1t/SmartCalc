@@ -79,7 +79,7 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
       }
       if (*(stack_head->lexeme) == '(')
         DeleteHeadNode(&stack_head);
-      if (IsFunction(stack_head->lexeme)) {
+      if (stack_head->lexeme && IsFunction(stack_head->lexeme)) {
         ToRPNQue(rpn_line_head, stack_head->lexeme);
         DeleteHeadNode(&stack_head);
       }
