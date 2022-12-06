@@ -7,6 +7,7 @@ int Calculate(char input_string[256], double *answer) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
+    PrintRPNLine(rpn_line_head);
     if (ConvertStringsToNumbers(rpn_line_head)) {
       EvaluateExpression(&rpn_line_head);
       *answer = rpn_line_head->number;
@@ -49,7 +50,7 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
     if (*pointer_to_symbol == '(') {
       char lexeme[2] = {0};
       lexeme[0] = *pointer_to_symbol;
-      ToStack(&stack_head, pointer_to_symbol);
+      ToStack(&stack_head, lexeme);
     }
     if (IsOperator(pointer_to_symbol)) {
       if (*pointer_to_symbol == '+') {
@@ -72,17 +73,18 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
       ToStack(&stack_head, operator);
     }
     if (*pointer_to_symbol == ')') {
-      if (IsFunction(stack_head->lexeme)) {
-        ToRPNQue(rpn_line_head, stack_head->lexeme);
-        DeleteHeadNode(&stack_head);
-      }
       while (stack_head->lexeme && *(stack_head->lexeme) != '(') {
         ToRPNQue(rpn_line_head, stack_head->lexeme);
         DeleteHeadNode(&stack_head);
       }
-      if (stack_head->lexeme == NULL)
-        exit(FAILURE);
-      DeleteHeadNode(&stack_head);
+      if (*(stack_head->lexeme) == '(')
+        DeleteHeadNode(&stack_head);
+      if (IsFunction(stack_head->lexeme)) {
+        ToRPNQue(rpn_line_head, stack_head->lexeme);
+        DeleteHeadNode(&stack_head);
+      }
+      // if (stack_head->lexeme == NULL)
+      //   exit(FAILURE);
     }
   }
   // puts remaining lexemes to RPNline
@@ -243,10 +245,10 @@ int GetLexeme(char **lexeme, char **pointer_to_symbol,
 void PrintRPNLine(LexemeList *rpn_line_head) {
   LexemeList *ptr = rpn_line_head;
   while (ptr != NULL) {
-    if (IsDigit(ptr->lexeme))
-      printf("%g\n", ptr->number);
-    else
-      printf("%s\n", ptr->lexeme);
+    // if (IsDigit(ptr->lexeme))
+    //   printf("%g\n", ptr->number);
+    // else
+    printf("%s\n", ptr->lexeme);
     ptr = ptr->link_next;
   }
   printf("\n");
@@ -359,8 +361,7 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     DeleteSelectedNode(&node_to_be_deleted, head);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (*operator== '+') {
+  } else if (*operator== '+') {
     *result_value = (*lexeme_pointer)->link_previous->link_previous->number +
                     (*lexeme_pointer)->link_previous->number;
 
@@ -368,86 +369,66 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     DeleteSelectedNode(&node_to_be_deleted, head);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-    // NOT WORKING
-    // DeleteSelectedNode(&((*lexeme_pointer)->link_previous->link_previous),
-    //                    head);
-    // node_to_be_deleted = (*lexeme_pointer)->link_previous;
-    // // DeleteSelectedNode(&((*lexeme_pointer)->link_previous), head);
-    // DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (*operator== '*') {
+  } else if (*operator== '*') {
     *result_value = (*lexeme_pointer)->link_previous->link_previous->number *
                     (*lexeme_pointer)->link_previous->number;
     node_to_be_deleted = (*lexeme_pointer)->link_previous->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (*operator== '/') {
+  } else if (*operator== '/') {
     *result_value = (*lexeme_pointer)->link_previous->link_previous->number /
                     (*lexeme_pointer)->link_previous->number;
     node_to_be_deleted = (*lexeme_pointer)->link_previous->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (*operator== '^') {
+  } else if (*operator== '^') {
     *result_value = pow((*lexeme_pointer)->link_previous->link_previous->number,
                         (*lexeme_pointer)->link_previous->number);
     node_to_be_deleted = (*lexeme_pointer)->link_previous->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (*operator== '~') {
+  } else if (*operator== '~') {
     *result_value = second_value_holder * -1;
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (!strcmp(operator, "sin")) {
+  } else if (!strcmp(operator, "sin")) {
     *result_value = sin(second_value_holder);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
-    // DeleteSelectedNode(&node_to_be_deleted, head);
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (!strcmp(operator, "cos")) {
+  } else if (!strcmp(operator, "cos")) {
     *result_value = cos(second_value_holder);
-    node_to_be_deleted = node_to_be_deleted->link_next;
+    node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (!strcmp(operator, "tg")) {
+  } else if (!strcmp(operator, "tg")) {
     *result_value = tan(second_value_holder);
-    node_to_be_deleted = node_to_be_deleted->link_next;
+    node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (!strcmp(operator, "asin")) {
+  } else if (!strcmp(operator, "asin")) {
     *result_value = asin(second_value_holder);
-    node_to_be_deleted = node_to_be_deleted->link_next;
+    node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (!strcmp(operator, "acos")) {
+  } else if (!strcmp(operator, "acos")) {
     *result_value = acos(second_value_holder);
-    node_to_be_deleted = node_to_be_deleted->link_next;
+    node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (!strcmp(operator, "atan")) {
+  } else if (!strcmp(operator, "atan")) {
     *result_value = atan(second_value_holder);
-    node_to_be_deleted = node_to_be_deleted->link_next;
+    node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (!strcmp(operator, "sqrt")) {
+  } else if (!strcmp(operator, "sqrt")) {
     *result_value = sqrt(second_value_holder);
-    node_to_be_deleted = node_to_be_deleted->link_next;
+    node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (!strcmp(operator, "ln")) {
+  } else if (!strcmp(operator, "ln")) {
     *result_value = log(second_value_holder);
-    node_to_be_deleted = node_to_be_deleted->link_next;
+    node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  }
-  if (!strcmp(operator, "log")) {
+  } else if (!strcmp(operator, "log")) {
     *result_value = log10(second_value_holder);
-    node_to_be_deleted = node_to_be_deleted->link_next;
+    node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
   }
   (*lexeme_pointer)->lexeme[0] = '0';
