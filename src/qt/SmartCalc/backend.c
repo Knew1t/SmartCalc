@@ -296,7 +296,10 @@ int IsInputCorrect(char input_string[]) {
   return return_value;
 }
 
-bool IsFunction(char const *lexeme) { return IsLetter(lexeme); }
+bool IsFunction(char const *lexeme) { 
+
+
+  return IsLetter(lexeme); }
 
 int CountBrackets(char input_string[]) {
   int return_value = 1;
@@ -385,6 +388,13 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     DeleteSelectedNode(&node_to_be_deleted, head);
   } else if (*operator== '^') {
     *result_value = pow((*lexeme_pointer)->link_previous->link_previous->number,
+                        (*lexeme_pointer)->link_previous->number);
+    node_to_be_deleted = (*lexeme_pointer)->link_previous->link_previous;
+    DeleteSelectedNode(&node_to_be_deleted, head);
+    node_to_be_deleted = (*lexeme_pointer)->link_previous;
+    DeleteSelectedNode(&node_to_be_deleted, head);
+  } else if(!strcmp(operator,"mod")) {
+    *result_value = fmod((*lexeme_pointer)->link_previous->link_previous->number,
                         (*lexeme_pointer)->link_previous->number);
     node_to_be_deleted = (*lexeme_pointer)->link_previous->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
