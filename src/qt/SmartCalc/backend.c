@@ -13,15 +13,13 @@ int Calculate(char input_string[256], double *answer) {
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
     PrintRPNLine(rpn_line_head);
-    if (ConvertStringsToNumbers(rpn_line_head)) {
-      EvaluateExpression(&rpn_line_head);
-      *answer = rpn_line_head->number;
-      DeleteLinkedList(&rpn_line_head);
-    } else {
-    }
+    ConvertStringsToNumbers(rpn_line_head);
+    EvaluateExpression(&rpn_line_head);
+    *answer = rpn_line_head->number;
+    DeleteLinkedList(&rpn_line_head);
   } else if (error == 1){
-  } else if (error == 2){
-    ErrorOutput(input_string, "Wrong Input!");
+    *answer = atof(input_string);
+    error = 0;
   }
   return error;
 }
@@ -348,7 +346,9 @@ bool IsLetter(char const *pointer_to_symbol) {
   return *pointer_to_symbol == 'x' || *pointer_to_symbol == 's' ||
          *pointer_to_symbol == 'a' || *pointer_to_symbol == 'c' ||
          *pointer_to_symbol == 'l' || *pointer_to_symbol == 'm' ||
-         *pointer_to_symbol == 't';
+         *pointer_to_symbol == 'o' || *pointer_to_symbol == 'i' ||
+         *pointer_to_symbol == 'n' || *pointer_to_symbol == 'g' ||
+         *pointer_to_symbol == 'd' || *pointer_to_symbol == 't';
 }
 
 bool IsOperator(char const *pointer_to_symbol) {

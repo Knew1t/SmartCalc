@@ -5,7 +5,7 @@ extern "C" {
 }
 //#include "QtCore/qobjectdefs.h"
 
-char mathExpression[255] = {0};
+//char mathExpression[255] = {0};
 bool addTrigger = false;
 bool divTrigger = false;
 bool multTrigger = false;
@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
   ui->setupUi(this);
   setFixedSize(geometry().width(), geometry().height());
   //  ui->Display->setReadOnly(true);
+  ui->Display_2->setReadOnly(true);
+  ui->Display_2->setText("");
   ui->Display->setText("");
   ui->Display->setAlignment(Qt::AlignRight);
   QPushButton *digitButtons[10];
@@ -118,15 +120,15 @@ void MainWindow::dividePressed() {
 void MainWindow::equalPressed() {
   QByteArray array = ui->Display->toPlainText().toLocal8Bit();
   double answer = 0;
-  char *ptr = mathExpression;
-  ptr = array.data();
-  if (Calculate(ptr, &answer)) {
+//  char *ptr = mathExpression;
+  char * ptr = array.data();
+  if (!Calculate(ptr, &answer)) {
     ui->Display->setText(QString::number(answer));
     ui->Display->setAlignment(Qt::AlignRight);
     ui->Display->moveCursor(QTextCursor::End);
   } else {
-    ui->Display->setText(ptr);
-    ui->Display->setAlignment(Qt::AlignRight);
-    ui->Display->moveCursor(QTextCursor::End);
+    ui->Display_2->setText("Achtung!");
+    ui->Display_2->setAlignment(Qt::AlignRight);
+    ui->Display_2->moveCursor(QTextCursor::End);
   }
 }
