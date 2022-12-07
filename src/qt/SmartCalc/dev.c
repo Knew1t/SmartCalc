@@ -12,6 +12,7 @@ int main(int argc, char *argv[]) {
     strcat(string, argv[argc - 1]);
     printf("before calculation %s\n", string);
     Calculate(string, &answer);
+    // answer = IsMod(string);
     printf("answer %g\n", answer);
     printf("%s\n", string);
   } else {

@@ -48,6 +48,7 @@ bool IsDigit(char const *pointer_to_symbol);
 bool IsLetter(char const *lexeme);
 bool IsOperator(char const *lexeme);
 bool IsFunction(char const *lexeme);
+bool IsMod(char const *pointer_to_symbol);
 
 int CountBrackets(char input_string[]);
 bool CheckIfUnary(char *pointer_to_symbol, char input_string[]);

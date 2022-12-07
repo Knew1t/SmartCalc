@@ -1,5 +1,6 @@
 #include "backend.h"
 #include <stdio.h>
+#include <string.h>
 
 int Calculate(char input_string[256], double *answer) {
   int error = IsInputCorrect(input_string);
@@ -70,7 +71,11 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
         ToRPNQue(rpn_line_head, stack_head->lexeme);
         DeleteHeadNode(&stack_head);
       };
+        // CHECK IF WORKS
+      if (IsMod(pointer_to_symbol))
+          pointer_to_symbol+=2;
       ToStack(&stack_head, operator);
+
     }
     if (*pointer_to_symbol == ')') {
       while (stack_head->lexeme && *(stack_head->lexeme) != '(') {
@@ -111,17 +116,20 @@ void GetPriority(int *priority, const char *operator) {
   if (*operator== '+') {
     *priority = 2;
   }
-  if (*operator== '/') {
+  if (*operator == 'm'){
     *priority = 3;
   }
-  if (*operator== '*') {
+  if (*operator== '/') {
     *priority = 4;
   }
-  if (*operator== '^') {
+  if (*operator== '*') {
     *priority = 5;
   }
-  if (*operator== '~') {
+  if (*operator== '^') {
     *priority = 6;
+  }
+  if (*operator== '~') {
+    *priority = 7;
   }
 }
 
@@ -226,7 +234,6 @@ int DeleteSelectedNode(LexemeList **node, LexemeList **head) {
 }
 
 // Gets lexemes, depending on function pointer it count digits or symbols
-
 int GetLexeme(char **lexeme, char **pointer_to_symbol,
               bool (*checker)(char const *pointer_to_symbol)) {
   int count_symbols = 0;
@@ -277,8 +284,13 @@ bool IsLetter(char const *pointer_to_symbol) {
 bool IsOperator(char const *pointer_to_symbol) {
   return *pointer_to_symbol == '+' || *pointer_to_symbol == '-' ||
          *pointer_to_symbol == '*' || *pointer_to_symbol == '/' ||
-         *pointer_to_symbol == '~' || *pointer_to_symbol == '^';
+         *pointer_to_symbol == '~' || *pointer_to_symbol == '^' || IsMod(pointer_to_symbol);
 }
+
+bool IsMod(char const *pointer_to_symbol){
+  return strncmp(pointer_to_symbol, "mod", sizeof(char)*3)==0;
+}
+
 
 int IsInputCorrect(char input_string[]) {
   int return_value = 2;
@@ -297,9 +309,7 @@ int IsInputCorrect(char input_string[]) {
 }
 
 bool IsFunction(char const *lexeme) { 
-
-
-  return IsLetter(lexeme); }
+  return IsLetter(lexeme) && !IsMod(lexeme); }
 
 int CountBrackets(char input_string[]) {
   int return_value = 1;
@@ -393,7 +403,8 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     DeleteSelectedNode(&node_to_be_deleted, head);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  } else if(!strcmp(operator,"mod")) {
+  // } else if(!strcmp(operator,"mod")) {
+  } else if(*operator=='m') {
     *result_value = fmod((*lexeme_pointer)->link_previous->link_previous->number,
                         (*lexeme_pointer)->link_previous->number);
     node_to_be_deleted = (*lexeme_pointer)->link_previous->link_previous;
