@@ -1,1 +1,22 @@
-[]
+[
+{
+  "directory": "/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug -I/Users/longshot/projects/SmartCalc/src/qt/SmartCalc -I/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/SmartCalc_autogen/include -iframework /usr/local/lib -isystem /usr/local/lib/QtCore.framework/Headers -isystem /usr/local/share/qt/mkspecs/macx-clang -isystem /usr/local/include -isystem /usr/local/lib/QtWidgets.framework/Headers -isystem /usr/local/lib/QtGui.framework/Headers -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -fPIC -std=gnu++17 -o CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o -c /Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/SmartCalc_autogen/mocs_compilation.cpp",
+  "file": "/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/SmartCalc_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug -I/Users/longshot/projects/SmartCalc/src/qt/SmartCalc -I/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/SmartCalc_autogen/include -iframework /usr/local/lib -isystem /usr/local/lib/QtCore.framework/Headers -isystem /usr/local/share/qt/mkspecs/macx-clang -isystem /usr/local/include -isystem /usr/local/lib/QtWidgets.framework/Headers -isystem /usr/local/lib/QtGui.framework/Headers -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -fPIC -std=gnu++17 -o CMakeFiles/SmartCalc.dir/main.cpp.o -c /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/main.cpp",
+  "file": "/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/main.cpp"
+},
+{
+  "directory": "/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug -I/Users/longshot/projects/SmartCalc/src/qt/SmartCalc -I/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/SmartCalc_autogen/include -iframework /usr/local/lib -isystem /usr/local/lib/QtCore.framework/Headers -isystem /usr/local/share/qt/mkspecs/macx-clang -isystem /usr/local/include -isystem /usr/local/lib/QtWidgets.framework/Headers -isystem /usr/local/lib/QtGui.framework/Headers -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -fPIC -std=gnu++17 -o CMakeFiles/SmartCalc.dir/mainwindow.cpp.o -c /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/mainwindow.cpp",
+  "file": "/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/mainwindow.cpp"
+},
+{
+  "directory": "/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug",
+  "command": "/usr/bin/clang -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug -I/Users/longshot/projects/SmartCalc/src/qt/SmartCalc -I/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/SmartCalc_autogen/include -iframework /usr/local/lib -isystem /usr/local/lib/QtCore.framework/Headers -isystem /usr/local/share/qt/mkspecs/macx-clang -isystem /usr/local/include -isystem /usr/local/lib/QtWidgets.framework/Headers -isystem /usr/local/lib/QtGui.framework/Headers -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6 -fPIC -std=gnu11 -o CMakeFiles/SmartCalc.dir/backend.c.o -c /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.c",
+  "file": "/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.c"
+}
+]

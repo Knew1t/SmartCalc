@@ -57,6 +57,7 @@ public:
     QTextEdit *textEdit;
     QPushButton *pushButton_2;
     QLabel *label;
+    QTextEdit *Display_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -118,7 +119,7 @@ public:
         button_9->setFont(font1);
         Display = new QTextEdit(centralwidget);
         Display->setObjectName(QString::fromUtf8("Display"));
-        Display->setGeometry(QRect(0, 0, 441, 71));
+        Display->setGeometry(QRect(0, 0, 441, 31));
         button_divide = new QPushButton(centralwidget);
         button_divide->setObjectName(QString::fromUtf8("button_divide"));
         button_divide->setGeometry(QRect(270, 240, 81, 41));
@@ -199,6 +200,9 @@ public:
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(210, 90, 21, 16));
+        Display_2 = new QTextEdit(centralwidget);
+        Display_2->setObjectName(QString::fromUtf8("Display_2"));
+        Display_2->setGeometry(QRect(0, 40, 441, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
