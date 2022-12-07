@@ -17,7 +17,7 @@ int Calculate(char input_string[256], double *answer) {
     EvaluateExpression(&rpn_line_head);
     *answer = rpn_line_head->number;
     DeleteLinkedList(&rpn_line_head);
-  } else if (error == 1){
+  } else if (error == 1) {
     *answer = atof(input_string);
     error = 0;
   }
@@ -25,6 +25,8 @@ int Calculate(char input_string[256], double *answer) {
 }
 
 int IsInputCorrect(char input_string[]) {
+  if (*input_string == '\0')
+    return 2;
   int return_value = 0;
   // check if only numbers
   for (char *ptr = input_string; *ptr != '\0'; ++ptr) {
@@ -76,8 +78,16 @@ int CheckForWrongSymbols(char input_string[]) {
         error_flag = 2;
       }
     } else if (*ptr_to_symbol == '(' || *ptr_to_symbol == ')' ||
-               IsOperator(ptr_to_symbol) || *ptr_to_symbol == ' ' ||
-               IsDigit(ptr_to_symbol)) {
+               *ptr_to_symbol == ' ' || IsDigit(ptr_to_symbol)) {
+    } else if (IsOperator(ptr_to_symbol)) {
+      // char *lexeme_finder = ptr_to_symbol;
+      // while (*lexeme_finder != '\0') {
+      //   ++lexeme_finder;
+      //   if (IsDigit(lexeme_finder)) {
+      //     error_flag = 0;
+      //     break;
+      //   }
+      // }
     } else {
       error_flag = 2;
     }
@@ -348,7 +358,8 @@ bool IsLetter(char const *pointer_to_symbol) {
          *pointer_to_symbol == 'l' || *pointer_to_symbol == 'm' ||
          *pointer_to_symbol == 'o' || *pointer_to_symbol == 'i' ||
          *pointer_to_symbol == 'n' || *pointer_to_symbol == 'g' ||
-         *pointer_to_symbol == 'd' || *pointer_to_symbol == 't';
+         *pointer_to_symbol == 'd' || *pointer_to_symbol == 't' ||
+         *pointer_to_symbol == 'q' || *pointer_to_symbol == 'r';
 }
 
 bool IsOperator(char const *pointer_to_symbol) {
