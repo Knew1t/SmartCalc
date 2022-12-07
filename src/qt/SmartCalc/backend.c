@@ -1,10 +1,14 @@
 #include "backend.h"
+#include <_ctype.h>
 #include <stdio.h>
 #include <string.h>
 
 int Calculate(char input_string[256], double *answer) {
+  // IsInputCorrect = 0 - okay
+  // IsInputCorrect = 1 - input is a number => do nothing
+  // IsInputCorrect = 2 - input is wrong => return error
   int error = IsInputCorrect(input_string);
-  if (error == 2) {
+  if (error == 0) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
@@ -15,8 +19,72 @@ int Calculate(char input_string[256], double *answer) {
       DeleteLinkedList(&rpn_line_head);
     } else {
     }
+  } else if (error == 1){
+  } else if (error == 2){
+    ErrorOutput(input_string, "Wrong Input!");
   }
   return error;
+}
+
+int IsInputCorrect(char input_string[]) {
+  int return_value = 0;
+  // check if only numbers
+  for (char *ptr = input_string; *ptr != '\0'; ++ptr) {
+    if (IsDigit(ptr)) {
+      return_value = 1;
+    } else {
+      return_value = 0;
+      break;
+    }
+  }
+  if (return_value != 1) {
+    return_value = CheckForWrongSymbols(input_string);
+  }
+  if (return_value == 0) {
+    return_value = CountBrackets(input_string);
+  }
+  return return_value;
+}
+
+int CheckForWrongSymbols(char input_string[]) {
+  short error_flag = 0;
+  for (char *ptr_to_symbol = input_string;
+       *ptr_to_symbol != '\0' && !error_flag; ++ptr_to_symbol) {
+    if (IsLetter(ptr_to_symbol)) {
+      if (!strncmp(ptr_to_symbol, "sin", sizeof(char) * 3)) {
+        ptr_to_symbol += 2;
+      } else if (!strncmp(ptr_to_symbol, "sin(", sizeof(char) * 4)) {
+        ptr_to_symbol += 3;
+      } else if (!strncmp(ptr_to_symbol, "asin(", sizeof(char) * 5)) {
+        ptr_to_symbol += 4;
+      } else if (!strncmp(ptr_to_symbol, "cos(", sizeof(char) * 4)) {
+        ptr_to_symbol += 3;
+      } else if (!strncmp(ptr_to_symbol, "acos(", sizeof(char) * 5)) {
+        ptr_to_symbol += 4;
+      } else if (!strncmp(ptr_to_symbol, "tan(", sizeof(char) * 4)) {
+        ptr_to_symbol += 3;
+      } else if (!strncmp(ptr_to_symbol, "atan(", sizeof(char) * 5)) {
+        ptr_to_symbol += 4;
+      } else if (!strncmp(ptr_to_symbol, "sqrt(", sizeof(char) * 5)) {
+        ptr_to_symbol += 4;
+      } else if (!strncmp(ptr_to_symbol, "ln(", sizeof(char) * 3)) {
+        ptr_to_symbol += 2;
+      } else if (!strncmp(ptr_to_symbol, "log(", sizeof(char) * 4)) {
+        ptr_to_symbol += 3;
+      } else if (!strncmp(ptr_to_symbol, "mod", sizeof(char) * 3)) {
+        ptr_to_symbol += 2;
+      } else if (*ptr_to_symbol == 'x') {
+      } else {
+        error_flag = 2;
+      }
+    } else if (*ptr_to_symbol == '(' || *ptr_to_symbol == ')' ||
+               IsOperator(ptr_to_symbol) || *ptr_to_symbol == ' ' ||
+               IsDigit(ptr_to_symbol)) {
+    } else {
+      error_flag = 2;
+    }
+  }
+  return error_flag;
 }
 
 double EvaluateExpression(LexemeList **head) {
@@ -71,11 +139,10 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
         ToRPNQue(rpn_line_head, stack_head->lexeme);
         DeleteHeadNode(&stack_head);
       };
-        // CHECK IF WORKS
+      // CHECK IF WORKS
       if (IsMod(pointer_to_symbol))
-          pointer_to_symbol+=2;
+        pointer_to_symbol += 2;
       ToStack(&stack_head, operator);
-
     }
     if (*pointer_to_symbol == ')') {
       while (stack_head->lexeme && *(stack_head->lexeme) != '(') {
@@ -116,7 +183,7 @@ void GetPriority(int *priority, const char *operator) {
   if (*operator== '+') {
     *priority = 2;
   }
-  if (*operator == 'm'){
+  if (*operator== 'm') {
     *priority = 3;
   }
   if (*operator== '/') {
@@ -277,42 +344,30 @@ bool IsDigit(char const *pointer_to_symbol) {
 }
 
 bool IsLetter(char const *pointer_to_symbol) {
-  return (*pointer_to_symbol >= 65 && *pointer_to_symbol <= 90) ||
-         (*pointer_to_symbol >= 97 && *pointer_to_symbol <= 122);
+  // allowed letters x, s, a, c, l, m
+  return *pointer_to_symbol == 'x' || *pointer_to_symbol == 's' ||
+         *pointer_to_symbol == 'a' || *pointer_to_symbol == 'c' ||
+         *pointer_to_symbol == 'l' || *pointer_to_symbol == 'm' ||
+         *pointer_to_symbol == 't';
 }
 
 bool IsOperator(char const *pointer_to_symbol) {
   return *pointer_to_symbol == '+' || *pointer_to_symbol == '-' ||
          *pointer_to_symbol == '*' || *pointer_to_symbol == '/' ||
-         *pointer_to_symbol == '~' || *pointer_to_symbol == '^' || IsMod(pointer_to_symbol);
+         *pointer_to_symbol == '~' || *pointer_to_symbol == '^' ||
+         IsMod(pointer_to_symbol);
 }
 
-bool IsMod(char const *pointer_to_symbol){
-  return strncmp(pointer_to_symbol, "mod", sizeof(char)*3)==0;
+bool IsMod(char const *pointer_to_symbol) {
+  return strncmp(pointer_to_symbol, "mod", sizeof(char) * 3) == 0;
 }
 
-
-int IsInputCorrect(char input_string[]) {
-  int return_value = 2;
-  // check if only numbers
-  for (char *ptr = input_string; *ptr != '\0'; ++ptr) {
-    if (IsDigit(ptr)) {
-    } else {
-      return_value = 1;
-      break;
-    }
-  }
-  if (return_value == 1) {
-    return_value = CountBrackets(input_string) ? 2 : 0;
-  }
-  return return_value;
+bool IsFunction(char const *lexeme) {
+  return IsLetter(lexeme) && !IsMod(lexeme);
 }
-
-bool IsFunction(char const *lexeme) { 
-  return IsLetter(lexeme) && !IsMod(lexeme); }
 
 int CountBrackets(char input_string[]) {
-  int return_value = 1;
+  int return_value = 0;
   short open_bracket_count = 0;
   short close_bracket_count = 0;
   for (char *ptr = input_string;
@@ -321,10 +376,13 @@ int CountBrackets(char input_string[]) {
       ++open_bracket_count;
     if (*ptr == ')')
       ++close_bracket_count;
-  }
-
-  return_value = close_bracket_count == open_bracket_count;
-  return return_value;
+  };
+  // if (open_bracket_count != close_bracket_count) {
+  //   return_value = 2;
+  // } else {
+  //   return_value = 0;
+  // }
+  return (open_bracket_count != close_bracket_count) ? 2 : 0;
 }
 
 bool CheckIfUnary(char *pointer_to_symbol, char input_string[]) {
@@ -403,10 +461,11 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     DeleteSelectedNode(&node_to_be_deleted, head);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  // } else if(!strcmp(operator,"mod")) {
-  } else if(*operator=='m') {
-    *result_value = fmod((*lexeme_pointer)->link_previous->link_previous->number,
-                        (*lexeme_pointer)->link_previous->number);
+    // } else if(!strcmp(operator,"mod")) {
+  } else if (*operator== 'm') {
+    *result_value =
+        fmod((*lexeme_pointer)->link_previous->link_previous->number,
+             (*lexeme_pointer)->link_previous->number);
     node_to_be_deleted = (*lexeme_pointer)->link_previous->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;

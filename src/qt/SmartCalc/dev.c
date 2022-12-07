@@ -11,7 +11,8 @@ int main(int argc, char *argv[]) {
     double answer = 0;
     strcat(string, argv[argc - 1]);
     printf("before calculation %s\n", string);
-    Calculate(string, &answer);
+    answer = IsInputCorrect(string);
+    // Calculate(string, &answer);
     // answer = IsMod(string);
     printf("answer %g\n", answer);
     printf("%s\n", string);

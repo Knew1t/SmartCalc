@@ -42,6 +42,7 @@ int ToStack(LexemeList **head, char *lexeme);
 void PrintRPNLine(LexemeList *rpn_line_head);
 
 int IsInputCorrect(char input_string[]);
+int CheckForWrongSymbols(char input_string[]);
 bool CheckIfAllocationFailed(void *ptr);
 void ErrorOutput(char input_string[], char *error_string);
 bool IsDigit(char const *pointer_to_symbol);
