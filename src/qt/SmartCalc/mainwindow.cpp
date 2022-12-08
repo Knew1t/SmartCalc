@@ -146,6 +146,14 @@ void MainWindow::xPressed(){
 }
 //=================================================
 void MainWindow::GraphButtonPressed(){
+  QSplineSeries* graph = new QSplineSeries();
+  graph->setName("graph");
+  graph->append(0, 6);
+  graph->append(2, 4);
+  graph->append(3, 8);
+  *graph << QPointF(11,1) << QPointF(13,3) << QPointF(17,6);
+  QChart *chart = new QChart();
+
 
 }
 //==================================================
