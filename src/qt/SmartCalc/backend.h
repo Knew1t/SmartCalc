@@ -16,14 +16,14 @@ typedef struct LexemeList {
 
 enum { OK, FAILURE };
 
-int Calculate(char string[256], double *answer);
+int Calculate(char string[256], double *answer, char* x_value);
 int ParseMathExpression(LexemeList *head, char string[255]);
 double EvaluateExpression(LexemeList **head);
 void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
                                  LexemeList **head);
 double CalculatePreviousNodes(double *result_of_calculation,
                               LexemeList **lexeme_pointer, LexemeList **head);
-bool ConvertStringsToNumbers(LexemeList *rpn_line_head);
+bool ConvertStringsToNumbers(LexemeList *rpn_line_head, double * x_ptr );
 int GetNumberLexeme(char **lexeme, char **pointer_to_symbol);
 int GetFunctionLexeme(char **lexeme, char **pointer_to_symbol);
 int GetLexeme(char **lexeme, char **pointer_to_symbol,
@@ -43,6 +43,7 @@ void PrintRPNLine(LexemeList *rpn_line_head);
 
 int IsInputCorrect(char input_string[]);
 int CheckForWrongSymbols(char input_string[]);
+bool IsXPresent(char input_string[]);
 bool CheckIfAllocationFailed(void *ptr);
 void ErrorOutput(char input_string[], char *error_string);
 bool IsDigit(char const *pointer_to_symbol);

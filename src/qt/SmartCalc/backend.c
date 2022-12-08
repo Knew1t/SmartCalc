@@ -3,17 +3,25 @@
 #include <stdio.h>
 #include <string.h>
 
-int Calculate(char input_string[256], double *answer) {
+int Calculate(char input_string[256], double *answer, char *x_string_value) {
   // IsInputCorrect = 0 - okay
   // IsInputCorrect = 1 - input is a number => do nothing
   // IsInputCorrect = 2 - input is wrong => return error
   int error = IsInputCorrect(input_string);
+  int x_flag = IsXPresent(input_string);
+  double x_value = 0;
+  double *x_ptr = NULL;
   if (error == 0) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
     PrintRPNLine(rpn_line_head);
-    ConvertStringsToNumbers(rpn_line_head);
+
+    if (x_flag) {
+      x_value = atof(x_string_value);
+      x_ptr = &x_value;
+    }
+    ConvertStringsToNumbers(rpn_line_head, x_ptr);
     EvaluateExpression(&rpn_line_head);
     *answer = rpn_line_head->number;
     DeleteLinkedList(&rpn_line_head);
@@ -42,6 +50,19 @@ int IsInputCorrect(char input_string[]) {
   }
   if (return_value == 0) {
     return_value = CountBrackets(input_string);
+  }
+  return return_value;
+}
+
+bool IsXPresent(char input_string[]) {
+  char *ptr_to_symbol = input_string;
+  bool return_value = false;
+  while (*ptr_to_symbol != '\0') {
+    if (*ptr_to_symbol == 'x') {
+      return_value = true;
+      break;
+    }
+    ++ptr_to_symbol;
   }
   return return_value;
 }
@@ -412,18 +433,21 @@ bool CheckIfUnary(char *pointer_to_symbol, char input_string[]) {
 
 void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
                                  LexemeList **head) {
-  while (!IsFunction((*lexeme_pointer)->lexeme) &&
-         !IsOperator((*lexeme_pointer)->lexeme)) {
+  while (IsDigit((*lexeme_pointer)->lexeme) ||
+         *((*lexeme_pointer)->lexeme) == 'x') {
     (*lexeme_pointer) = (*lexeme_pointer)->link_next;
   }
 }
 
-bool ConvertStringsToNumbers(LexemeList *rpn_line_head) {
-  if (!IsDigit(rpn_line_head->lexeme))
+bool ConvertStringsToNumbers(LexemeList *rpn_line_head, double *x_ptr) {
+  if (!IsDigit(rpn_line_head->lexeme) && *(rpn_line_head->lexeme) != 'x')
     return false;
   while (rpn_line_head != NULL) {
     if (IsDigit(rpn_line_head->lexeme)) {
       rpn_line_head->number = atof(rpn_line_head->lexeme);
+    }
+    if (*(rpn_line_head->lexeme) == 'x') {
+      rpn_line_head->number = *x_ptr;
     }
     rpn_line_head = rpn_line_head->link_next;
   }

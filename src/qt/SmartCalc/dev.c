@@ -1,4 +1,5 @@
 #include "backend.h"
+// #include <cstring>
 
 int main(int argc, char *argv[]) {
 
@@ -8,11 +9,13 @@ int main(int argc, char *argv[]) {
 
   if (argc > 1) {
     char string[256] = {0};
+    char x_value[256] = {0};
     double answer = 0;
-    strcat(string, argv[argc - 1]);
+    strcat(string, argv[argc - 2]);
+    strcat(x_value, argv[argc-1]);
     printf("before calculation %s\n", string);
     // answer = IsInputCorrect(string);
-    Calculate(string, &answer);
+    Calculate(string, &answer,x_value);
     printf("answer %g\n", answer);
     printf("string after calclulate %s\n", string);
     // // answer = IsMod(string);
