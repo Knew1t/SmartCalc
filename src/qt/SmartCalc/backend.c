@@ -4,20 +4,18 @@
 #include <string.h>
 
 int Calculate(char input_string[256], double *answer, char *x_string_value) {
-  // IsInputCorrect = 0 - okay
-  // IsInputCorrect = 1 - input is a number => do nothing
-  // IsInputCorrect = 2 - input is wrong => return error
   int error = IsInputCorrect(input_string);
-  int x_flag = IsXPresent(input_string);
+  int x_flag = IsXPresent(input_string, x_string_value);
   double x_value = 0;
   double *x_ptr = NULL;
-  if (error == 0) {
+
+  if (error == 0 && x_flag != 2) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
     PrintRPNLine(rpn_line_head);
 
-    if (x_flag) {
+    if (x_flag==1) {
       x_value = atof(x_string_value);
       x_ptr = &x_value;
     }
@@ -33,6 +31,9 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
 }
 
 int IsInputCorrect(char input_string[]) {
+  // IsInputCorrect = 0 - okay
+  // IsInputCorrect = 1 - input is a number => do nothing
+  // IsInputCorrect = 2 - input is wrong => return error
   if (*input_string == '\0')
     return 2;
   int return_value = 0;
@@ -54,16 +55,18 @@ int IsInputCorrect(char input_string[]) {
   return return_value;
 }
 
-bool IsXPresent(char input_string[]) {
+int IsXPresent(char input_string[], char*x_string_value) {
+  bool return_value = 0;
   char *ptr_to_symbol = input_string;
-  bool return_value = false;
   while (*ptr_to_symbol != '\0') {
     if (*ptr_to_symbol == 'x') {
-      return_value = true;
+      return_value = 1;
       break;
     }
     ++ptr_to_symbol;
   }
+  if (return_value == 1 && (*x_string_value =='\0'))
+    return_value = 2;
   return return_value;
 }
 

@@ -145,8 +145,10 @@ void MainWindow::equalPressed() {
   QByteArray array = ui->Display->toPlainText().toLocal8Bit();
   double answer = 0;
   char *ptr = math_expression;
+  QByteArray array_x = ui->X_Display->toPlainText().toLocal8Bit();
+  char *ptr_x = array_x.data();
   ptr = array.data();
-  if (!Calculate(ptr, &answer)) {
+  if (!Calculate(ptr, &answer, ptr_x)) {
     ui->Display_2->setText(QString::number(answer));
     ui->Display_2->setAlignment(Qt::AlignRight);
     ui->Display_2->moveCursor(QTextCursor::End);
