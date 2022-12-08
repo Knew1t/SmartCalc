@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
   //  ui->Display->setReadOnly(true);
   ui->Display_2->setReadOnly(true);
   ui->Display_2->setText("");
+  ui->X_Display->setText("");
+  ui->X_Display->setAlignment(Qt::AlignRight);
   ui->Display->setText(math_expression);
   ui->Display->setAlignment(Qt::AlignRight);
   QPushButton *digitButtons[10];
@@ -67,13 +69,18 @@ void MainWindow::trigonometryButtonPressed() {
 
 void MainWindow::clearPressed() {
   std::fill_n(math_expression, 255, 0);
-  ui->Display->setText(math_expression);
-  ui->Display->setAlignment(Qt::AlignRight);
-  plus_trigger = false;
-  div_trigger = false;
-  mult_trigger = false;
-  digit_trigger = false;
-  dot_trigger = false;
+  if (ui->Display->hasFocus()){
+    ui->Display->setText(math_expression);
+    ui->Display->setAlignment(Qt::AlignRight);
+    plus_trigger = false;
+    div_trigger = false;
+    mult_trigger = false;
+    digit_trigger = false;
+    dot_trigger = false;
+  } else if (ui->X_Display->hasFocus()){
+    ui->X_Display->setText(math_expression);
+    ui->X_Display->setAlignment(Qt::AlignRight);
+  }
 }
 
 void MainWindow::digitPressed() {
@@ -81,11 +88,15 @@ void MainWindow::digitPressed() {
   QString buttonValue = button->text();
   // QString displayVal = ui->Display->placeholderText();
   // QString newVal = displayVal + butval;
-  ui->Display->insertPlainText(buttonValue);
-  digit_trigger = true;
-  mult_trigger = false;
-  div_trigger = false;
-  dot_trigger = false;
+  if (ui->Display->hasFocus()) {
+    ui->Display->insertPlainText(buttonValue);
+    digit_trigger = true;
+    mult_trigger = false;
+    div_trigger = false;
+    dot_trigger = false;
+  } else if (ui->X_Display->hasFocus()) {
+    ui->X_Display->insertPlainText(buttonValue);
+  }
 }
 void MainWindow::openParentPressed() {
   if (!dot_trigger)

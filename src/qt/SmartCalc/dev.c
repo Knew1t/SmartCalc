@@ -12,11 +12,9 @@ int main(int argc, char *argv[]) {
     strcat(string, argv[argc - 1]);
     printf("before calculation %s\n", string);
     // answer = IsInputCorrect(string);
-    for (int i = 0; i < 25; ++i) {
-      Calculate(string, &answer);
-      printf("answer %g\n", answer);
-      printf("string after calclulate %s\n", string);
-    }
+    Calculate(string, &answer);
+    printf("answer %g\n", answer);
+    printf("string after calclulate %s\n", string);
     // // answer = IsMod(string);
     // printf("%s\n", string);
   } else {
