@@ -24,11 +24,12 @@ MainWindow::MainWindow(QWidget *parent)
   ui->Display->setText(math_expression);
   ui->Display->setAlignment(Qt::AlignRight);
   QPushButton *digitButtons[10];
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 11; i++) {
     QString buttonName = "button_" + QString::number(i);
     digitButtons[i] = MainWindow::findChild<QPushButton *>(buttonName);
     connect(digitButtons[i], SIGNAL(released()), this, SLOT(digitPressed()));
   }
+  connect(ui->button_x, SIGNAL(released()),this, SLOT(xPressed()));
   connect(ui->button_clear, SIGNAL(released()), this, SLOT(clearPressed()));
   connect(ui->button_plus, SIGNAL(released()), this, SLOT(plusPressed()));
   connect(ui->button_minus, SIGNAL(released()), this, SLOT(minusPressed()));
@@ -139,6 +140,13 @@ void MainWindow::dividePressed() {
     mult_trigger = true;
     div_trigger = true;
   }
+}
+void MainWindow::xPressed(){
+  ui->Display->insertPlainText("x");
+}
+//=================================================
+void MainWindow::GraphButtonPressed(){
+
 }
 //==================================================
 void MainWindow::equalPressed() {

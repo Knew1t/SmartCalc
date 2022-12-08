@@ -31,6 +31,8 @@ private slots:
   void closeParentPressed();
   void dotPressed();
   void trigonometryButtonPressed();
+  void GraphButtonPressed();
+  void xPressed();
 //  void keyPressEvent();
 
 private:
