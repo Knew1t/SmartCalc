@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
           SLOT(openParentPressed()));
   connect(ui->button_close_parent, SIGNAL(released()), this,
           SLOT(closeParentPressed()));
+  connect(ui->graph_button, SIGNAL(released()), this, SLOT(GraphButtonPressed()));
 
   QPushButton *trigonometryButtons[9] = {
       ui->button_sin,  ui->button_cos,  ui->button_tg,
@@ -52,21 +53,6 @@ MainWindow::MainWindow(QWidget *parent)
   connect(ui->button_divide, SIGNAL(released()), this, SLOT(dividePressed()));
   connect(ui->button_equal, SIGNAL(released()), this, SLOT(equalPressed()));
   connect(ui->button_dot, SIGNAL(released()), this, SLOT(dotPressed()));
-  //_---------------GRAPH-------------------
-  QSplineSeries* graph = new QSplineSeries();
-  graph->setName("graph");
-  graph->append(0, 6);
-  graph->append(2, 4);
-  graph->append(3, 8);
-  *graph << QPointF(11,1) << QPointF(13,3) << QPointF(17,6);
-  QChart *chart = new QChart();
-  chart->legend()->hide();
-  chart->addSeries(graph);
-  chart->setTitle("example");
-  chart->createDefaultAxes();
-  chart->axes(Qt::Vertical).first()->setRange(0,10);
-  QChartView *chartView = new QChartView(chart);
-  chartView->setRenderHint(QPainter::Antialiasing);
 }
 
 MainWindow::~MainWindow() { delete ui; }
@@ -161,8 +147,12 @@ void MainWindow::xPressed(){
 }
 //=================================================
 void MainWindow::GraphButtonPressed(){
-
-
+    QLineSeries* series = new QLineSeries();
+    series->append(0, 6);
+    series->append(2, 4);
+    QChartView *v = new QChartView;
+    v->chart()->addSeries(series);
+    v->chart()->createDefaultAxes();
 
 }
 //==================================================

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "QtWidgets/qpushbutton.h"
+#include <QtCharts/QLineSeries>
 #include <QtCharts/QSplineSeries>
 #include <QtCharts/QChartView>
 #include <QMainWindow>

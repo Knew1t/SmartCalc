@@ -54,7 +54,7 @@ public:
     QPushButton *button_8;
     QPushButton *button_7;
     QTextEdit *X_Display;
-    QPushButton *pushButton_2;
+    QPushButton *graph_button;
     QTextEdit *Display_2;
     QPushButton *button_x;
     QMenuBar *menubar;
@@ -193,9 +193,9 @@ public:
         X_Display = new QTextEdit(centralwidget);
         X_Display->setObjectName(QString::fromUtf8("X_Display"));
         X_Display->setGeometry(QRect(270, 90, 171, 31));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(0, 80, 171, 51));
+        graph_button = new QPushButton(centralwidget);
+        graph_button->setObjectName(QString::fromUtf8("graph_button"));
+        graph_button->setGeometry(QRect(0, 80, 171, 51));
         Display_2 = new QTextEdit(centralwidget);
         Display_2->setObjectName(QString::fromUtf8("Display_2"));
         Display_2->setGeometry(QRect(0, 40, 441, 31));
@@ -247,7 +247,7 @@ public:
         button_plus->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
         button_8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
         button_7->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "Make Graph", nullptr));
+        graph_button->setText(QCoreApplication::translate("MainWindow", "Make Graph", nullptr));
         button_x->setText(QCoreApplication::translate("MainWindow", "x", nullptr));
     } // retranslateUi
 
