@@ -292,18 +292,24 @@ CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o
  /usr/local/include/QtWidgets/qsizepolicy.h
  /usr/local/include/QtGui/qcursor.h
  /usr/local/include/QtGui/qbitmap.h
- /usr/local/lib/QtWidgets.framework/Headers/QMainWindow
- /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
- /usr/local/include/QtWidgets/qtabwidget.h
- /usr/local/lib/QtWidgets.framework/Headers/QToolButton
- /usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h
- /usr/local/lib/QtGui.framework/Headers/QKeyEvent
- /usr/local/lib/QtGui.framework/Headers/qevent.h
- /usr/local/include/QtCore/qcoreevent.h
- /usr/local/include/QtCore/qiodevice.h
- /usr/local/include/QtCore/qpointer.h
- /usr/local/include/QtCore/qurl.h
- /usr/local/include/QtCore/qvariant.h
+ /usr/local/include/QtCharts/QSplineSeries
+ /usr/local/include/QtCharts/qsplineseries.h
+ /usr/local/include/QtCharts/QChartGlobal
+ /usr/local/include/QtCharts/qchartglobal.h
+ /usr/local/include/QtCharts/qtcharts-config.h
+ /usr/local/include/QtCharts/qlineseries.h
+ /usr/local/include/QtCharts/QXYSeries
+ /usr/local/include/QtCharts/qxyseries.h
+ /usr/local/include/QtCharts/QAbstractSeries
+ /usr/local/include/QtCharts/qabstractseries.h
+ /usr/local/include/QtCharts/QAbstractAxis
+ /usr/local/include/QtCharts/qabstractaxis.h
+ /usr/local/include/QtGui/QPen
+ /usr/local/lib/QtGui.framework/Headers/qpen.h
+ /usr/local/include/QtGui/QFont
+ /usr/local/lib/QtGui.framework/Headers/qfont.h
+ /usr/local/include/QtCore/QVariant
+ /usr/local/lib/QtCore.framework/Headers/qvariant.h
  /usr/local/include/QtCore/qmap.h
  /usr/local/include/QtCore/qshareddata_impl.h
  /usr/local/include/QtCore/qhash.h
@@ -312,16 +318,38 @@ CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o
  /usr/local/include/QtCore/qstringconverter.h
  /usr/local/include/QtCore/qset.h
  /usr/local/include/QtCore/qcontiguouscache.h
+ /usr/local/include/QtCore/QObject
+ /usr/local/lib/QtCore.framework/Headers/qobject.h
+ /usr/local/include/QtGui/QBrush
+ /usr/local/lib/QtGui.framework/Headers/qbrush.h
+ /usr/local/include/QtGui/QImage
+ /usr/local/lib/QtGui.framework/Headers/qimage.h
+ /usr/local/include/QtCore/QList
+ /usr/local/lib/QtCore.framework/Headers/qlist.h
+ /usr/local/include/QtCore/QPointF
+ /usr/local/lib/QtCore.framework/Headers/qpoint.h
+ /usr/local/include/QtCharts/QChartView
+ /usr/local/include/QtCharts/qchartview.h
+ /usr/local/include/QtCharts/QChart
+ /usr/local/include/QtCharts/qchart.h
+ /usr/local/include/QtCharts/QLegend
+ /usr/local/include/QtCharts/qlegend.h
+ /usr/local/include/QtWidgets/QGraphicsWidget
+ /usr/local/lib/QtWidgets.framework/Headers/qgraphicswidget.h
+ /usr/local/include/QtGui/qaction.h
+ /usr/local/include/QtCore/qvariant.h
+ /usr/local/include/QtWidgets/qgraphicslayoutitem.h
+ /usr/local/include/QtGui/qevent.h
+ /usr/local/include/QtCore/qcoreevent.h
+ /usr/local/include/QtCore/qiodevice.h
+ /usr/local/include/QtCore/qpointer.h
+ /usr/local/include/QtCore/qurl.h
  /usr/local/include/QtGui/qeventpoint.h
  /usr/local/include/QtGui/qvector2d.h
  /usr/local/include/QtGui/qvectornd.h
  /usr/local/include/QtGui/qpointingdevice.h
  /usr/local/include/QtGui/qinputdevice.h
  /usr/local/include/QtGui/qscreen.h
- /usr/local/include/QtCore/QList
- /usr/local/lib/QtCore.framework/Headers/qlist.h
- /usr/local/include/QtCore/QObject
- /usr/local/lib/QtCore.framework/Headers/qobject.h
  /usr/local/include/QtCore/QRect
  /usr/local/lib/QtCore.framework/Headers/qrect.h
  /usr/local/include/QtCore/QSize
@@ -330,6 +358,26 @@ CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o
  /usr/local/include/QtGui/QTransform
  /usr/local/lib/QtGui.framework/Headers/qtransform.h
  /usr/local/include/QtCore/qnativeinterface.h
+ /usr/local/include/QtWidgets/qgraphicsitem.h
+ /usr/local/include/QtGui/qpainterpath.h
+ /usr/local/include/QtCore/QMargins
+ /usr/local/lib/QtCore.framework/Headers/qmargins.h
+ /usr/local/include/QtWidgets/QGraphicsView
+ /usr/local/lib/QtWidgets.framework/Headers/qgraphicsview.h
+ /usr/local/include/QtGui/qpainter.h
+ /usr/local/include/QtGui/qtextoption.h
+ /usr/local/include/QtGui/qpen.h
+ /usr/local/include/QtWidgets/qscrollarea.h
+ /usr/local/include/QtWidgets/qabstractscrollarea.h
+ /usr/local/include/QtWidgets/qframe.h
+ /usr/local/include/QtWidgets/qgraphicsscene.h
+ /usr/local/lib/QtWidgets.framework/Headers/QMainWindow
+ /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
+ /usr/local/include/QtWidgets/qtabwidget.h
+ /usr/local/lib/QtWidgets.framework/Headers/QToolButton
+ /usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h
+ /usr/local/lib/QtGui.framework/Headers/QKeyEvent
+ /usr/local/lib/QtGui.framework/Headers/qevent.h
 
 CMakeFiles/SmartCalc.dir/backend.c.o
  /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.c
@@ -709,18 +757,24 @@ CMakeFiles/SmartCalc.dir/main.cpp.o
  /usr/local/include/QtWidgets/qsizepolicy.h
  /usr/local/include/QtGui/qcursor.h
  /usr/local/include/QtGui/qbitmap.h
- /usr/local/lib/QtWidgets.framework/Headers/QMainWindow
- /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
- /usr/local/include/QtWidgets/qtabwidget.h
- /usr/local/lib/QtWidgets.framework/Headers/QToolButton
- /usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h
- /usr/local/lib/QtGui.framework/Headers/QKeyEvent
- /usr/local/lib/QtGui.framework/Headers/qevent.h
- /usr/local/include/QtCore/qcoreevent.h
- /usr/local/include/QtCore/qiodevice.h
- /usr/local/include/QtCore/qpointer.h
- /usr/local/include/QtCore/qurl.h
- /usr/local/include/QtCore/qvariant.h
+ /usr/local/include/QtCharts/QSplineSeries
+ /usr/local/include/QtCharts/qsplineseries.h
+ /usr/local/include/QtCharts/QChartGlobal
+ /usr/local/include/QtCharts/qchartglobal.h
+ /usr/local/include/QtCharts/qtcharts-config.h
+ /usr/local/include/QtCharts/qlineseries.h
+ /usr/local/include/QtCharts/QXYSeries
+ /usr/local/include/QtCharts/qxyseries.h
+ /usr/local/include/QtCharts/QAbstractSeries
+ /usr/local/include/QtCharts/qabstractseries.h
+ /usr/local/include/QtCharts/QAbstractAxis
+ /usr/local/include/QtCharts/qabstractaxis.h
+ /usr/local/include/QtGui/QPen
+ /usr/local/lib/QtGui.framework/Headers/qpen.h
+ /usr/local/include/QtGui/QFont
+ /usr/local/lib/QtGui.framework/Headers/qfont.h
+ /usr/local/include/QtCore/QVariant
+ /usr/local/lib/QtCore.framework/Headers/qvariant.h
  /usr/local/include/QtCore/qmap.h
  /usr/local/include/QtCore/qshareddata_impl.h
  /usr/local/include/QtCore/qhash.h
@@ -729,16 +783,38 @@ CMakeFiles/SmartCalc.dir/main.cpp.o
  /usr/local/include/QtCore/qstringconverter.h
  /usr/local/include/QtCore/qset.h
  /usr/local/include/QtCore/qcontiguouscache.h
+ /usr/local/include/QtCore/QObject
+ /usr/local/lib/QtCore.framework/Headers/qobject.h
+ /usr/local/include/QtGui/QBrush
+ /usr/local/lib/QtGui.framework/Headers/qbrush.h
+ /usr/local/include/QtGui/QImage
+ /usr/local/lib/QtGui.framework/Headers/qimage.h
+ /usr/local/include/QtCore/QList
+ /usr/local/lib/QtCore.framework/Headers/qlist.h
+ /usr/local/include/QtCore/QPointF
+ /usr/local/lib/QtCore.framework/Headers/qpoint.h
+ /usr/local/include/QtCharts/QChartView
+ /usr/local/include/QtCharts/qchartview.h
+ /usr/local/include/QtCharts/QChart
+ /usr/local/include/QtCharts/qchart.h
+ /usr/local/include/QtCharts/QLegend
+ /usr/local/include/QtCharts/qlegend.h
+ /usr/local/include/QtWidgets/QGraphicsWidget
+ /usr/local/lib/QtWidgets.framework/Headers/qgraphicswidget.h
+ /usr/local/include/QtGui/qaction.h
+ /usr/local/include/QtCore/qvariant.h
+ /usr/local/include/QtWidgets/qgraphicslayoutitem.h
+ /usr/local/include/QtGui/qevent.h
+ /usr/local/include/QtCore/qcoreevent.h
+ /usr/local/include/QtCore/qiodevice.h
+ /usr/local/include/QtCore/qpointer.h
+ /usr/local/include/QtCore/qurl.h
  /usr/local/include/QtGui/qeventpoint.h
  /usr/local/include/QtGui/qvector2d.h
  /usr/local/include/QtGui/qvectornd.h
  /usr/local/include/QtGui/qpointingdevice.h
  /usr/local/include/QtGui/qinputdevice.h
  /usr/local/include/QtGui/qscreen.h
- /usr/local/include/QtCore/QList
- /usr/local/lib/QtCore.framework/Headers/qlist.h
- /usr/local/include/QtCore/QObject
- /usr/local/lib/QtCore.framework/Headers/qobject.h
  /usr/local/include/QtCore/QRect
  /usr/local/lib/QtCore.framework/Headers/qrect.h
  /usr/local/include/QtCore/QSize
@@ -747,6 +823,26 @@ CMakeFiles/SmartCalc.dir/main.cpp.o
  /usr/local/include/QtGui/QTransform
  /usr/local/lib/QtGui.framework/Headers/qtransform.h
  /usr/local/include/QtCore/qnativeinterface.h
+ /usr/local/include/QtWidgets/qgraphicsitem.h
+ /usr/local/include/QtGui/qpainterpath.h
+ /usr/local/include/QtCore/QMargins
+ /usr/local/lib/QtCore.framework/Headers/qmargins.h
+ /usr/local/include/QtWidgets/QGraphicsView
+ /usr/local/lib/QtWidgets.framework/Headers/qgraphicsview.h
+ /usr/local/include/QtGui/qpainter.h
+ /usr/local/include/QtGui/qtextoption.h
+ /usr/local/include/QtGui/qpen.h
+ /usr/local/include/QtWidgets/qscrollarea.h
+ /usr/local/include/QtWidgets/qabstractscrollarea.h
+ /usr/local/include/QtWidgets/qframe.h
+ /usr/local/include/QtWidgets/qgraphicsscene.h
+ /usr/local/lib/QtWidgets.framework/Headers/QMainWindow
+ /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
+ /usr/local/include/QtWidgets/qtabwidget.h
+ /usr/local/lib/QtWidgets.framework/Headers/QToolButton
+ /usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h
+ /usr/local/lib/QtGui.framework/Headers/QKeyEvent
+ /usr/local/lib/QtGui.framework/Headers/qevent.h
  /usr/local/lib/QtWidgets.framework/Headers/QApplication
  /usr/local/lib/QtWidgets.framework/Headers/qapplication.h
  /usr/local/include/QtCore/qcoreapplication.h
@@ -1047,18 +1143,24 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o
  /usr/local/include/QtWidgets/qsizepolicy.h
  /usr/local/include/QtGui/qcursor.h
  /usr/local/include/QtGui/qbitmap.h
- /usr/local/lib/QtWidgets.framework/Headers/QMainWindow
- /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
- /usr/local/include/QtWidgets/qtabwidget.h
- /usr/local/lib/QtWidgets.framework/Headers/QToolButton
- /usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h
- /usr/local/lib/QtGui.framework/Headers/QKeyEvent
- /usr/local/lib/QtGui.framework/Headers/qevent.h
- /usr/local/include/QtCore/qcoreevent.h
- /usr/local/include/QtCore/qiodevice.h
- /usr/local/include/QtCore/qpointer.h
- /usr/local/include/QtCore/qurl.h
- /usr/local/include/QtCore/qvariant.h
+ /usr/local/include/QtCharts/QSplineSeries
+ /usr/local/include/QtCharts/qsplineseries.h
+ /usr/local/include/QtCharts/QChartGlobal
+ /usr/local/include/QtCharts/qchartglobal.h
+ /usr/local/include/QtCharts/qtcharts-config.h
+ /usr/local/include/QtCharts/qlineseries.h
+ /usr/local/include/QtCharts/QXYSeries
+ /usr/local/include/QtCharts/qxyseries.h
+ /usr/local/include/QtCharts/QAbstractSeries
+ /usr/local/include/QtCharts/qabstractseries.h
+ /usr/local/include/QtCharts/QAbstractAxis
+ /usr/local/include/QtCharts/qabstractaxis.h
+ /usr/local/include/QtGui/QPen
+ /usr/local/lib/QtGui.framework/Headers/qpen.h
+ /usr/local/include/QtGui/QFont
+ /usr/local/lib/QtGui.framework/Headers/qfont.h
+ /usr/local/include/QtCore/QVariant
+ /usr/local/lib/QtCore.framework/Headers/qvariant.h
  /usr/local/include/QtCore/qmap.h
  /usr/local/include/QtCore/qshareddata_impl.h
  /usr/local/include/QtCore/qhash.h
@@ -1067,16 +1169,38 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o
  /usr/local/include/QtCore/qstringconverter.h
  /usr/local/include/QtCore/qset.h
  /usr/local/include/QtCore/qcontiguouscache.h
+ /usr/local/include/QtCore/QObject
+ /usr/local/lib/QtCore.framework/Headers/qobject.h
+ /usr/local/include/QtGui/QBrush
+ /usr/local/lib/QtGui.framework/Headers/qbrush.h
+ /usr/local/include/QtGui/QImage
+ /usr/local/lib/QtGui.framework/Headers/qimage.h
+ /usr/local/include/QtCore/QList
+ /usr/local/lib/QtCore.framework/Headers/qlist.h
+ /usr/local/include/QtCore/QPointF
+ /usr/local/lib/QtCore.framework/Headers/qpoint.h
+ /usr/local/include/QtCharts/QChartView
+ /usr/local/include/QtCharts/qchartview.h
+ /usr/local/include/QtCharts/QChart
+ /usr/local/include/QtCharts/qchart.h
+ /usr/local/include/QtCharts/QLegend
+ /usr/local/include/QtCharts/qlegend.h
+ /usr/local/include/QtWidgets/QGraphicsWidget
+ /usr/local/lib/QtWidgets.framework/Headers/qgraphicswidget.h
+ /usr/local/include/QtGui/qaction.h
+ /usr/local/include/QtCore/qvariant.h
+ /usr/local/include/QtWidgets/qgraphicslayoutitem.h
+ /usr/local/include/QtGui/qevent.h
+ /usr/local/include/QtCore/qcoreevent.h
+ /usr/local/include/QtCore/qiodevice.h
+ /usr/local/include/QtCore/qpointer.h
+ /usr/local/include/QtCore/qurl.h
  /usr/local/include/QtGui/qeventpoint.h
  /usr/local/include/QtGui/qvector2d.h
  /usr/local/include/QtGui/qvectornd.h
  /usr/local/include/QtGui/qpointingdevice.h
  /usr/local/include/QtGui/qinputdevice.h
  /usr/local/include/QtGui/qscreen.h
- /usr/local/include/QtCore/QList
- /usr/local/lib/QtCore.framework/Headers/qlist.h
- /usr/local/include/QtCore/QObject
- /usr/local/lib/QtCore.framework/Headers/qobject.h
  /usr/local/include/QtCore/QRect
  /usr/local/lib/QtCore.framework/Headers/qrect.h
  /usr/local/include/QtCore/QSize
@@ -1085,9 +1209,27 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o
  /usr/local/include/QtGui/QTransform
  /usr/local/lib/QtGui.framework/Headers/qtransform.h
  /usr/local/include/QtCore/qnativeinterface.h
+ /usr/local/include/QtWidgets/qgraphicsitem.h
+ /usr/local/include/QtGui/qpainterpath.h
+ /usr/local/include/QtCore/QMargins
+ /usr/local/lib/QtCore.framework/Headers/qmargins.h
+ /usr/local/include/QtWidgets/QGraphicsView
+ /usr/local/lib/QtWidgets.framework/Headers/qgraphicsview.h
+ /usr/local/include/QtGui/qpainter.h
+ /usr/local/include/QtGui/qtextoption.h
+ /usr/local/include/QtGui/qpen.h
+ /usr/local/include/QtWidgets/qscrollarea.h
+ /usr/local/include/QtWidgets/qabstractscrollarea.h
+ /usr/local/include/QtWidgets/qframe.h
+ /usr/local/include/QtWidgets/qgraphicsscene.h
+ /usr/local/lib/QtWidgets.framework/Headers/QMainWindow
+ /usr/local/lib/QtWidgets.framework/Headers/qmainwindow.h
+ /usr/local/include/QtWidgets/qtabwidget.h
+ /usr/local/lib/QtWidgets.framework/Headers/QToolButton
+ /usr/local/lib/QtWidgets.framework/Headers/qtoolbutton.h
+ /usr/local/lib/QtGui.framework/Headers/QKeyEvent
+ /usr/local/lib/QtGui.framework/Headers/qevent.h
  /Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/SmartCalc_autogen/include/ui_mainwindow.h
- /usr/local/include/QtCore/QVariant
- /usr/local/lib/QtCore.framework/Headers/qvariant.h
  /usr/local/include/QtWidgets/QApplication
  /usr/local/lib/QtWidgets.framework/Headers/qapplication.h
  /usr/local/include/QtCore/qcoreapplication.h
@@ -1097,27 +1239,19 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o
  /usr/local/include/QtGui/qinputmethod.h
  /usr/local/include/QtCore/qlocale.h
  /usr/local/include/QtGui/qguiapplication_platform.h
- /usr/local/include/QtWidgets/QLabel
- /usr/local/lib/QtWidgets.framework/Headers/qlabel.h
- /usr/local/include/QtWidgets/qframe.h
- /usr/local/include/QtGui/qpicture.h
- /usr/local/include/QtGui/qtextdocument.h
  /usr/local/include/QtWidgets/QMainWindow
  /usr/local/include/QtWidgets/QMenuBar
  /usr/local/lib/QtWidgets.framework/Headers/qmenubar.h
  /usr/local/include/QtWidgets/qmenu.h
- /usr/local/include/QtGui/qaction.h
  /usr/local/include/QtWidgets/QPushButton
  /usr/local/lib/QtWidgets.framework/Headers/qpushbutton.h
  /usr/local/include/QtWidgets/QStatusBar
  /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h
  /usr/local/include/QtWidgets/QTextEdit
  /usr/local/lib/QtWidgets.framework/Headers/qtextedit.h
- /usr/local/include/QtWidgets/qabstractscrollarea.h
- /usr/local/include/QtGui/qtextoption.h
+ /usr/local/include/QtGui/qtextdocument.h
  /usr/local/include/QtGui/qtextcursor.h
  /usr/local/include/QtGui/qtextformat.h
- /usr/local/include/QtGui/qpen.h
  /usr/local/include/QtWidgets/QWidget
  /usr/local/lib/QtWidgets.framework/Headers/qwidget.h
  /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.h
