@@ -1,4 +1,4 @@
-# Install script for directory: /home/longshot/plgr/cmake_tutorial/Step1
+# Install script for directory: /home/longshot/projects/SmartCalc/src/cmake_tutorial/step1
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/longshot/plgr/cmake_tutorial/step1_build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/longshot/projects/SmartCalc/src/cmake_tutorial/step1_build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

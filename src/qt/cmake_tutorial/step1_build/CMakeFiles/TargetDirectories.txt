@@ -1,3 +1,0 @@
-/home/longshot/plgr/cmake_tutorial/step1_build/CMakeFiles/tutorial.dir
-/home/longshot/plgr/cmake_tutorial/step1_build/CMakeFiles/edit_cache.dir
-/home/longshot/plgr/cmake_tutorial/step1_build/CMakeFiles/rebuild_cache.dir

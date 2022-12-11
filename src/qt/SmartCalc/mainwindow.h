@@ -1,14 +1,19 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <algorithm>
+#include <iostream>
+#include <qnamespace.h>
 #include "QtWidgets/qpushbutton.h"
-// #include <QtCharts/QLineSeries>
-// #include <QtCharts/QSplineSeries>
-// #include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QtCharts/QSplineSeries>
+#include <QtCharts/QChartView>
+#include <QtCharts/qxyseries.h>
 #include "QKeyEvent"
 #include <iostream>
 #include <QMainWindow>
 #include <QToolButton>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

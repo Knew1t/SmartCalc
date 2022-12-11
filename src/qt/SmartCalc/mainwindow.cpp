@@ -1,11 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include <iostream>
-#include <qnamespace.h>
 extern "C" {
 #include "backend.h"
 }
-// #include "QtCore/qobjectdefs.h"
 
 char math_expression[255] = {0};
 bool plus_trigger = false;
@@ -163,7 +160,7 @@ void MainWindow::dividePressed() {
 void MainWindow::xPressed() { ui->Display->insertPlainText("x"); }
 //=================================================
 void MainWindow::GraphButtonPressed() {
-  // QLineSeries* series = new QLineSeries();
+  // QLineSeries* series = new QSplineSeries();
   // series->append(0, 6);
   // series->append(2, 4);
   // QChartView *v = new QChartView;
