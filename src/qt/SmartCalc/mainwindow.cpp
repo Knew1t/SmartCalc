@@ -147,12 +147,12 @@ void MainWindow::xPressed(){
 }
 //=================================================
 void MainWindow::GraphButtonPressed(){
-    QLineSeries* series = new QLineSeries();
-    series->append(0, 6);
-    series->append(2, 4);
-    QChartView *v = new QChartView;
-    v->chart()->addSeries(series);
-    v->chart()->createDefaultAxes();
+    // QLineSeries* series = new QLineSeries();
+    // series->append(0, 6);
+    // series->append(2, 4);
+    // QChartView *v = new QChartView;
+    // v->chart()->addSeries(series);
+    // v->chart()->createDefaultAxes();
 
 }
 //==================================================
