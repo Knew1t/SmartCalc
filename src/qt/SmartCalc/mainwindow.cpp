@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <iostream>
+#include <qnamespace.h>
 extern "C" {
 #include "backend.h"
 }
@@ -23,21 +25,31 @@ MainWindow::MainWindow(QWidget *parent)
   ui->X_Display->setAlignment(Qt::AlignRight);
   ui->Display->setText(math_expression);
   ui->Display->setAlignment(Qt::AlignRight);
+  ui->Display->setFocus();
+  ui->Display->setFocusPolicy(Qt::ClickFocus);
   QPushButton *digitButtons[10];
-  for (int i = 0; i < 11; i++) {
+  for (int i = 0; i < 10; i++) {
     QString buttonName = "button_" + QString::number(i);
     digitButtons[i] = MainWindow::findChild<QPushButton *>(buttonName);
     connect(digitButtons[i], SIGNAL(released()), this, SLOT(digitPressed()));
+    digitButtons[i]->setFocusPolicy(Qt::NoFocus);
   }
-  connect(ui->button_x, SIGNAL(released()),this, SLOT(xPressed()));
+  connect(ui->button_x, SIGNAL(released()), this, SLOT(xPressed()));
+    ui->button_x->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_clear, SIGNAL(released()), this, SLOT(clearPressed()));
+  ui->button_clear->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_plus, SIGNAL(released()), this, SLOT(plusPressed()));
+  ui->button_plus->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_minus, SIGNAL(released()), this, SLOT(minusPressed()));
+  ui->button_minus->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_open_parent, SIGNAL(released()), this,
           SLOT(openParentPressed()));
+  ui->button_open_parent->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_close_parent, SIGNAL(released()), this,
           SLOT(closeParentPressed()));
-  connect(ui->graph_button, SIGNAL(released()), this, SLOT(GraphButtonPressed()));
+  ui->button_close_parent->setFocusPolicy(Qt::NoFocus);
+  // connect(ui->graph_button, SIGNAL(released()), this,
+  // SLOT(GraphButtonPressed()));
 
   QPushButton *trigonometryButtons[9] = {
       ui->button_sin,  ui->button_cos,  ui->button_tg,
@@ -46,13 +58,18 @@ MainWindow::MainWindow(QWidget *parent)
   for (int i = 0; i < 9; i++) {
     connect(trigonometryButtons[i], SIGNAL(released()), this,
             SLOT(trigonometryButtonPressed()));
+    trigonometryButtons[i]->setFocusPolicy(Qt::NoFocus);
   }
 
   connect(ui->button_multiply, SIGNAL(released()), this,
           SLOT(multiplyPressed()));
+  ui->button_multiply->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_divide, SIGNAL(released()), this, SLOT(dividePressed()));
+  ui->button_divide->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_equal, SIGNAL(released()), this, SLOT(equalPressed()));
+  ui->button_equal->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_dot, SIGNAL(released()), this, SLOT(dotPressed()));
+  ui->button_dot->setFocusPolicy(Qt::NoFocus);
 }
 
 MainWindow::~MainWindow() { delete ui; }
@@ -90,12 +107,13 @@ void MainWindow::digitPressed() {
   QString buttonValue = button->text();
   // QString displayVal = ui->Display->placeholderText();
   // QString newVal = displayVal + butval;
-  if (ui->Display->hasFocus()) {
+  if (ui->Display->hasFocus() ) {
     ui->Display->insertPlainText(buttonValue);
     digit_trigger = true;
     mult_trigger = false;
     div_trigger = false;
     dot_trigger = false;
+
   } else if (ui->X_Display->hasFocus()) {
     ui->X_Display->insertPlainText(buttonValue);
   }
@@ -142,18 +160,15 @@ void MainWindow::dividePressed() {
     div_trigger = true;
   }
 }
-void MainWindow::xPressed(){
-  ui->Display->insertPlainText("x");
-}
+void MainWindow::xPressed() { ui->Display->insertPlainText("x"); }
 //=================================================
-void MainWindow::GraphButtonPressed(){
-    // QLineSeries* series = new QLineSeries();
-    // series->append(0, 6);
-    // series->append(2, 4);
-    // QChartView *v = new QChartView;
-    // v->chart()->addSeries(series);
-    // v->chart()->createDefaultAxes();
-
+void MainWindow::GraphButtonPressed() {
+  // QLineSeries* series = new QLineSeries();
+  // series->append(0, 6);
+  // series->append(2, 4);
+  // QChartView *v = new QChartView;
+  // v->chart()->addSeries(series);
+  // v->chart()->createDefaultAxes();
 }
 //==================================================
 void MainWindow::equalPressed() {

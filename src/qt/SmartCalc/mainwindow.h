@@ -5,9 +5,10 @@
 // #include <QtCharts/QLineSeries>
 // #include <QtCharts/QSplineSeries>
 // #include <QtCharts/QChartView>
+#include "QKeyEvent"
+#include <iostream>
 #include <QMainWindow>
 #include <QToolButton>
-#include "QKeyEvent"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -36,7 +37,7 @@ private slots:
   void trigonometryButtonPressed();
   void GraphButtonPressed();
   void xPressed();
-//  void keyPressEvent();
+  //  void keyPressEvent();
 
 private:
   Ui::MainWindow *ui;
