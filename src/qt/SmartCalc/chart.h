@@ -13,12 +13,12 @@ class chart : public QDialog {
 
 public:
   explicit chart(QWidget *parent = nullptr);
+  void DrawGraph(char string[]);
   ~chart();
 
 private:
   Ui::chart *ui;
   QCustomPlot *new_chart;
-  void DrawGraph(QCustomPlot * new_chart);
 };
 
 #endif // CHART_H
