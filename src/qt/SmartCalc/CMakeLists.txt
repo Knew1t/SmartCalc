@@ -16,6 +16,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS PrintSupport)
 
 # set(PROJECT_SOURCES
 #         main.cpp
@@ -36,6 +37,11 @@ add_executable(SmartCalc
   mainwindow.h
   backend.h
   backend.c
+  chart.ui
+  chart.h
+  chart.cpp
+  qcustomplot.cpp
+  qcustomplot.h
 )
 
 # if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -61,8 +67,9 @@ add_executable(SmartCalc
 #     endif()
 # endif()
 
-# target_link_libraries(SmartCalc PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-target_link_libraries(SmartCalc Qt5::Widgets)
+target_link_libraries(SmartCalc PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(SmartCalc PRIVATE Qt${QT_VERSION_MAJOR}::PrintSupport)
+# target_link_libraries(SmartCalc Qt5::Widgets)
 
 # set_target_properties(SmartCalc PROPERTIES
 #     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

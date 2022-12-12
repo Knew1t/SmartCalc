@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     digitButtons[i]->setFocusPolicy(Qt::NoFocus);
   }
   connect(ui->button_x, SIGNAL(released()), this, SLOT(xPressed()));
-    ui->button_x->setFocusPolicy(Qt::NoFocus);
+  ui->button_x->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_clear, SIGNAL(released()), this, SLOT(clearPressed()));
   ui->button_clear->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_plus, SIGNAL(released()), this, SLOT(plusPressed()));
@@ -67,6 +67,11 @@ MainWindow::MainWindow(QWidget *parent)
   ui->button_equal->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_dot, SIGNAL(released()), this, SLOT(dotPressed()));
   ui->button_dot->setFocusPolicy(Qt::NoFocus);
+  connect(ui->button_xor, SIGNAL(released()), this, SLOT(XorPressed()));
+  ui->button_xor->setFocusPolicy(Qt::NoFocus);
+  connect(ui->graph_button, SIGNAL(released()), this,
+          SLOT(GraphButtonPressed()));
+  ui->graph_button->setFocusPolicy(Qt::NoFocus);
 }
 
 MainWindow::~MainWindow() { delete ui; }
@@ -85,7 +90,7 @@ void MainWindow::trigonometryButtonPressed() {
 
 void MainWindow::clearPressed() {
   std::fill_n(math_expression, 255, 0);
-  if (ui->Display->hasFocus()){
+  if (ui->Display->hasFocus()) {
     ui->Display->setText(math_expression);
     ui->Display->setAlignment(Qt::AlignRight);
     plus_trigger = false;
@@ -93,7 +98,7 @@ void MainWindow::clearPressed() {
     mult_trigger = false;
     digit_trigger = false;
     dot_trigger = false;
-  } else if (ui->X_Display->hasFocus()){
+  } else if (ui->X_Display->hasFocus()) {
     ui->X_Display->setText(math_expression);
     ui->X_Display->setAlignment(Qt::AlignRight);
   }
@@ -104,7 +109,7 @@ void MainWindow::digitPressed() {
   QString buttonValue = button->text();
   // QString displayVal = ui->Display->placeholderText();
   // QString newVal = displayVal + butval;
-  if (ui->Display->hasFocus() ) {
+  if (ui->Display->hasFocus()) {
     ui->Display->insertPlainText(buttonValue);
     digit_trigger = true;
     mult_trigger = false;
@@ -157,15 +162,12 @@ void MainWindow::dividePressed() {
     div_trigger = true;
   }
 }
+void MainWindow::XorPressed() { ui->Display->insertPlainText("^"); }
 void MainWindow::xPressed() { ui->Display->insertPlainText("x"); }
 //=================================================
 void MainWindow::GraphButtonPressed() {
-  // QLineSeries* series = new QSplineSeries();
-  // series->append(0, 6);
-  // series->append(2, 4);
-  // QChartView *v = new QChartView;
-  // v->chart()->addSeries(series);
-  // v->chart()->createDefaultAxes();
+  new_chart = new chart(this);
+  new_chart->show();
 }
 //==================================================
 void MainWindow::equalPressed() {

@@ -1,19 +1,20 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "QtWidgets/qpushbutton.h"
+// #include "qcustomplot.h" //chart lib
+#include "chart.h"
 #include <algorithm>
 #include <iostream>
 #include <qnamespace.h>
-#include "QtWidgets/qpushbutton.h"
-#include <QtCharts/QLineSeries>
-#include <QtCharts/QSplineSeries>
-#include <QtCharts/QChartView>
-#include <QtCharts/qxyseries.h>
+// #include <QtCharts/QLineSeries>
+// #include <QtCharts/QSplineSeries>
+// #include <QtCharts/QChartView>
+// #include <QtCharts/qxyseries.h>
 #include "QKeyEvent"
-#include <iostream>
 #include <QMainWindow>
 #include <QToolButton>
-
+#include <iostream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -42,9 +43,11 @@ private slots:
   void trigonometryButtonPressed();
   void GraphButtonPressed();
   void xPressed();
-  //  void keyPressEvent();
+  void XorPressed();
 
 private:
   Ui::MainWindow *ui;
+  //QCustomPlot *graphic;
+  chart *new_chart;
 };
 #endif // MAINWINDOW_H
