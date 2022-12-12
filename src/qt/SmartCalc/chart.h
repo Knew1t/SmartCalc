@@ -3,7 +3,11 @@
 
 #include "qcustomplot.h"
 #include <QDialog>
-
+#include <string>
+#include <iostream>
+extern "C" {
+#include "backend.h"
+}
 namespace Ui {
 class chart;
 }
@@ -13,7 +17,7 @@ class chart : public QDialog {
 
 public:
   explicit chart(QWidget *parent = nullptr);
-  void DrawGraph(char string[]);
+  void DrawGraph(char string[], char string2[]);
   ~chart();
 
 private:

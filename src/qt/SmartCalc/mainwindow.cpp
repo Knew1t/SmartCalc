@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-extern "C" {
-#include "backend.h"
-}
+// extern "C" {
+// #include "backend.h"
+// }
 
 char math_expression[255] = {0};
 bool plus_trigger = false;
@@ -166,7 +166,12 @@ void MainWindow::XorPressed() { ui->Display->insertPlainText("^"); }
 void MainWindow::xPressed() { ui->Display->insertPlainText("x"); }
 //=================================================
 void MainWindow::GraphButtonPressed() {
+  QByteArray function_string = ui->Display->toPlainText().toLocal8Bit();
+  QByteArray x_strir = ui->X_Display->toPlainText().toLocal8Bit();
+  char* ptr_display = function_string.data();
+  char*ptr_x = x_strir.data();
   new_chart = new chart(this);
+  new_chart->DrawGraph(ptr_display, ptr_x);
   new_chart->show();
 }
 //==================================================

@@ -852,11 +852,14 @@ CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o: SmartCalc_aut
   /usr/local/lib/QtCore.framework/Headers/QElapsedTimer \
   /usr/local/lib/QtCore.framework/Headers/QTimeZone \
   /usr/local/lib/QtWidgets.framework/Headers/QDialog \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
+  /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdbool.h \
   /usr/local/lib/QtGui.framework/Headers/QScreen \
   SmartCalc_autogen/EWIEGA46WW/moc_mainwindow.cpp \
   /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/mainwindow.h \
   /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/chart.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
   /usr/local/lib/QtGui.framework/Headers/QKeyEvent \
   /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
   /usr/local/lib/QtWidgets.framework/Headers/QToolButton \
@@ -1797,6 +1800,10 @@ CMakeFiles/SmartCalc.dir/chart.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/
   /usr/local/lib/QtCore.framework/Headers/QElapsedTimer \
   /usr/local/lib/QtCore.framework/Headers/QTimeZone \
   /usr/local/lib/QtWidgets.framework/Headers/QDialog \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
+  /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdbool.h \
   SmartCalc_autogen/include/ui_chart.h \
   /usr/local/lib/QtWidgets.framework/Headers/QApplication
 
@@ -2652,6 +2659,9 @@ CMakeFiles/SmartCalc.dir/main.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/S
   /usr/local/lib/QtCore.framework/Headers/QTimeZone \
   /usr/local/lib/QtWidgets.framework/Headers/QDialog \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
+  /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdbool.h \
   /usr/local/lib/QtGui.framework/Headers/QKeyEvent \
   /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
   /usr/local/lib/QtWidgets.framework/Headers/QToolButton \
@@ -3509,6 +3519,9 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
   /usr/local/lib/QtCore.framework/Headers/QTimeZone \
   /usr/local/lib/QtWidgets.framework/Headers/QDialog \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
+  /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdbool.h \
   /usr/local/lib/QtGui.framework/Headers/QKeyEvent \
   /usr/local/lib/QtWidgets.framework/Headers/QMainWindow \
   /usr/local/lib/QtWidgets.framework/Headers/QToolButton \
@@ -3517,10 +3530,7 @@ CMakeFiles/SmartCalc.dir/mainwindow.cpp.o: /Users/longshot/projects/SmartCalc/sr
   /usr/local/lib/QtWidgets.framework/Headers/QMenuBar \
   /usr/local/lib/QtWidgets.framework/Headers/QPushButton \
   /usr/local/lib/QtWidgets.framework/Headers/QStatusBar \
-  /usr/local/lib/QtWidgets.framework/Headers/QTextEdit \
-  /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include/stdbool.h
+  /usr/local/lib/QtWidgets.framework/Headers/QTextEdit
 
 CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/qcustomplot.cpp \
   /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/qcustomplot.h \
@@ -4374,8 +4384,6 @@ CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o: /Users/longshot/projects/SmartCalc/s
 
 /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/qcustomplot.cpp:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h:
-
 /usr/local/lib/QtWidgets.framework/Headers/QStatusBar:
 
 /usr/local/lib/QtWidgets.framework/Headers/QPushButton:
@@ -4392,17 +4400,19 @@ CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o: /Users/longshot/projects/SmartCalc/s
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/secure/_common.h:
 
-/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.h:
-
 SmartCalc_autogen/EWIEGA46WW/moc_qcustomplot.cpp:
 
 /usr/local/lib/QtWidgets.framework/Headers/QMainWindow:
 
 /usr/local/lib/QtGui.framework/Headers/QKeyEvent:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream:
-
 /usr/local/lib/QtGui.framework/Headers/QScreen:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdbool.h:
+
+/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream:
 
 /usr/local/lib/QtWidgets.framework/Headers/QToolButton:
 

@@ -15,6 +15,9 @@
 #include <QMainWindow>
 #include <QToolButton>
 #include <iostream>
+extern "C" {
+#include "backend.h"
+}
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -47,7 +50,7 @@ private slots:
 
 private:
   Ui::MainWindow *ui;
-  //QCustomPlot *graphic;
+  // QCustomPlot *graphic;
   chart *new_chart;
 };
 #endif // MAINWINDOW_H

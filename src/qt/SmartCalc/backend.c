@@ -13,7 +13,7 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
-    PrintRPNLine(rpn_line_head);
+    // PrintRPNLine(rpn_line_head);
 
     if (x_flag==1) {
       x_value = atof(x_string_value);
