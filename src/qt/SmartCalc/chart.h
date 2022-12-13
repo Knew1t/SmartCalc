@@ -20,6 +20,9 @@ public:
   void DrawGraph(char string[]);
   ~chart();
 
+private slots:
+  void ReplotPressed();
+
 private:
   Ui::chart *ui;
   QCustomPlot *new_chart;
