@@ -8,7 +8,6 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
   int x_flag = IsXPresent(input_string, x_string_value);
   double x_value = 0;
   double *x_ptr = NULL;
-
   if (error == 0 && x_flag != 2) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);

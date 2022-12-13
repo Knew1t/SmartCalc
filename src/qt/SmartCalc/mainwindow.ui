@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>449</width>
-    <height>509</height>
+    <height>597</height>
    </rect>
   </property>
   <property name="font">
@@ -63,7 +63,7 @@
       <x>180</x>
       <y>370</y>
       <width>80</width>
-      <height>81</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="font">
@@ -137,7 +137,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>170</y>
+      <y>210</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -156,7 +156,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>370</y>
+      <y>450</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -223,7 +223,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>250</y>
+      <y>290</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -260,8 +260,8 @@
    <widget class="QPushButton" name="button_close_parent">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>410</y>
+      <x>360</x>
+      <y>450</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -337,9 +337,9 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>410</y>
+      <y>370</y>
       <width>80</width>
-      <height>41</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="font">
@@ -375,7 +375,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>370</y>
+      <y>450</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -434,7 +434,7 @@
       <x>0</x>
       <y>370</y>
       <width>80</width>
-      <height>81</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="font">
@@ -451,7 +451,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>290</y>
+      <y>370</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -464,7 +464,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>210</y>
+      <y>250</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -502,7 +502,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>130</y>
+      <y>170</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -605,7 +605,7 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>330</y>
+      <y>410</y>
       <width>81</width>
       <height>41</height>
      </rect>
@@ -618,6 +618,44 @@
     </property>
     <property name="text">
      <string>^</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_mod">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>330</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Luminari</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>mod</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_backspace">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>130</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Luminari</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Backspace</string>
     </property>
    </widget>
   </widget>
