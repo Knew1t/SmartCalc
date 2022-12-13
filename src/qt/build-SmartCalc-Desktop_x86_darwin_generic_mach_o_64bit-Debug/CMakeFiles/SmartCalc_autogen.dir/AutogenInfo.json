@@ -293,7 +293,67 @@
 		"/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake",
 		"/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessTargets.cmake",
 		"/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsMacros.cmake",
-		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeParseArguments.cmake"
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeParseArguments.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6Config.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6ConfigExtras.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6Targets.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6VersionlessTargets.cmake",
+		"/usr/local/lib/cmake/Qt6/QtFeature.cmake",
+		"/usr/local/lib/cmake/Qt6/QtFeatureCommon.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCXXCompilerFlag.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicPluginHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicTargetHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeFindDependencyMacro.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6Dependencies.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindThreads.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckLibraryExists.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckIncludeFile.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageMessage.cmake",
+		"/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersion.cmake",
+		"/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersionImpl.cmake",
+		"/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfig.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeFindDependencyMacro.cmake",
+		"/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportDependencies.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6Config.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6ConfigExtras.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6Targets.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6VersionlessTargets.cmake",
+		"/usr/local/lib/cmake/Qt6/QtFeature.cmake",
+		"/usr/local/lib/cmake/Qt6/QtFeatureCommon.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCXXCompilerFlag.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicPluginHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicTargetHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake",
+		"/usr/local/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeFindDependencyMacro.cmake",
+		"/usr/local/lib/cmake/Qt6/Qt6Dependencies.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindThreads.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckLibraryExists.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckIncludeFile.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageMessage.cmake",
+		"/usr/local/lib/cmake/Qt6/FindCups.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake",
+		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/FindPackageMessage.cmake",
+		"/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets.cmake",
+		"/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets-release.cmake",
+		"/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportAdditionalTargetInfo.cmake",
+		"/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportVersionlessTargets.cmake"
 	],
 	"CMAKE_SOURCE_DIR" : "/Users/longshot/projects/SmartCalc/src/qt/SmartCalc",
 	"DEP_FILE" : "",
@@ -307,16 +367,28 @@
 			null
 		],
 		[
+			"/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/chart.h",
+			"MU",
+			"EWIEGA46WW/moc_chart.cpp",
+			null
+		],
+		[
 			"/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/qcustomplot.h",
+			"MU",
+			"EWIEGA46WW/moc_qcustomplot.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/SmartCalc_autogen/include",
 	"MOC_COMPILATION_FILE" : "/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/SmartCalc_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_PRINTSUPPORT_LIB", "QT_WIDGETS_LIB" ],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[
@@ -328,17 +400,19 @@
 	[
 		"/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug",
 		"/Users/longshot/projects/SmartCalc/src/qt/SmartCalc",
+		"/usr/local/lib/QtWidgets.framework",
+		"/usr/local/lib/QtWidgets.framework/Headers",
 		"/usr/local/lib/QtCore.framework",
 		"/usr/local/lib/QtCore.framework/Headers",
 		"/usr/local/share/qt/mkspecs/macx-clang",
 		"/usr/local/include",
-		"/usr/local/lib/QtWidgets.framework",
-		"/usr/local/lib/QtWidgets.framework/Headers",
 		"/usr/local/lib/QtGui.framework",
 		"/usr/local/lib/QtGui.framework/Headers",
+		"/usr/local/lib/QtPrintSupport.framework",
+		"/usr/local/lib/QtPrintSupport.framework/Headers",
+		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include",
 		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1",
 		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include",
-		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include",
 		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
 	],
 	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
@@ -371,12 +445,22 @@
 			null
 		],
 		[
+			"/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/chart.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/main.cpp",
 			"MU",
 			null
 		],
 		[
 			"/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/qcustomplot.cpp",
 			"MU",
 			null
 		]

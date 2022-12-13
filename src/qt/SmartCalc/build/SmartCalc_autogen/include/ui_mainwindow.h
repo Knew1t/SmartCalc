@@ -248,7 +248,7 @@ public:
         button_5->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         button_close_parent->setText(QCoreApplication::translate("MainWindow", ")", nullptr));
         button_cos->setText(QCoreApplication::translate("MainWindow", "cos", nullptr));
-        button_tg->setText(QCoreApplication::translate("MainWindow", "tg", nullptr));
+        button_tg->setText(QCoreApplication::translate("MainWindow", "tan", nullptr));
         button_ln->setText(QCoreApplication::translate("MainWindow", "ln", nullptr));
         button_0->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         button_1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
@@ -262,7 +262,7 @@ public:
         button_plus->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
         button_8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
         button_7->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
-        graph_button->setText(QCoreApplication::translate("MainWindow", "Make Graph", nullptr));
+        graph_button->setText(QCoreApplication::translate("MainWindow", "\320\234ake Graph", nullptr));
         button_x->setText(QCoreApplication::translate("MainWindow", "x", nullptr));
         button_xor->setText(QCoreApplication::translate("MainWindow", "^", nullptr));
         button_mod->setText(QCoreApplication::translate("MainWindow", "mod", nullptr));

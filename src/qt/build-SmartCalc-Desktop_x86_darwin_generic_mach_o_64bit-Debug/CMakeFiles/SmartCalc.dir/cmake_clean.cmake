@@ -6,11 +6,15 @@ file(REMOVE_RECURSE
   "CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/SmartCalc.dir/backend.c.o"
   "CMakeFiles/SmartCalc.dir/backend.c.o.d"
+  "CMakeFiles/SmartCalc.dir/chart.cpp.o"
+  "CMakeFiles/SmartCalc.dir/chart.cpp.o.d"
   "CMakeFiles/SmartCalc.dir/main.cpp.o"
   "CMakeFiles/SmartCalc.dir/main.cpp.o.d"
   "CMakeFiles/SmartCalc.dir/mainwindow.cpp.o"
   "CMakeFiles/SmartCalc.dir/mainwindow.cpp.o.d"
-  "SmartCalc.app/Contents/MacOS/SmartCalc"
+  "CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o"
+  "CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o.d"
+  "SmartCalc"
   "SmartCalc.pdb"
 )
 

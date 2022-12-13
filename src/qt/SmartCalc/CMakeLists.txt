@@ -28,7 +28,6 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS PrintSupport)
 # )
 
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_executable(SmartCalc
   main.cpp
@@ -82,3 +81,5 @@ target_link_libraries(SmartCalc PRIVATE Qt${QT_VERSION_MAJOR}::PrintSupport)
 # if(QT_VERSION_MAJOR EQUAL 6)
 #     qt_finalize_executable(SmartCalc)
 # endif()
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

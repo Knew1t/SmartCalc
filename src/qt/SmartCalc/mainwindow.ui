@@ -311,7 +311,7 @@
      </font>
     </property>
     <property name="text">
-     <string>tg</string>
+     <string>tan</string>
     </property>
    </widget>
    <widget class="QPushButton" name="button_ln">
@@ -575,7 +575,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Make Graph</string>
+     <string>Мake Graph</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="Display_2">

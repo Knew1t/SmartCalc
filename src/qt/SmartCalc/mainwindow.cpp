@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
   ui->Display_2->setText("");
   ui->X_Display->setText("");
   ui->X_Display->setAlignment(Qt::AlignRight);
-  ui->Display->setText(math_expression);
+  ui->Display->setText("sin(x)");
   ui->Display->setAlignment(Qt::AlignRight);
   ui->Display->setFocus();
   ui->Display->setFocusPolicy(Qt::ClickFocus);
@@ -171,7 +171,7 @@ void MainWindow::GraphButtonPressed() {
   char* ptr_display = function_string.data();
   char*ptr_x = x_strir.data();
   new_chart = new chart(this);
-  new_chart->DrawGraph(ptr_display, ptr_x);
+  new_chart->DrawGraph(ptr_display);
   new_chart->show();
 }
 //==================================================

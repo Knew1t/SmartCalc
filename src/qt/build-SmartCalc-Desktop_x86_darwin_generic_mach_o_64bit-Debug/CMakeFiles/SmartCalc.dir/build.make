@@ -125,30 +125,64 @@ CMakeFiles/SmartCalc.dir/backend.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/SmartCalc.dir/backend.c.s"
 	/usr/bin/clang $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/backend.c -o CMakeFiles/SmartCalc.dir/backend.c.s
 
+CMakeFiles/SmartCalc.dir/chart.cpp.o: CMakeFiles/SmartCalc.dir/flags.make
+CMakeFiles/SmartCalc.dir/chart.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/chart.cpp
+CMakeFiles/SmartCalc.dir/chart.cpp.o: CMakeFiles/SmartCalc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SmartCalc.dir/chart.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartCalc.dir/chart.cpp.o -MF CMakeFiles/SmartCalc.dir/chart.cpp.o.d -o CMakeFiles/SmartCalc.dir/chart.cpp.o -c /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/chart.cpp
+
+CMakeFiles/SmartCalc.dir/chart.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SmartCalc.dir/chart.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/chart.cpp > CMakeFiles/SmartCalc.dir/chart.cpp.i
+
+CMakeFiles/SmartCalc.dir/chart.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SmartCalc.dir/chart.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/chart.cpp -o CMakeFiles/SmartCalc.dir/chart.cpp.s
+
+CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o: CMakeFiles/SmartCalc.dir/flags.make
+CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o: /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/qcustomplot.cpp
+CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o: CMakeFiles/SmartCalc.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o -MF CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o.d -o CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o -c /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/qcustomplot.cpp
+
+CMakeFiles/SmartCalc.dir/qcustomplot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SmartCalc.dir/qcustomplot.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/qcustomplot.cpp > CMakeFiles/SmartCalc.dir/qcustomplot.cpp.i
+
+CMakeFiles/SmartCalc.dir/qcustomplot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SmartCalc.dir/qcustomplot.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/qcustomplot.cpp -o CMakeFiles/SmartCalc.dir/qcustomplot.cpp.s
+
 # Object files for target SmartCalc
 SmartCalc_OBJECTS = \
 "CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/SmartCalc.dir/main.cpp.o" \
 "CMakeFiles/SmartCalc.dir/mainwindow.cpp.o" \
-"CMakeFiles/SmartCalc.dir/backend.c.o"
+"CMakeFiles/SmartCalc.dir/backend.c.o" \
+"CMakeFiles/SmartCalc.dir/chart.cpp.o" \
+"CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o"
 
 # External object files for target SmartCalc
 SmartCalc_EXTERNAL_OBJECTS =
 
-SmartCalc.app/Contents/MacOS/SmartCalc: CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o
-SmartCalc.app/Contents/MacOS/SmartCalc: CMakeFiles/SmartCalc.dir/main.cpp.o
-SmartCalc.app/Contents/MacOS/SmartCalc: CMakeFiles/SmartCalc.dir/mainwindow.cpp.o
-SmartCalc.app/Contents/MacOS/SmartCalc: CMakeFiles/SmartCalc.dir/backend.c.o
-SmartCalc.app/Contents/MacOS/SmartCalc: CMakeFiles/SmartCalc.dir/build.make
-SmartCalc.app/Contents/MacOS/SmartCalc: /usr/local/lib/QtWidgets.framework/Versions/A/QtWidgets
-SmartCalc.app/Contents/MacOS/SmartCalc: /usr/local/lib/QtGui.framework/Versions/A/QtGui
-SmartCalc.app/Contents/MacOS/SmartCalc: /usr/local/lib/QtCore.framework/Versions/A/QtCore
-SmartCalc.app/Contents/MacOS/SmartCalc: CMakeFiles/SmartCalc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable SmartCalc.app/Contents/MacOS/SmartCalc"
+SmartCalc: CMakeFiles/SmartCalc.dir/SmartCalc_autogen/mocs_compilation.cpp.o
+SmartCalc: CMakeFiles/SmartCalc.dir/main.cpp.o
+SmartCalc: CMakeFiles/SmartCalc.dir/mainwindow.cpp.o
+SmartCalc: CMakeFiles/SmartCalc.dir/backend.c.o
+SmartCalc: CMakeFiles/SmartCalc.dir/chart.cpp.o
+SmartCalc: CMakeFiles/SmartCalc.dir/qcustomplot.cpp.o
+SmartCalc: CMakeFiles/SmartCalc.dir/build.make
+SmartCalc: /usr/local/lib/QtPrintSupport.framework/Versions/A/QtPrintSupport
+SmartCalc: /usr/local/lib/QtWidgets.framework/Versions/A/QtWidgets
+SmartCalc: /usr/local/lib/QtGui.framework/Versions/A/QtGui
+SmartCalc: /usr/local/lib/QtCore.framework/Versions/A/QtCore
+SmartCalc: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/lib/libcups.tbd
+SmartCalc: CMakeFiles/SmartCalc.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/longshot/projects/SmartCalc/src/qt/build-SmartCalc-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SmartCalc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SmartCalc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/SmartCalc.dir/build: SmartCalc.app/Contents/MacOS/SmartCalc
+CMakeFiles/SmartCalc.dir/build: SmartCalc
 .PHONY : CMakeFiles/SmartCalc.dir/build
 
 CMakeFiles/SmartCalc.dir/clean:

@@ -519,7 +519,7 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
     *result_value = cos(second_value_holder);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
-  } else if (!strcmp(operator, "tg")) {
+  } else if (!strcmp(operator, "tan")) {
     *result_value = tan(second_value_holder);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);

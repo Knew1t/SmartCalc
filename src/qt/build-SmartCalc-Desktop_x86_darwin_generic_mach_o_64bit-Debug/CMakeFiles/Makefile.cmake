@@ -49,6 +49,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.23.0/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.23.0/CMakeSystem.cmake"
   "/opt/goinfre/longshot/Qt Creator.app/Contents/Resources/package-manager/auto-setup.cmake"
+  "/usr/local/lib/cmake/Qt6/FindCups.cmake"
   "/usr/local/lib/cmake/Qt6/FindWrapAtomic.cmake"
   "/usr/local/lib/cmake/Qt6/FindWrapOpenGL.cmake"
   "/usr/local/lib/cmake/Qt6/Qt6Config.cmake"
@@ -67,7 +68,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/lib/cmake/Qt6/QtPublicPluginHelpers.cmake"
   "/usr/local/lib/cmake/Qt6/QtPublicTargetHelpers.cmake"
   "/usr/local/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake"
-  "/usr/local/lib/cmake/Qt6/macos/MacOSXBundleInfo.plist.in"
   "/usr/local/lib/cmake/Qt6Core/Qt6CoreAdditionalTargetInfo.cmake"
   "/usr/local/lib/cmake/Qt6Core/Qt6CoreConfig.cmake"
   "/usr/local/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake"
@@ -119,6 +119,14 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-release.cmake"
   "/usr/local/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake"
   "/usr/local/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake"
+  "/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportAdditionalTargetInfo.cmake"
+  "/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfig.cmake"
+  "/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersion.cmake"
+  "/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersionImpl.cmake"
+  "/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportDependencies.cmake"
+  "/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets-release.cmake"
+  "/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets.cmake"
+  "/usr/local/lib/cmake/Qt6PrintSupport/Qt6PrintSupportVersionlessTargets.cmake"
   "/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake"
   "/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake"
   "/usr/local/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake"
@@ -147,9 +155,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/SmartCalc_autogen.dir/AutogenInfo.json"
-  "SmartCalc.app/Contents/MacOS"
-  "SmartCalc.app/Contents/Info.plist"
-  "SmartCalc.app/Contents/Info.plist"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

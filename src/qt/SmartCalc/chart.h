@@ -17,7 +17,7 @@ class chart : public QDialog {
 
 public:
   explicit chart(QWidget *parent = nullptr);
-  void DrawGraph(char string[], char string2[]);
+  void DrawGraph(char string[]);
   ~chart();
 
 private:

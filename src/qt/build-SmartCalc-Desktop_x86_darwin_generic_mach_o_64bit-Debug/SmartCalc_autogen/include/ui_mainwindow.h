@@ -57,6 +57,9 @@ public:
     QPushButton *graph_button;
     QTextEdit *Display_2;
     QPushButton *button_x;
+    QPushButton *button_xor;
+    QPushButton *button_mod;
+    QPushButton *button_backspace;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -64,7 +67,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(441, 503);
+        MainWindow->resize(449, 597);
         QFont font;
         font.setFamilies({QString::fromUtf8("Luminari")});
         MainWindow->setFont(font);
@@ -86,7 +89,7 @@ public:
         button_acos->setFont(font2);
         button_clear = new QPushButton(centralwidget);
         button_clear->setObjectName(QString::fromUtf8("button_clear"));
-        button_clear->setGeometry(QRect(180, 370, 80, 80));
+        button_clear->setGeometry(QRect(180, 370, 80, 121));
         button_clear->setFont(font1);
         button_6 = new QPushButton(centralwidget);
         button_6->setObjectName(QString::fromUtf8("button_6"));
@@ -94,7 +97,7 @@ public:
         button_6->setFont(font1);
         button_2 = new QPushButton(centralwidget);
         button_2->setObjectName(QString::fromUtf8("button_2"));
-        button_2->setGeometry(QRect(90, 130, 80, 80));
+        button_2->setGeometry(QRect(90, 290, 80, 80));
         button_2->setFont(font1);
         button_log = new QPushButton(centralwidget);
         button_log->setObjectName(QString::fromUtf8("button_log"));
@@ -102,11 +105,11 @@ public:
         button_log->setFont(font2);
         button_minus = new QPushButton(centralwidget);
         button_minus->setObjectName(QString::fromUtf8("button_minus"));
-        button_minus->setGeometry(QRect(270, 170, 81, 41));
+        button_minus->setGeometry(QRect(270, 210, 81, 41));
         button_minus->setFont(font1);
         button_open_parent = new QPushButton(centralwidget);
         button_open_parent->setObjectName(QString::fromUtf8("button_open_parent"));
-        button_open_parent->setGeometry(QRect(270, 330, 81, 41));
+        button_open_parent->setGeometry(QRect(270, 450, 81, 41));
         button_open_parent->setFont(font1);
         button_sin = new QPushButton(centralwidget);
         button_sin->setObjectName(QString::fromUtf8("button_sin"));
@@ -114,14 +117,14 @@ public:
         button_sin->setFont(font2);
         button_9 = new QPushButton(centralwidget);
         button_9->setObjectName(QString::fromUtf8("button_9"));
-        button_9->setGeometry(QRect(180, 290, 80, 80));
+        button_9->setGeometry(QRect(180, 130, 80, 80));
         button_9->setFont(font1);
         Display = new QTextEdit(centralwidget);
         Display->setObjectName(QString::fromUtf8("Display"));
         Display->setGeometry(QRect(0, 0, 441, 31));
         button_divide = new QPushButton(centralwidget);
         button_divide->setObjectName(QString::fromUtf8("button_divide"));
-        button_divide->setGeometry(QRect(270, 250, 81, 41));
+        button_divide->setGeometry(QRect(270, 290, 81, 41));
         button_divide->setFont(font1);
         button_5 = new QPushButton(centralwidget);
         button_5->setObjectName(QString::fromUtf8("button_5"));
@@ -129,7 +132,7 @@ public:
         button_5->setFont(font1);
         button_close_parent = new QPushButton(centralwidget);
         button_close_parent->setObjectName(QString::fromUtf8("button_close_parent"));
-        button_close_parent->setGeometry(QRect(270, 370, 81, 41));
+        button_close_parent->setGeometry(QRect(360, 450, 81, 41));
         button_close_parent->setFont(font1);
         button_cos = new QPushButton(centralwidget);
         button_cos->setObjectName(QString::fromUtf8("button_cos"));
@@ -145,15 +148,15 @@ public:
         button_ln->setFont(font2);
         button_0 = new QPushButton(centralwidget);
         button_0->setObjectName(QString::fromUtf8("button_0"));
-        button_0->setGeometry(QRect(90, 370, 80, 80));
+        button_0->setGeometry(QRect(90, 370, 80, 81));
         button_0->setFont(font1);
         button_1 = new QPushButton(centralwidget);
         button_1->setObjectName(QString::fromUtf8("button_1"));
-        button_1->setGeometry(QRect(0, 130, 80, 80));
+        button_1->setGeometry(QRect(0, 290, 80, 80));
         button_1->setFont(font1);
         button_dot = new QPushButton(centralwidget);
         button_dot->setObjectName(QString::fromUtf8("button_dot"));
-        button_dot->setGeometry(QRect(270, 410, 81, 41));
+        button_dot->setGeometry(QRect(90, 450, 81, 41));
         button_dot->setFont(font1);
         button_atan = new QPushButton(centralwidget);
         button_atan->setObjectName(QString::fromUtf8("button_atan"));
@@ -161,18 +164,18 @@ public:
         button_atan->setFont(font2);
         button_3 = new QPushButton(centralwidget);
         button_3->setObjectName(QString::fromUtf8("button_3"));
-        button_3->setGeometry(QRect(180, 130, 80, 80));
+        button_3->setGeometry(QRect(180, 290, 80, 80));
         button_3->setFont(font1);
         button_equal = new QPushButton(centralwidget);
         button_equal->setObjectName(QString::fromUtf8("button_equal"));
-        button_equal->setGeometry(QRect(0, 370, 80, 80));
+        button_equal->setGeometry(QRect(0, 370, 80, 121));
         button_equal->setFont(font1);
         button_sqrt = new QPushButton(centralwidget);
         button_sqrt->setObjectName(QString::fromUtf8("button_sqrt"));
-        button_sqrt->setGeometry(QRect(270, 290, 81, 41));
+        button_sqrt->setGeometry(QRect(270, 370, 81, 41));
         button_multiply = new QPushButton(centralwidget);
         button_multiply->setObjectName(QString::fromUtf8("button_multiply"));
-        button_multiply->setGeometry(QRect(270, 210, 81, 41));
+        button_multiply->setGeometry(QRect(270, 250, 81, 41));
         button_multiply->setFont(font1);
         button_asin = new QPushButton(centralwidget);
         button_asin->setObjectName(QString::fromUtf8("button_asin"));
@@ -180,15 +183,15 @@ public:
         button_asin->setFont(font2);
         button_plus = new QPushButton(centralwidget);
         button_plus->setObjectName(QString::fromUtf8("button_plus"));
-        button_plus->setGeometry(QRect(270, 130, 81, 41));
+        button_plus->setGeometry(QRect(270, 170, 81, 41));
         button_plus->setFont(font1);
         button_8 = new QPushButton(centralwidget);
         button_8->setObjectName(QString::fromUtf8("button_8"));
-        button_8->setGeometry(QRect(90, 290, 80, 80));
+        button_8->setGeometry(QRect(90, 130, 80, 80));
         button_8->setFont(font1);
         button_7 = new QPushButton(centralwidget);
         button_7->setObjectName(QString::fromUtf8("button_7"));
-        button_7->setGeometry(QRect(0, 290, 80, 80));
+        button_7->setGeometry(QRect(0, 130, 80, 80));
         button_7->setFont(font1);
         X_Display = new QTextEdit(centralwidget);
         X_Display->setObjectName(QString::fromUtf8("X_Display"));
@@ -202,10 +205,22 @@ public:
         button_x = new QPushButton(centralwidget);
         button_x->setObjectName(QString::fromUtf8("button_x"));
         button_x->setGeometry(QRect(180, 80, 81, 51));
+        button_xor = new QPushButton(centralwidget);
+        button_xor->setObjectName(QString::fromUtf8("button_xor"));
+        button_xor->setGeometry(QRect(270, 410, 81, 41));
+        button_xor->setFont(font1);
+        button_mod = new QPushButton(centralwidget);
+        button_mod->setObjectName(QString::fromUtf8("button_mod"));
+        button_mod->setGeometry(QRect(270, 330, 81, 41));
+        button_mod->setFont(font2);
+        button_backspace = new QPushButton(centralwidget);
+        button_backspace->setObjectName(QString::fromUtf8("button_backspace"));
+        button_backspace->setGeometry(QRect(270, 130, 81, 41));
+        button_backspace->setFont(font2);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 441, 24));
+        menubar->setGeometry(QRect(0, 0, 449, 24));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -233,7 +248,7 @@ public:
         button_5->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
         button_close_parent->setText(QCoreApplication::translate("MainWindow", ")", nullptr));
         button_cos->setText(QCoreApplication::translate("MainWindow", "cos", nullptr));
-        button_tg->setText(QCoreApplication::translate("MainWindow", "tg", nullptr));
+        button_tg->setText(QCoreApplication::translate("MainWindow", "tan", nullptr));
         button_ln->setText(QCoreApplication::translate("MainWindow", "ln", nullptr));
         button_0->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         button_1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
@@ -247,8 +262,11 @@ public:
         button_plus->setText(QCoreApplication::translate("MainWindow", "+", nullptr));
         button_8->setText(QCoreApplication::translate("MainWindow", "8", nullptr));
         button_7->setText(QCoreApplication::translate("MainWindow", "7", nullptr));
-        graph_button->setText(QCoreApplication::translate("MainWindow", "Make Graph", nullptr));
+        graph_button->setText(QCoreApplication::translate("MainWindow", "\320\234ake Graph", nullptr));
         button_x->setText(QCoreApplication::translate("MainWindow", "x", nullptr));
+        button_xor->setText(QCoreApplication::translate("MainWindow", "^", nullptr));
+        button_mod->setText(QCoreApplication::translate("MainWindow", "mod", nullptr));
+        button_backspace->setText(QCoreApplication::translate("MainWindow", "Backspace", nullptr));
     } // retranslateUi
 
 };

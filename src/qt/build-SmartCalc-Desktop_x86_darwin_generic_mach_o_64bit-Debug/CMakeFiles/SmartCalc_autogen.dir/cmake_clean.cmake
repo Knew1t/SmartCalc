@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SmartCalc_autogen"
+  "SmartCalc_autogen/include/ui_chart.h"
   "SmartCalc_autogen/include/ui_mainwindow.h"
   "SmartCalc_autogen/mocs_compilation.cpp"
 )
