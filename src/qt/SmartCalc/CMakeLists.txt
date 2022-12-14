@@ -26,6 +26,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS PrintSupport)
 #         backend.h
 #         mainwindow.ui
 # )
+
 # add_compile_options(-fsanitize=address -g)
 # add_link_options(-fsanitize=address -g)
 
