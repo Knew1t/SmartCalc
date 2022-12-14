@@ -2,6 +2,7 @@
 #include "qcustomplot.h"
 #include "ui_chart.h"
 #include <cstddef>
+#include <cstring>
 
 chart::chart(QWidget *parent) : QDialog(parent), ui(new Ui::chart) {
   ui->setupUi(this);
@@ -14,21 +15,25 @@ chart::chart(QWidget *parent) : QDialog(parent), ui(new Ui::chart) {
 
 chart::~chart() { delete ui; }
 
-void chart::DrawGraph(char expression[]) {
+void chart::DrawGraph(int initial_call) {
   double answer = 0;
+  static char store_expression[255];
+  if (initial_call) { // check if it is the first call to a function
+    strcpy(store_expression, imported_expression);
+  }
+  printf("%s\n", store_expression);
   int domain_max_value, domain_min_value, range_max_value, range_min_value;
   domain_min_value = ui->domain_field_min->toPlainText().toDouble();
   domain_max_value = ui->domain_field_max->toPlainText().toDouble();
-  int i_max = abs(domain_min_value)+abs(domain_max_value);
-
+  int i_max = abs(domain_min_value) + abs(domain_max_value);
   QVector<double> x(i_max), y(i_max);
   for (int i = 0; i < i_max; ++i) {
-    x[i] = i / 100.0 - (i_max/100.0) / 2.0;
+    x[i] = i / 100.0 - (i_max / 100.0) / 2.0;
     std::string x_value_string = std::to_string(x[i]);
     int n = x_value_string.length();
     char x_value_array[n + 1];
     strcpy(x_value_array, x_value_string.c_str());
-    Calculate(expression, &answer, x_value_array);
+    Calculate(store_expression, &answer, x_value_array);
     y[i] = answer;
   }
   ui->widget->addGraph();
@@ -42,7 +47,4 @@ void chart::DrawGraph(char expression[]) {
   ui->widget->replot();
 }
 
-void chart::ReplotPressed(){
-  DrawGraph(); 
-
-}
+void chart::ReplotPressed() { DrawGraph(0); }

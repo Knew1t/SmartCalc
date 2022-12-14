@@ -17,7 +17,8 @@ class chart : public QDialog {
 
 public:
   explicit chart(QWidget *parent = nullptr);
-  void DrawGraph(char string[]);
+  void DrawGraph(int initial_call);
+  char* imported_expression = nullptr;
   ~chart();
 
 private slots:

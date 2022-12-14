@@ -1,8 +1,5 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-// extern "C" {
-// #include "backend.h"
-// }
 
 char math_expression[255] = {0};
 bool plus_trigger = false;
@@ -15,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
   ui->setupUi(this);
   setFixedSize(geometry().width(), geometry().height());
-  //  ui->Display->setReadOnly(true);
   ui->Display_2->setReadOnly(true);
   ui->Display_2->setText("");
   ui->X_Display->setText("");
@@ -45,8 +41,6 @@ MainWindow::MainWindow(QWidget *parent)
   connect(ui->button_close_parent, SIGNAL(released()), this,
           SLOT(closeParentPressed()));
   ui->button_close_parent->setFocusPolicy(Qt::NoFocus);
-  // connect(ui->graph_button, SIGNAL(released()), this,
-  // SLOT(GraphButtonPressed()));
 
   QPushButton *trigonometryButtons[9] = {
       ui->button_sin,  ui->button_cos,  ui->button_tg,
@@ -107,8 +101,6 @@ void MainWindow::clearPressed() {
 void MainWindow::digitPressed() {
   QPushButton *button = (QPushButton *)sender();
   QString buttonValue = button->text();
-  // QString displayVal = ui->Display->placeholderText();
-  // QString newVal = displayVal + butval;
   if (ui->Display->hasFocus()) {
     ui->Display->insertPlainText(buttonValue);
     digit_trigger = true;
@@ -167,11 +159,10 @@ void MainWindow::xPressed() { ui->Display->insertPlainText("x"); }
 //=================================================
 void MainWindow::GraphButtonPressed() {
   QByteArray function_string = ui->Display->toPlainText().toLocal8Bit();
-  QByteArray x_strir = ui->X_Display->toPlainText().toLocal8Bit();
-  char* ptr_display = function_string.data();
-  char*ptr_x = x_strir.data();
+  char *ptr_display = function_string.data();
   new_chart = new chart(this);
-  new_chart->DrawGraph(ptr_display);
+  new_chart->imported_expression = ptr_display;
+  new_chart->DrawGraph(1);
   new_chart->show();
 }
 //==================================================
