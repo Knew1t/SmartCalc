@@ -1812,6 +1812,7 @@ CMakeFiles/SmartCalc.dir/chart.cpp.o
  /usr/local/lib/QtWidgets.framework/Headers/QLabel
  /usr/local/lib/QtWidgets.framework/Headers/QPushButton
  /usr/local/lib/QtWidgets.framework/Headers/QTextEdit
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/sstream
 
 CMakeFiles/SmartCalc.dir/main.cpp.o
  /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/main.cpp

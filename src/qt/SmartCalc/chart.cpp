@@ -26,42 +26,31 @@ void chart::DrawGraph(int initial_call) {
   long domain_max_value, domain_min_value, range_max_value, range_min_value;
   domain_min_value = ui->domain_field_min->toPlainText().toDouble();
   domain_max_value = ui->domain_field_max->toPlainText().toDouble();
+  range_min_value = ui->range_field_min->toPlainText().toDouble();
+  range_max_value = ui->range_field_max->toPlainText().toDouble();
   int i_max = abs(domain_min_value) + abs(domain_max_value);
-  if (0>= domain_min_value && 0<=domain_max_value)
+  if (0 >= domain_min_value && 0 <= domain_max_value)
     ++i_max;
 
-  QVector<double> x(i_max), y(i_max);
-  for (int i = domain_min_value, j = 0; i <= domain_max_value && j < i_max; ++i, ++j) {
-    x[j] = i / 100.0;
-    std::string x_value_string = std::to_string(x[j]);
-    std::cout << x_value_string;
-    // std::cout<< "x value from field = " << x_value_string << "\n";
-    double d1;
-    std::stringstream(x_value_string) >> d1;
+  QVector<double> x, y;
+  for (int i = domain_min_value, j = 0; i <= domain_max_value && j < i_max;
+       ++i, ++j) {
+    // x[j] = i / 100.0;
+    double sup_x = i / 2.0;
+    std::string x_value_string = std::to_string(sup_x);
     int n = x_value_string.length();
     char x_value_array[n + 1];
     strcpy(x_value_array, x_value_string.data());
     Calculate(store_expression, &answer, x_value_array);
-    y[j] = answer;
-    // printf("x[%d] = %lf\n", j, i/100.0);
-    // printf("y[%d] = %lf\n", j, answer);
+    if (answer >= range_min_value && answer <= range_max_value) {
+      x.push_back(sup_x);
+      y.push_back(answer);
+    }
   }
-  // QVector<double> x(i_max), y(i_max);
-  // for (int i = 0; i < i_max; ++i) {
-  //   x[i] = i / 100.0 - (i_max / 100.0) / 2.0;
-  //   std::string x_value_string = std::to_string(x[i]);
-  //   int n = x_value_string.length();
-  //   char x_value_array[n + 1];
-  //   strcpy(x_value_array, x_value_string.c_str());
-  //   Calculate(store_expression, &answer, x_value_array);
-  //   y[i] = answer;
-  // }
   ui->widget->addGraph();
   ui->widget->graph(0)->setData(x, y);
   ui->widget->xAxis->setLabel("x");
   ui->widget->yAxis->setLabel("y");
-  // ui->widget->xAxis->setRange(domain_min_value,domain_max_value);
-  // ui->widget->yAxis->setRange(-2, 2);
   ui->widget->setInteraction(QCP::iRangeDrag, true);
   ui->widget->setInteraction(QCP::iRangeZoom, true);
   ui->widget->replot();
