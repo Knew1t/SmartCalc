@@ -26,7 +26,7 @@ private slots:
 
 private:
   Ui::chart *ui;
-  QCustomPlot *new_chart;
+  // QCustomPlot *new_chart;
 };
 
 #endif // CHART_H

@@ -2,15 +2,10 @@
 #define MAINWINDOW_H
 
 #include "QtWidgets/qpushbutton.h"
-// #include "qcustomplot.h" //chart lib
 #include "chart.h"
 #include <algorithm>
 #include <iostream>
 #include <qnamespace.h>
-// #include <QtCharts/QLineSeries>
-// #include <QtCharts/QSplineSeries>
-// #include <QtCharts/QChartView>
-// #include <QtCharts/qxyseries.h>
 #include "QKeyEvent"
 #include <QMainWindow>
 #include <QToolButton>
@@ -50,7 +45,6 @@ private slots:
 
 private:
   Ui::MainWindow *ui;
-  // QCustomPlot *graphic;
-  chart *new_chart;
+  chart new_chart;
 };
 #endif // MAINWINDOW_H

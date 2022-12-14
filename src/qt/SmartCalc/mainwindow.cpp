@@ -68,7 +68,9 @@ MainWindow::MainWindow(QWidget *parent)
   ui->graph_button->setFocusPolicy(Qt::NoFocus);
 }
 
-MainWindow::~MainWindow() { delete ui; }
+MainWindow::~MainWindow() {
+  delete ui;
+}
 
 void MainWindow::trigonometryButtonPressed() {
   QPushButton *button = (QPushButton *)sender();
@@ -147,6 +149,7 @@ void MainWindow::multiplyPressed() {
     div_trigger = true;
   }
 }
+
 void MainWindow::dividePressed() {
   if (!mult_trigger && !div_trigger) {
     ui->Display->insertPlainText("/");
@@ -154,16 +157,19 @@ void MainWindow::dividePressed() {
     div_trigger = true;
   }
 }
+
 void MainWindow::XorPressed() { ui->Display->insertPlainText("^"); }
+
 void MainWindow::xPressed() { ui->Display->insertPlainText("x"); }
+
 //=================================================
 void MainWindow::GraphButtonPressed() {
   QByteArray function_string = ui->Display->toPlainText().toLocal8Bit();
   char *ptr_display = function_string.data();
-  new_chart = new chart(this);
-  new_chart->imported_expression = ptr_display;
-  new_chart->DrawGraph(1);
-  new_chart->show();
+//  new_chart = new chart(this);
+  new_chart.imported_expression = ptr_display;
+  new_chart.DrawGraph(1);
+  new_chart.show();
 }
 //==================================================
 void MainWindow::equalPressed() {
