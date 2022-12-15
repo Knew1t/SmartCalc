@@ -7,11 +7,11 @@ C_DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_
 
 C_INCLUDES = -I/home/longshot/projects/SmartCalc/src/qt/SmartCalc/build -I/home/longshot/projects/SmartCalc/src/qt/SmartCalc -I/home/longshot/projects/SmartCalc/src/qt/SmartCalc/build/SmartCalc_autogen/include -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -isystem /usr/include/qt/QtPrintSupport
 
-C_FLAGS = -g -fPIC -std=gnu11
+C_FLAGS = -g -lm -fPIC -std=gnu11
 
 CXX_DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NO_DEBUG -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB
 
 CXX_INCLUDES = -I/home/longshot/projects/SmartCalc/src/qt/SmartCalc/build -I/home/longshot/projects/SmartCalc/src/qt/SmartCalc -I/home/longshot/projects/SmartCalc/src/qt/SmartCalc/build/SmartCalc_autogen/include -isystem /usr/include/qt -isystem /usr/include/qt/QtWidgets -isystem /usr/include/qt/QtGui -isystem /usr/include/qt/QtCore -isystem /usr/lib/qt/mkspecs/linux-g++ -isystem /usr/include/qt/QtPrintSupport
 
-CXX_FLAGS = -g -fPIC -std=gnu++17
+CXX_FLAGS = -g -lm -fPIC -std=gnu++17
 

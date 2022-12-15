@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
   ui->Display_2->setText("");
   ui->X_Display->setText("");
   ui->X_Display->setAlignment(Qt::AlignRight);
-  ui->Display->setText("sin(x)");
+  ui->Display->setText("tan(x)");
   ui->Display->setAlignment(Qt::AlignRight);
   ui->Display->setFocus();
   ui->Display->setFocusPolicy(Qt::ClickFocus);
