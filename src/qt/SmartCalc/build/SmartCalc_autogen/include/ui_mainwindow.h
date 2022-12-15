@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.2.3
+** Created by: Qt User Interface Compiler version 5.15.7
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -69,7 +69,7 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(449, 597);
         QFont font;
-        font.setFamilies({QString::fromUtf8("Luminari")});
+        font.setFamily(QString::fromUtf8("Luminari"));
         MainWindow->setFont(font);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -77,14 +77,14 @@ public:
         button_4->setObjectName(QString::fromUtf8("button_4"));
         button_4->setGeometry(QRect(0, 210, 80, 80));
         QFont font1;
-        font1.setFamilies({QString::fromUtf8("Luminari")});
+        font1.setFamily(QString::fromUtf8("Luminari"));
         font1.setPointSize(24);
         button_4->setFont(font1);
         button_acos = new QPushButton(centralwidget);
         button_acos->setObjectName(QString::fromUtf8("button_acos"));
         button_acos->setGeometry(QRect(360, 290, 81, 41));
         QFont font2;
-        font2.setFamilies({QString::fromUtf8("Luminari")});
+        font2.setFamily(QString::fromUtf8("Luminari"));
         font2.setPointSize(14);
         button_acos->setFont(font2);
         button_clear = new QPushButton(centralwidget);

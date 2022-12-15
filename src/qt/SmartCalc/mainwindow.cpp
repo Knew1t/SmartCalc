@@ -166,7 +166,6 @@ void MainWindow::xPressed() { ui->Display->insertPlainText("x"); }
 void MainWindow::GraphButtonPressed() {
   QByteArray function_string = ui->Display->toPlainText().toLocal8Bit();
   char *ptr_display = function_string.data();
-//  new_chart = new chart(this);
   new_chart.imported_expression = ptr_display;
   new_chart.DrawGraph(1);
   new_chart.show();

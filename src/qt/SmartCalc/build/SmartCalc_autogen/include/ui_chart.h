@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'chart.ui'
 **
-** Created by: Qt User Interface Compiler version 6.2.3
+** Created by: Qt User Interface Compiler version 5.15.7
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -57,7 +57,7 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(110, 480, 211, 20));
         QFont font;
-        font.setFamilies({QString::fromUtf8("Luminari")});
+        font.setFamily(QString::fromUtf8("Luminari"));
         label->setFont(font);
         label->setAlignment(Qt::AlignCenter);
         label_2 = new QLabel(chart);
