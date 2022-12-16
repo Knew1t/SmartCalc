@@ -1,4 +1,4 @@
-CC = gcc -g 
+CC = gcc -g -lm
 TEST_FLAGS = $(shell pkg-config --libs --cflags check) 
 
 TEST_DIRS = tests 
@@ -12,7 +12,7 @@ all:
 
 test:
 	echo "$(TEST_SRC_FILES)"
-	$(CC) $(TEST_FLAGS) backend.c $(TEST_SRC_FILES) -I. -Itests -o run_tests
+	$(CC) backend.c $(TEST_SRC_FILES) -I. -Itests -o run_tests $(TEST_FLAGS) 
 
 backend.o:
 	$(CC) backend.c -c

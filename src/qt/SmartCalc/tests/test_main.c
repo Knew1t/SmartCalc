@@ -4,9 +4,9 @@ START_TEST(plus_test) {
   char expression_string[256] = "1234.9824+89812.1246";
   char *x_value_string = "";
   double right_answer = 1234.9824 + 89812.1246;
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -14,9 +14,9 @@ START_TEST(minus_test) {
   char expression_string[256] = "1234.98234-89812.12456";
   char *x_value_string = "";
   double right_answer = 1234.98234 - 89812.12456;
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -24,18 +24,18 @@ START_TEST(multiply_test) {
   char expression_string[256] = "1234.98234*89812.12456";
   char *x_value_string = "";
   double right_answer = 1234.98234 * 89812.12456;
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 
 START_TEST(division_test) {
   char expression_string[256] = "1234.98234/89812.12456";
   char *x_value_string = "";
   double right_answer = 1234.98234 / 89812.12456;
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -43,9 +43,9 @@ START_TEST(pow_test) {
   char expression_string[256] = "12^3.123";
   char *x_value_string = "";
   double right_answer = pow(12, 3.123);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -53,9 +53,9 @@ START_TEST(sqrt_test) {
   char expression_string[256] = "sqrt(980987)";
   char *x_value_string = "";
   double right_answer = sqrt(980987);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -63,9 +63,9 @@ START_TEST(mod_test) {
   char expression_string[256] = "2+2";
   char *x_value_string = "";
   double right_answer = 4.0;
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -73,9 +73,9 @@ START_TEST(sin_test) {
   char expression_string[256] = "sin(1.98087)";
   char *x_value_string = "";
   double right_answer = sin(1.98087);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -83,9 +83,9 @@ START_TEST(cos_test) {
   char expression_string[256] = "cos(1.98087)";
   char *x_value_string = "";
   double right_answer = cos(1.98087);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -93,9 +93,9 @@ START_TEST(tan_test) {
   char expression_string[256] = "tan(1.98087)";
   char *x_value_string = "";
   double right_answer = tan(1.98087);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -103,18 +103,18 @@ START_TEST(asin_test) {
   char expression_string[256] = "asin(0.98087)";
   char *x_value_string = "";
   double right_answer = asin(0.98087);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
 START_TEST(asin_test_nan) {
   char expression_string[256] = "asin(1.98087)";
   char *x_value_string = "";
-  double *answer= 0;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_nan(*answer);
+  double answer= 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_nan(answer);
 }
 END_TEST
 
@@ -122,9 +122,9 @@ START_TEST(acos_test) {
   char expression_string[256] = "acos(0.123)";
   char *x_value_string = "";
   double right_answer = acos(0.123);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -132,9 +132,9 @@ START_TEST(atan_test) {
   char expression_string[256] = "atan(1.98087)";
   char *x_value_string = "";
   double right_answer = atan(1.98087);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -142,9 +142,9 @@ START_TEST(ln_test) {
   char expression_string[256] = "ln(1.98087)";
   char *x_value_string = "";
   double right_answer = log(1.98087);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -152,9 +152,9 @@ START_TEST(log_test) {
   char expression_string[256] = "log(1.98087)";
   char *x_value_string = "";
   double right_answer = log10(1.98087);
-  double *answer;
-  Calculate(expression_string, answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
 
@@ -162,9 +162,9 @@ END_TEST
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
 //   double right_answer = 4.0;
-//   double *answer;
+//   double answer = 0;
 //   Calculate(expression_string, answer, x_value_string);
-//   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+//   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 // }
 // END_TEST
 //
@@ -172,9 +172,9 @@ END_TEST
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
 //   double right_answer = 4.0;
-//   double *answer;
+//   double answer = 0;
 //   Calculate(expression_string, answer, x_value_string);
-//   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+//   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 // }
 // END_TEST
 //
@@ -182,9 +182,9 @@ END_TEST
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
 //   double right_answer = 4.0;
-//   double *answer;
+//   double answer = 0;
 //   Calculate(expression_string, answer, x_value_string);
-//   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+//   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 // }
 // END_TEST
 //
@@ -192,9 +192,9 @@ END_TEST
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
 //   double right_answer = 4.0;
-//   double *answer;
+//   double answer = 0;
 //   Calculate(expression_string, answer, x_value_string);
-//   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+//   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 // }
 // END_TEST
 //
@@ -202,9 +202,9 @@ END_TEST
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
 //   double right_answer = 4.0;
-//   double *answer;
+//   double answer = 0;
 //   Calculate(expression_string, answer, x_value_string);
-//   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+//   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 // }
 // END_TEST
 //
@@ -212,9 +212,9 @@ END_TEST
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
 //   double right_answer = 4.0;
-//   double *answer;
+//   double answer = 0;
 //   Calculate(expression_string, answer, x_value_string);
-//   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+//   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 // }
 // END_TEST
 //
@@ -222,9 +222,9 @@ END_TEST
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
 //   double right_answer = 4.0;
-//   double *answer;
+//   double answer = 0;
 //   Calculate(expression_string, answer, x_value_string);
-//   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
+//   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 // }
 // END_TEST
 
@@ -262,11 +262,11 @@ Suite *backend_suite(void) {
 int main(void) {
   int no_failed = 0;
   Suite *s;
-  SRunner *runner;
+  SRunner *runner = 0;
 
   s = backend_suite();
   runner = srunner_create(s);
-  // srunner_set_fork_status(runner, CK_NOFORK);
+  srunner_set_fork_status(runner, CK_NOFORK);
 
   srunner_run_all(runner, CK_NORMAL);
   no_failed = srunner_ntests_failed(runner);
