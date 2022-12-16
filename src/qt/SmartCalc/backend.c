@@ -1,5 +1,4 @@
 #include "backend.h"
-// #include <_ctype.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -13,8 +12,7 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
     // PrintRPNLine(rpn_line_head);
-
-    if (x_flag==1) {
+    if (x_flag == 1) {
       x_value = atof(x_string_value);
       x_ptr = &x_value;
     }
@@ -23,7 +21,10 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
     *answer = rpn_line_head->number;
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 1) {
-    *answer = atof(input_string);
+    if (x_flag != 1)
+      *answer = atof(input_string);
+    else
+      *answer = atof(x_string_value);
     error = 0;
   }
   return error;
@@ -54,7 +55,7 @@ int IsInputCorrect(char input_string[]) {
   return return_value;
 }
 
-int IsXPresent(char input_string[], char*x_string_value) {
+int IsXPresent(char input_string[], char *x_string_value) {
   bool return_value = 0;
   char *ptr_to_symbol = input_string;
   while (*ptr_to_symbol != '\0') {
@@ -64,7 +65,7 @@ int IsXPresent(char input_string[], char*x_string_value) {
     }
     ++ptr_to_symbol;
   }
-  if (return_value == 1 && (*x_string_value =='\0'))
+  if (return_value == 1 && (*x_string_value == '\0'))
     return_value = 2;
   return return_value;
 }
@@ -141,7 +142,7 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
       ToRPNQue(rpn_line_head, lexeme);
       free(lexeme);
     }
-    if (IsFunction(pointer_to_symbol)) {
+    if (IsFunction(pointer_to_symbol) && *pointer_to_symbol != 'x') {
       char *lexeme = NULL;
       GetLexeme(&lexeme, &pointer_to_symbol, IsLetter);
       ToStack(&stack_head, lexeme);
@@ -371,7 +372,7 @@ bool CheckIfAllocationFailed(void *ptr) {
 
 bool IsDigit(char const *pointer_to_symbol) {
   return (*pointer_to_symbol >= 48 && *pointer_to_symbol <= 57) ||
-         *pointer_to_symbol == '.';
+         *pointer_to_symbol == '.' || *pointer_to_symbol == 'x';
 }
 
 bool IsLetter(char const *pointer_to_symbol) {

@@ -1,4 +1,4 @@
-/home/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/SmartCalc.dir
-/home/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/edit_cache.dir
-/home/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/rebuild_cache.dir
-/home/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/SmartCalc_autogen.dir
+/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/SmartCalc.dir
+/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/edit_cache.dir
+/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/rebuild_cache.dir
+/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/SmartCalc_autogen.dir

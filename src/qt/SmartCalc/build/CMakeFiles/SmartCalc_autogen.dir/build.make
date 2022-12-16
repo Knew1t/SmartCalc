@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /opt/goinfre/longshot/homebrew/Cellar/cmake/3.25.1/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E rm -f
+RM = /opt/goinfre/longshot/homebrew/Cellar/cmake/3.25.1/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/longshot/projects/SmartCalc/src/qt/SmartCalc
+CMAKE_SOURCE_DIR = /Users/longshot/projects/SmartCalc/src/qt/SmartCalc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/longshot/projects/SmartCalc/src/qt/SmartCalc/build
+CMAKE_BINARY_DIR = /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build
 
 # Utility rule file for SmartCalc_autogen.
 
@@ -67,8 +67,8 @@ include CMakeFiles/SmartCalc_autogen.dir/compiler_depend.make
 include CMakeFiles/SmartCalc_autogen.dir/progress.make
 
 CMakeFiles/SmartCalc_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target SmartCalc"
-	/usr/bin/cmake -E cmake_autogen /home/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/SmartCalc_autogen.dir/AutogenInfo.json ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target SmartCalc"
+	/opt/goinfre/longshot/homebrew/Cellar/cmake/3.25.1/bin/cmake -E cmake_autogen /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/SmartCalc_autogen.dir/AutogenInfo.json ""
 
 SmartCalc_autogen: CMakeFiles/SmartCalc_autogen
 SmartCalc_autogen: CMakeFiles/SmartCalc_autogen.dir/build.make
@@ -83,6 +83,6 @@ CMakeFiles/SmartCalc_autogen.dir/clean:
 .PHONY : CMakeFiles/SmartCalc_autogen.dir/clean
 
 CMakeFiles/SmartCalc_autogen.dir/depend:
-	cd /home/longshot/projects/SmartCalc/src/qt/SmartCalc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/longshot/projects/SmartCalc/src/qt/SmartCalc /home/longshot/projects/SmartCalc/src/qt/SmartCalc /home/longshot/projects/SmartCalc/src/qt/SmartCalc/build /home/longshot/projects/SmartCalc/src/qt/SmartCalc/build /home/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/SmartCalc_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/longshot/projects/SmartCalc/src/qt/SmartCalc /Users/longshot/projects/SmartCalc/src/qt/SmartCalc /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build /Users/longshot/projects/SmartCalc/src/qt/SmartCalc/build/CMakeFiles/SmartCalc_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/SmartCalc_autogen.dir/depend
 
