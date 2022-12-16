@@ -76,4 +76,4 @@ README_RUS.mdkms.conf
 #compile_commands
 *.json
 #cmake cache
-.cache/
+./src/qt/SmartCalc/.cache
