@@ -1,6 +1,4 @@
 #include "backend.h"
-#include <stdio.h>
-#include <string.h>
 
 int Calculate(char input_string[256], double *answer, char *x_string_value) {
   int error = IsInputCorrect(input_string);
