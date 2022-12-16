@@ -2,11 +2,6 @@
 #include "./ui_mainwindow.h"
 
 char math_expression[255] = {0};
-bool plus_trigger = false;
-bool div_trigger = false;
-bool mult_trigger = false;
-bool digit_trigger = false;
-bool dot_trigger = false;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
@@ -75,25 +70,14 @@ MainWindow::~MainWindow() {
 void MainWindow::trigonometryButtonPressed() {
   QPushButton *button = (QPushButton *)sender();
   QString outputString = button->text() + "(";
-  if (digit_trigger && !mult_trigger) {
-    ui->Display->insertPlainText("*" + outputString);
-    mult_trigger = true;
-  } else {
     ui->Display->insertPlainText(outputString);
-    mult_trigger = true;
   }
-}
 
 void MainWindow::clearPressed() {
   std::fill_n(math_expression, 255, 0);
   if (ui->Display->hasFocus()) {
     ui->Display->setText(math_expression);
     ui->Display->setAlignment(Qt::AlignRight);
-    plus_trigger = false;
-    div_trigger = false;
-    mult_trigger = false;
-    digit_trigger = false;
-    dot_trigger = false;
   } else if (ui->X_Display->hasFocus()) {
     ui->X_Display->setText(math_expression);
     ui->X_Display->setAlignment(Qt::AlignRight);
@@ -105,58 +89,36 @@ void MainWindow::digitPressed() {
   QString buttonValue = button->text();
   if (ui->Display->hasFocus()) {
     ui->Display->insertPlainText(buttonValue);
-    digit_trigger = true;
-    mult_trigger = false;
-    div_trigger = false;
-    dot_trigger = false;
 
   } else if (ui->X_Display->hasFocus()) {
     ui->X_Display->insertPlainText(buttonValue);
   }
 }
 void MainWindow::openParentPressed() {
-  if (!dot_trigger)
     ui->Display->insertPlainText("(");
 }
 void MainWindow::closeParentPressed() {
-  if (!dot_trigger)
     ui->Display->insertPlainText(")");
 }
 void MainWindow::dotPressed() {
-  if (!dot_trigger) {
     ui->Display->insertPlainText(".");
-    dot_trigger = true;
   }
-}
 // ============== OPERATIONS =======================
 void MainWindow::plusPressed() {
-  if (!plus_trigger)
     ui->Display->insertPlainText("+");
-  plus_trigger = true;
-  dot_trigger = true;
 }
 
 void MainWindow::minusPressed() {
   ui->Display->insertPlainText("-");
-  dot_trigger = true;
-  plus_trigger = false;
 }
 
 void MainWindow::multiplyPressed() {
-  if (!mult_trigger && !div_trigger) {
     ui->Display->insertPlainText("*");
-    mult_trigger = true;
-    div_trigger = true;
   }
-}
 
 void MainWindow::dividePressed() {
-  if (!mult_trigger && !div_trigger) {
     ui->Display->insertPlainText("/");
-    mult_trigger = true;
-    div_trigger = true;
   }
-}
 
 void MainWindow::XorPressed() { ui->Display->insertPlainText("^"); }
 
