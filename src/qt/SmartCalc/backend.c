@@ -5,6 +5,7 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
   int x_flag = IsXPresent(input_string, x_string_value);
   double x_value = 0;
   double *x_ptr = NULL;
+  *answer = 0;
   if (error == 0 && x_flag != 2) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
@@ -15,8 +16,8 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
       x_ptr = &x_value;
     }
     ConvertStringsToNumbers(rpn_line_head, x_ptr);
-    *answer = EvaluateExpression(&rpn_line_head);
-    // *answer = rpn_line_head->number;
+    EvaluateExpression(&rpn_line_head);
+    *answer = rpn_line_head->number;
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 1) {
     if (x_flag != 1)

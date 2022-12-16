@@ -3,7 +3,7 @@
 START_TEST(plus_test) {
   char expression_string[256] = "1234.9824+89812.1246";
   char *x_value_string = "";
-  double right_answer = 1234.9824+89812.1246;
+  double right_answer = 1234.9824 + 89812.1246;
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -48,7 +48,7 @@ START_TEST(pow_test) {
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
 }
 END_TEST
-//
+
 START_TEST(sqrt_test) {
   char expression_string[256] = "sqrt(980987)";
   char *x_value_string = "";
@@ -58,7 +58,7 @@ START_TEST(sqrt_test) {
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
 }
 END_TEST
-//
+
 START_TEST(mod_test) {
   char expression_string[256] = "2+2";
   char *x_value_string = "";
@@ -89,7 +89,6 @@ START_TEST(cos_test) {
 }
 END_TEST
 
-
 START_TEST(tan_test) {
   char expression_string[256] = "tan(1.98087)";
   char *x_value_string = "";
@@ -101,19 +100,28 @@ START_TEST(tan_test) {
 END_TEST
 
 START_TEST(asin_test) {
-  char expression_string[256] = "asin(1.98087)";
+  char expression_string[256] = "asin(0.98087)";
   char *x_value_string = "";
-  double right_answer = asin(1.98087);
+  double right_answer = asin(0.98087);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
 }
 END_TEST
 
-START_TEST(acos_test) {
-  char expression_string[256] = "acos(1.98087)";
+START_TEST(asin_test_nan) {
+  char expression_string[256] = "asin(1.98087)";
   char *x_value_string = "";
-  double right_answer = acos(1.98087);
+  double *answer= 0;
+  Calculate(expression_string, answer, x_value_string);
+  ck_assert_double_nan(*answer);
+}
+END_TEST
+
+START_TEST(acos_test) {
+  char expression_string[256] = "acos(0.123)";
+  char *x_value_string = "";
+  double right_answer = acos(0.123);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -131,7 +139,7 @@ START_TEST(atan_test) {
 END_TEST
 
 START_TEST(ln_test) {
-  char expression_string[256] = "log(1.98087)";
+  char expression_string[256] = "ln(1.98087)";
   char *x_value_string = "";
   double right_answer = log(1.98087);
   double *answer;
@@ -141,7 +149,7 @@ START_TEST(ln_test) {
 END_TEST
 
 START_TEST(log_test) {
-  char expression_string[256] = "log10(1.98087)";
+  char expression_string[256] = "log(1.98087)";
   char *x_value_string = "";
   double right_answer = log10(1.98087);
   double *answer;
@@ -231,17 +239,17 @@ Suite *backend_suite(void) {
   tcase_add_test(tc_core, minus_test);
   tcase_add_test(tc_core, multiply_test);
   tcase_add_test(tc_core, division_test);
-  tcase_add_test(tc_core,pow_test );
-  tcase_add_test(tc_core,sqrt_test );
-
-  tcase_add_test(tc_core,log_test );
+  tcase_add_test(tc_core, pow_test);
+  tcase_add_test(tc_core, sqrt_test);
+  tcase_add_test(tc_core, log_test);
   tcase_add_test(tc_core, sin_test);
-  tcase_add_test(tc_core,cos_test );
-  tcase_add_test(tc_core,tan_test );
-  tcase_add_test(tc_core,asin_test );
-  tcase_add_test(tc_core,acos_test);
-  tcase_add_test(tc_core,atan_test);
-  tcase_add_test(tc_core,ln_test);
+  tcase_add_test(tc_core, cos_test);
+  tcase_add_test(tc_core, tan_test);
+  tcase_add_test(tc_core, asin_test);
+  tcase_add_test(tc_core, asin_test_nan);
+  tcase_add_test(tc_core, acos_test);
+  tcase_add_test(tc_core, atan_test);
+  tcase_add_test(tc_core, ln_test);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);
@@ -258,6 +266,7 @@ int main(void) {
 
   s = backend_suite();
   runner = srunner_create(s);
+  // srunner_set_fork_status(runner, CK_NOFORK);
 
   srunner_run_all(runner, CK_NORMAL);
   no_failed = srunner_ntests_failed(runner);

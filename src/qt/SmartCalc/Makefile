@@ -1,4 +1,4 @@
-CC = gcc -g
+CC = gcc -g 
 TEST_FLAGS = $(shell pkg-config --libs --cflags check) 
 
 TEST_DIRS = tests 
