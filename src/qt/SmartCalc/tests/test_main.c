@@ -70,9 +70,9 @@ START_TEST(mod_test) {
 END_TEST
 
 START_TEST(sin_test) {
-  char expression_string[256] = "2+2";
+  char expression_string[256] = "sin(1.98087)";
   char *x_value_string = "";
-  double right_answer = 4.0;
+  double right_answer = sin(1.98087);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -80,9 +80,9 @@ START_TEST(sin_test) {
 END_TEST
 
 START_TEST(cos_test) {
-  char expression_string[256] = "2+2";
+  char expression_string[256] = "cos(1.98087)";
   char *x_value_string = "";
-  double right_answer = 4.0;
+  double right_answer = cos(1.98087);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -91,9 +91,9 @@ END_TEST
 
 
 START_TEST(tan_test) {
-  char expression_string[256] = "2+2";
+  char expression_string[256] = "tan(1.98087)";
   char *x_value_string = "";
-  double right_answer = 4.0;
+  double right_answer = tan(1.98087);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -101,9 +101,9 @@ START_TEST(tan_test) {
 END_TEST
 
 START_TEST(asin_test) {
-  char expression_string[256] = "2+2";
+  char expression_string[256] = "asin(1.98087)";
   char *x_value_string = "";
-  double right_answer = 4.0;
+  double right_answer = asin(1.98087);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -111,9 +111,9 @@ START_TEST(asin_test) {
 END_TEST
 
 START_TEST(acos_test) {
-  char expression_string[256] = "2+2";
+  char expression_string[256] = "acos(1.98087)";
   char *x_value_string = "";
-  double right_answer = 4.0;
+  double right_answer = acos(1.98087);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -121,9 +121,9 @@ START_TEST(acos_test) {
 END_TEST
 
 START_TEST(atan_test) {
-  char expression_string[256] = "2+2";
+  char expression_string[256] = "atan(1.98087)";
   char *x_value_string = "";
-  double right_answer = 4.0;
+  double right_answer = atan(1.98087);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -131,9 +131,9 @@ START_TEST(atan_test) {
 END_TEST
 
 START_TEST(ln_test) {
-  char expression_string[256] = "2+2";
+  char expression_string[256] = "log(1.98087)";
   char *x_value_string = "";
-  double right_answer = 4.0;
+  double right_answer = log(1.98087);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -141,9 +141,9 @@ START_TEST(ln_test) {
 END_TEST
 
 START_TEST(log_test) {
-  char expression_string[256] = "2+2";
+  char expression_string[256] = "log10(1.98087)";
   char *x_value_string = "";
-  double right_answer = 4.0;
+  double right_answer = log10(1.98087);
   double *answer;
   Calculate(expression_string, answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, *answer, TEST_EPS);
@@ -233,11 +233,20 @@ Suite *backend_suite(void) {
   tcase_add_test(tc_core, division_test);
   tcase_add_test(tc_core,pow_test );
   tcase_add_test(tc_core,sqrt_test );
-  // tcase_add_test(tc_core,log_test );
-  // tcase_add_test(tc_core, );
-  // tcase_add_test(tc_core, );
-  // tcase_add_test(tc_core, );
-  // tcase_add_test(tc_core, );
+
+  tcase_add_test(tc_core,log_test );
+  tcase_add_test(tc_core, sin_test);
+  tcase_add_test(tc_core,cos_test );
+  tcase_add_test(tc_core,tan_test );
+  tcase_add_test(tc_core,asin_test );
+  tcase_add_test(tc_core,acos_test);
+  tcase_add_test(tc_core,atan_test);
+  tcase_add_test(tc_core,ln_test);
+  // tcase_add_test(tc_core,);
+  // tcase_add_test(tc_core,);
+  // tcase_add_test(tc_core,);
+  // tcase_add_test(tc_core,);
+  // tcase_add_test(tc_core,);
   suite_add_tcase(s, tc_core);
 
   return s;
