@@ -75,3 +75,5 @@ README.md
 README_RUS.mdkms.conf
 #compile_commands
 *.json
+#cmake cache
+.cache/
