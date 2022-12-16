@@ -15,8 +15,8 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
       x_ptr = &x_value;
     }
     ConvertStringsToNumbers(rpn_line_head, x_ptr);
-    EvaluateExpression(&rpn_line_head);
-    *answer = rpn_line_head->number;
+    *answer = EvaluateExpression(&rpn_line_head);
+    // *answer = rpn_line_head->number;
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 1) {
     if (x_flag != 1)
@@ -446,6 +446,9 @@ bool ConvertStringsToNumbers(LexemeList *rpn_line_head, double *x_ptr) {
   while (rpn_line_head != NULL) {
     if (IsDigit(rpn_line_head->lexeme)) {
       rpn_line_head->number = atof(rpn_line_head->lexeme);
+      double tmp_num = rpn_line_head->number;
+      // printf("after conversion = %lf\n",tmp_num);
+      // if (tmp_num - round(tmp_num) < 1e-6){}
     }
     if (*(rpn_line_head->lexeme) == 'x') {
       rpn_line_head->number = *x_ptr;
@@ -471,7 +474,6 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
   } else if (*operator== '+') {
     *result_value = (*lexeme_pointer)->link_previous->link_previous->number +
                     (*lexeme_pointer)->link_previous->number;
-
     node_to_be_deleted = (*lexeme_pointer)->link_previous->link_previous;
     DeleteSelectedNode(&node_to_be_deleted, head);
     node_to_be_deleted = (*lexeme_pointer)->link_previous;
@@ -549,6 +551,8 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
   }
   (*lexeme_pointer)->lexeme[0] = '0';
   (*lexeme_pointer)->number = *result_value;
-
+  // printf("number = %lf\n", (*lexeme_pointer)->number);
+  // printf("result_value = %lf\n", *result_value);
+  
   return 0;
 }

@@ -16,13 +16,15 @@ int main(int argc, char *argv[]) {
     printf("before calculation %s\n", string);
     // answer = IsInputCorrect(string);
     Calculate(string, &answer,x_value);
-    printf("answer %g\n", answer);
-    printf("string after calclulate %s\n", string);
+    printf("answer %lf\n", answer);
     // // answer = IsMod(string);
     // printf("%s\n", string);
   } else {
     printf("error: no arguments given\n");
   }
-
+  // double a =  1234.98234;
+  //
+  // double b = 89812.12456;
+  // printf("check from dev.c = %lf\n", a+b);
   return 0;
 }
