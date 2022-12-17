@@ -1,4 +1,5 @@
 #include "test_main.h"
+#include <check.h>
 
 START_TEST(plus_test) {
   char expression_string[256] = "1234.9824+89812.1246";
@@ -158,13 +159,173 @@ START_TEST(log_test) {
 }
 END_TEST
 
-START_TEST(wrong_input) {
+START_TEST(wrong_input_1) {
   char expression_string[256] = "2l2";
   char *x_value_string = "";
-  double right_answer = 4.0;
   double answer = 0;
-  Calculate(expression_string, &answer, x_value_string);
-  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_2) {
+  char expression_string[256] = "sinn()";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_3) {
+  char expression_string[256] = "sin()+cos()";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_4) {
+  char expression_string[256] = "sin(";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_5) {
+  char expression_string[256] = "*323*";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_6) {
+  char expression_string[256] = "/3";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_7) {
+  char expression_string[256] = "3+*4";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_8) {
+  char expression_string[256] = "*sin))";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_9) {
+  char expression_string[256] = ")";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_10) {
+  char expression_string[256] = "(sin";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_11) {
+  char expression_string[256] = "*x";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_12) {
+  char expression_string[256] = "-+-";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_13) {
+  char expression_string[256] = "modx";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_14) {
+  char expression_string[256] = "^3";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_15) {
+  char expression_string[256] = "sin(-+-)";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_16) {
+  char expression_string[256] = "2sinx";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_input_17) {
+  char expression_string[256] = "cosx";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
 }
 END_TEST
 
@@ -228,6 +389,7 @@ END_TEST
 // }
 // END_TEST
 
+
 Suite *backend_suite(void) {
   Suite *s;
   TCase *tc_core;
@@ -250,7 +412,23 @@ Suite *backend_suite(void) {
   tcase_add_test(tc_core, acos_test);
   tcase_add_test(tc_core, atan_test);
   tcase_add_test(tc_core, ln_test);
-  tcase_add_test(tc_core, wrong_input);
+  tcase_add_test(tc_core, wrong_input_1);
+  tcase_add_test(tc_core, wrong_input_2);
+  tcase_add_test(tc_core, wrong_input_3);
+  tcase_add_test(tc_core, wrong_input_4);
+  tcase_add_test(tc_core, wrong_input_5);
+  tcase_add_test(tc_core, wrong_input_6);
+  tcase_add_test(tc_core, wrong_input_7);
+  tcase_add_test(tc_core, wrong_input_8);
+  tcase_add_test(tc_core, wrong_input_9);
+  tcase_add_test(tc_core, wrong_input_10);
+  tcase_add_test(tc_core, wrong_input_11);
+  tcase_add_test(tc_core, wrong_input_12);
+  tcase_add_test(tc_core, wrong_input_13);
+  tcase_add_test(tc_core, wrong_input_14);
+  tcase_add_test(tc_core, wrong_input_15);
+  tcase_add_test(tc_core, wrong_input_16);
+  tcase_add_test(tc_core, wrong_input_17);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);

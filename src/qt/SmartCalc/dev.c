@@ -15,8 +15,9 @@ int main(int argc, char *argv[]) {
     strcat(x_value, argv[argc-1]);
     printf("before calculation %s\n", string);
     // answer = IsInputCorrect(string);
-    Calculate(string, &answer,x_value);
+    int err = Calculate(string, &answer,x_value);
     printf("answer %lf\n", answer);
+    printf("error_output = %d",err);
     // // answer = IsMod(string);
     // printf("%s\n", string);
   } else {

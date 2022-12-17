@@ -10,14 +10,17 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
-    PrintRPNLine(rpn_line_head);
+    // PrintRPNLine(rpn_line_head);
     if (x_flag == 1) {
       x_value = atof(x_string_value);
       x_ptr = &x_value;
     }
-    ConvertStringsToNumbers(rpn_line_head, x_ptr);
-    EvaluateExpression(&rpn_line_head);
-    *answer = rpn_line_head->number;
+    if (ConvertStringsToNumbers(rpn_line_head, x_ptr)) {
+      EvaluateExpression(&rpn_line_head);
+      *answer = rpn_line_head->number;
+    } else {
+      error = 2;
+    }
     DeleteLinkedList(&rpn_line_head);
   } else if (error == 1) {
     if (x_flag != 1)
@@ -74,9 +77,7 @@ int CheckForWrongSymbols(char input_string[]) {
   for (char *ptr_to_symbol = input_string;
        *ptr_to_symbol != '\0' && !error_flag; ++ptr_to_symbol) {
     if (IsLetter(ptr_to_symbol)) {
-      if (!strncmp(ptr_to_symbol, "sin", sizeof(char) * 3)) {
-        ptr_to_symbol += 2;
-      } else if (!strncmp(ptr_to_symbol, "sin(", sizeof(char) * 4)) {
+      if (!strncmp(ptr_to_symbol, "sin(", sizeof(char) * 4)) {
         ptr_to_symbol += 3;
       } else if (!strncmp(ptr_to_symbol, "asin(", sizeof(char) * 5)) {
         ptr_to_symbol += 4;
@@ -94,23 +95,75 @@ int CheckForWrongSymbols(char input_string[]) {
         ptr_to_symbol += 2;
       } else if (!strncmp(ptr_to_symbol, "log(", sizeof(char) * 4)) {
         ptr_to_symbol += 3;
-      } else if (!strncmp(ptr_to_symbol, "mod", sizeof(char) * 3)) {
+      } else if (!strncmp(ptr_to_symbol, "mod", sizeof(char) * 3) && ptr_to_symbol != input_string) {
         ptr_to_symbol += 2;
+        char *lexeme_finder = ptr_to_symbol;
+        error_flag = CheckLexemeNextToOperator(lexeme_finder, input_string);
       } else if (*ptr_to_symbol == 'x') {
       } else {
         error_flag = 2;
+        break;
       }
-    } else if (*ptr_to_symbol == '(' || *ptr_to_symbol == ')' ||
-               *ptr_to_symbol == ' ' || IsDigit(ptr_to_symbol)) {
+    } else if (*ptr_to_symbol == '(') {
+      char *lexeme_finder = ptr_to_symbol + 1;
+      while (*ptr_to_symbol == ' ') {
+        ++ptr_to_symbol;
+      }
+      if (*ptr_to_symbol == ')')
+        error_flag = 2;
+    } else if (*ptr_to_symbol == ' ' || IsDigit(ptr_to_symbol) ||
+               *ptr_to_symbol == ')') {
     } else if (IsOperator(ptr_to_symbol)) {
-      // char *lexeme_finder = ptr_to_symbol;
-      // while (*lexeme_finder != '\0') {
-      //   ++lexeme_finder;
-      //   if (IsDigit(lexeme_finder)) {
-      //     error_flag = 0;
-      //     break;
-      //   }
-      // }
+      char *lexeme_finder = ptr_to_symbol;
+      if (lexeme_finder == input_string) {
+        error_flag = CheckLexemeNextToOperator(lexeme_finder, input_string) &&
+                     *lexeme_finder != '*' && *lexeme_finder != '/' &&
+                     *lexeme_finder != 'm' && *lexeme_finder != '^';
+        error_flag = !error_flag ? 2 : 0;
+      } else {
+        error_flag =
+            !CheckLexemeNextToOperator(lexeme_finder, input_string) &&
+            !CheckLexemePreviousToOperator(lexeme_finder, input_string);
+        error_flag = !error_flag ? 2 : 0;
+      }
+    } else {
+      error_flag = 2;
+    }
+  }
+  return error_flag;
+}
+
+int CheckLexemeNextToOperator(char *lexeme_finder, char input_string[]) {
+  int error_flag = 0;
+  char save_oper = *lexeme_finder;
+  while (!error_flag) {
+    ++lexeme_finder;
+    if (*lexeme_finder == ' ') {
+    } else if (IsDigit(lexeme_finder) || IsFunction(lexeme_finder) ||
+               *lexeme_finder == '(' || *lexeme_finder == '+' ||
+               *lexeme_finder == '-') {
+      error_flag = 0;
+      break;
+    } else {
+      error_flag = 2;
+    }
+  }
+  return error_flag;
+}
+
+int CheckLexemePreviousToOperator(char *lexeme_finder, char input_string[]) {
+  int error_flag = 0;
+  char save_oper = *lexeme_finder;
+  while (!error_flag && lexeme_finder != input_string) {
+    --lexeme_finder;
+    if (*lexeme_finder == ' ') {
+    } else if (IsDigit(lexeme_finder) || *lexeme_finder == ')' ||
+               *lexeme_finder == '(' ||
+               ((save_oper == '-' || save_oper == '+') &&
+                    (*lexeme_finder == '(') ||
+                *lexeme_finder == '*' || *lexeme_finder == '/')) {
+      error_flag = 0;
+      break;
     } else {
       error_flag = 2;
     }

@@ -43,6 +43,9 @@ void PrintRPNLine(LexemeList *rpn_line_head);
 
 int IsInputCorrect(char input_string[]);
 int CheckForWrongSymbols(char input_string[]);
+int CheckLexemeNextToOperator(char * lexeme_finder, char input_string[]);
+int CheckLexemePreviousToOperator(char * lexeme_finder, char input_string[]);
+// int CheckOperators(char input_string[]);
 int IsXPresent(char input_string[], char *x_string_value);
 bool CheckIfAllocationFailed(void *ptr);
 void ErrorOutput(char input_string[], char *error_string);
