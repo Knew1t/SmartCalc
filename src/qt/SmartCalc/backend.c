@@ -107,10 +107,17 @@ int CheckForWrongSymbols(char input_string[]) {
       }
     } else if (*ptr_to_symbol == '(') {
       char *lexeme_finder = ptr_to_symbol + 1;
-      while (*ptr_to_symbol == ' ') {
-        ++ptr_to_symbol;
+      while (*lexeme_finder == ' ') {
+        ++lexeme_finder;
       }
-      if (*ptr_to_symbol == ')')
+      if (*lexeme_finder == ')')
+        error_flag = 2;
+    } else if (*ptr_to_symbol == ')') {
+      char *lexeme_finder = ptr_to_symbol -1;
+      while (*lexeme_finder == ' ') {
+        --lexeme_finder;
+      }
+      if (*lexeme_finder == '(')
         error_flag = 2;
     } else if (*ptr_to_symbol == ' ' || IsDigit(ptr_to_symbol) ||
                *ptr_to_symbol == ')') {
