@@ -78,4 +78,4 @@ README_RUS.mdkms.conf
 *.json
 #cmake cache
 .cache/
-
+SmartCalc
