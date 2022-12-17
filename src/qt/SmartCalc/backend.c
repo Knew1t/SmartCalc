@@ -125,7 +125,13 @@ int CheckForWrongSymbols(char input_string[]) {
         error_flag = 2;
       }
     } else if (IsDigit(ptr_to_symbol)) {
-
+      char *lexeme_finder = ptr_to_symbol + 1;
+      while (*lexeme_finder == ' ' || IsDigit(lexeme_finder)) {
+        ++lexeme_finder;
+      }
+      if (*lexeme_finder == '(' ||
+          (IsLetter(lexeme_finder) && *lexeme_finder != 'm'))
+        error_flag = 2;
     } else if (IsOperator(ptr_to_symbol)) {
       char *lexeme_finder = ptr_to_symbol;
       if (lexeme_finder == input_string) {

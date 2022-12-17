@@ -179,6 +179,17 @@ START_TEST(log_test) {
 }
 END_TEST
 
+START_TEST(long_expression_correct_test) {
+  char expression_string[256] = "(1+2)*4*cos(x*7-2)+sin(x*2)";
+  char *x_value_string = "2";
+  double right_answer = (1+2)*4*cos(2*7-2)+sin(2*2);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
+}
+END_TEST
+
+
 START_TEST(wrong_input_1) {
   char expression_string[256] = "2l2";
   char *x_value_string = "";
@@ -359,6 +370,16 @@ START_TEST(wrong_input_18) {
 }
 END_TEST
 
+START_TEST(wrong_input_19) {
+  char expression_string[256] = "2tan(23)";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
 // START_TEST() {
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
@@ -444,6 +465,8 @@ Suite *backend_suite(void) {
   tcase_add_test(tc_core, acos_test);
   tcase_add_test(tc_core, atan_test);
   tcase_add_test(tc_core, ln_test);
+  tcase_add_test(tc_core, long_expression_correct_test);
+
   tcase_add_test(tc_core, wrong_input_1);
   tcase_add_test(tc_core, wrong_input_2);
   tcase_add_test(tc_core, wrong_input_3);
@@ -462,6 +485,7 @@ Suite *backend_suite(void) {
   tcase_add_test(tc_core, wrong_input_16);
   tcase_add_test(tc_core, wrong_input_17);
   tcase_add_test(tc_core, wrong_input_18);
+  tcase_add_test(tc_core, wrong_input_19);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);

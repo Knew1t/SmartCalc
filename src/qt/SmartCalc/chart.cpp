@@ -11,10 +11,10 @@
 
 chart::chart(QWidget *parent) : QDialog(parent), ui(new Ui::chart) {
   ui->setupUi(this);
-  ui->domain_field_min->setText("-500");
-  ui->domain_field_max->setText("500");
-  ui->range_field_min->setText("-500");
-  ui->range_field_max->setText("500");
+  ui->domain_field_min->setText("-10");
+  ui->domain_field_max->setText("10");
+  ui->range_field_min->setText("-10");
+  ui->range_field_max->setText("10");
   connect(ui->pushButton, SIGNAL(released()), this, SLOT(ReplotPressed()));
 }
 
