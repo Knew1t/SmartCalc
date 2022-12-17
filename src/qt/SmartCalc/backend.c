@@ -143,7 +143,7 @@ int CheckForWrongSymbols(char input_string[]) {
         error_flag = CheckLexemeNextToOperator(lexeme_finder, input_string) &&
                      *lexeme_finder != '*' && *lexeme_finder != '/' &&
                      *lexeme_finder != 'm' && *lexeme_finder != '^';
-        error_flag = !error_flag ? 2 : 0;
+        error_flag = !error_flag ? 0 : 2;
       } else {
         error_flag =
             !CheckLexemeNextToOperator(lexeme_finder, input_string) &&
@@ -160,7 +160,7 @@ int CheckForWrongSymbols(char input_string[]) {
 int CheckLexemeNextToOperator(char *lexeme_finder, char input_string[]) {
   int error_flag = 0;
   char save_oper = *lexeme_finder;
-  while (!error_flag) {
+  while (!error_flag && *lexeme_finder!='\0') {
     ++lexeme_finder;
     if (*lexeme_finder == ' ') {
     } else if (IsDigit(lexeme_finder) || IsFunction(lexeme_finder) ||
