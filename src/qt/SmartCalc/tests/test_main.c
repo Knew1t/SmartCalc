@@ -380,6 +380,16 @@ START_TEST(wrong_input_19) {
 }
 END_TEST
 
+START_TEST(wrong_input_20) {
+  char expression_string[256] = "cos(23)2";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output= Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
 // START_TEST() {
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
@@ -486,6 +496,7 @@ Suite *backend_suite(void) {
   tcase_add_test(tc_core, wrong_input_17);
   tcase_add_test(tc_core, wrong_input_18);
   tcase_add_test(tc_core, wrong_input_19);
+  tcase_add_test(tc_core, wrong_input_20);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);

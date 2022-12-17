@@ -10,7 +10,6 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
-    PrintRPNLine(rpn_line_head);
     if (x_flag == 1) {
       x_value = atof(x_string_value);
       x_ptr = &x_value;
@@ -118,6 +117,12 @@ int CheckForWrongSymbols(char input_string[]) {
         --lexeme_finder;
       }
       if (*lexeme_finder == '(')
+        error_flag = 2;
+      lexeme_finder = ptr_to_symbol+1;
+      while (*lexeme_finder == ' ') {
+        ++lexeme_finder;
+      }
+      if(IsDigit(lexeme_finder))
         error_flag = 2;
     } else if (*ptr_to_symbol == '.') {
       if ((!IsDigit(ptr_to_symbol + 1) || *(ptr_to_symbol + 1) == '.') ||
