@@ -113,14 +113,19 @@ int CheckForWrongSymbols(char input_string[]) {
       if (*lexeme_finder == ')')
         error_flag = 2;
     } else if (*ptr_to_symbol == ')') {
-      char *lexeme_finder = ptr_to_symbol -1;
+      char *lexeme_finder = ptr_to_symbol - 1;
       while (*lexeme_finder == ' ') {
         --lexeme_finder;
       }
       if (*lexeme_finder == '(')
         error_flag = 2;
-    } else if (*ptr_to_symbol == ' ' || IsDigit(ptr_to_symbol) ||
-               *ptr_to_symbol == ')') {
+    } else if (*ptr_to_symbol == '.') {
+      if ((!IsDigit(ptr_to_symbol + 1) || *(ptr_to_symbol + 1) == '.') ||
+          !IsDigit(ptr_to_symbol - 1) || *(ptr_to_symbol - 1) == '.') {
+        error_flag = 2;
+      }
+    } else if (IsDigit(ptr_to_symbol)) {
+
     } else if (IsOperator(ptr_to_symbol)) {
       char *lexeme_finder = ptr_to_symbol;
       if (lexeme_finder == input_string) {

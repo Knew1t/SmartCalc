@@ -13,6 +13,7 @@ all:
 test:
 	echo "$(TEST_SRC_FILES)"
 	$(CC) backend.c $(TEST_SRC_FILES) -I. -Itests -o run_tests $(TEST_FLAGS) 
+	./run_tests
 
 backend.o:
 	$(CC) backend.c -c
