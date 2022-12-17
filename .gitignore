@@ -35,6 +35,7 @@
 *.i*86
 *.x86_64
 *.hex
+run_tests
 
 # Debug files
 *.dSYM/
@@ -77,3 +78,4 @@ README_RUS.mdkms.conf
 *.json
 #cmake cache
 .cache/
+
