@@ -11,6 +11,16 @@ START_TEST(plus_test) {
 }
 END_TEST
 
+START_TEST(plus_test_extensive) {
+  char expression_string[256] = "1.2+2.3-4.5+6.7-9.8-2.3*10.11/12.13";
+  char *x_value_string = "";
+  double right_answer = 1.2+2.3-4.5+6.7-9.8-2.3*10.11/12.13;
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
+}
+END_TEST
+
 START_TEST(minus_test) {
   char expression_string[256] = "1234.98234-89812.12456";
   char *x_value_string = "";
@@ -44,6 +54,16 @@ START_TEST(pow_test) {
   char expression_string[256] = "12^3.123";
   char *x_value_string = "";
   double right_answer = pow(12, 3.123);
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
+}
+END_TEST
+
+START_TEST(pow_test_extensive) {
+  char expression_string[256] = "2^2^3";
+  char *x_value_string = "";
+  double right_answer = 256.0;
   double answer = 0;
   Calculate(expression_string, &answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
@@ -398,10 +418,12 @@ Suite *backend_suite(void) {
   tc_core = tcase_create("Core");
 
   tcase_add_test(tc_core, plus_test);
+  tcase_add_test(tc_core, plus_test_extensive);
   tcase_add_test(tc_core, minus_test);
   tcase_add_test(tc_core, multiply_test);
   tcase_add_test(tc_core, division_test);
   tcase_add_test(tc_core, pow_test);
+  tcase_add_test(tc_core, pow_test_extensive);
   tcase_add_test(tc_core, sqrt_test);
   tcase_add_test(tc_core, log_test);
   tcase_add_test(tc_core, sin_test);

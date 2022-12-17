@@ -10,7 +10,7 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
-    // PrintRPNLine(rpn_line_head);
+    PrintRPNLine(rpn_line_head);
     if (x_flag == 1) {
       x_value = atof(x_string_value);
       x_ptr = &x_value;
@@ -95,7 +95,8 @@ int CheckForWrongSymbols(char input_string[]) {
         ptr_to_symbol += 2;
       } else if (!strncmp(ptr_to_symbol, "log(", sizeof(char) * 4)) {
         ptr_to_symbol += 3;
-      } else if (!strncmp(ptr_to_symbol, "mod", sizeof(char) * 3) && ptr_to_symbol != input_string) {
+      } else if (!strncmp(ptr_to_symbol, "mod", sizeof(char) * 3) &&
+                 ptr_to_symbol != input_string) {
         ptr_to_symbol += 2;
         char *lexeme_finder = ptr_to_symbol;
         error_flag = CheckLexemeNextToOperator(lexeme_finder, input_string);
@@ -255,14 +256,20 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
 int CompareToStackOperator(LexemeList *head, char operator[]) {
   int current_operator_priority = 0;
   int stack_operator_priority = 0;
+  int return_value = 0;
   GetPriority(&current_operator_priority, operator);
   GetPriority(&stack_operator_priority, head->lexeme);
-  return current_operator_priority <= stack_operator_priority;
+  if (*operator== *(head->lexeme) && *operator== '^') {
+    return_value = false;
+  } else {
+    return_value = current_operator_priority <= stack_operator_priority;
+  }
+  return return_value;
 }
 
 void GetPriority(int *priority, const char *operator) {
   if (*operator== '^') {
-    *priority = 0;
+    *priority = 4;
   } else if (*operator== '-') {
     *priority = 1;
   } else if (*operator== '+') {
@@ -274,7 +281,7 @@ void GetPriority(int *priority, const char *operator) {
   } else if (*operator== '*') {
     *priority = 3;
   } else if (*operator== '~') {
-    *priority = 4;
+    *priority = 5;
   }
 }
 
