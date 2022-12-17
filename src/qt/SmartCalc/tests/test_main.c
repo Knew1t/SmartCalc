@@ -112,7 +112,7 @@ END_TEST
 START_TEST(asin_test_nan) {
   char expression_string[256] = "asin(1.98087)";
   char *x_value_string = "";
-  double answer= 0;
+  double answer = 0;
   Calculate(expression_string, &answer, x_value_string);
   ck_assert_double_nan(answer);
 }
@@ -158,16 +158,16 @@ START_TEST(log_test) {
 }
 END_TEST
 
-// START_TEST() {
-//   char expression_string[256] = "2+2";
-//   char *x_value_string = "";
-//   double right_answer = 4.0;
-//   double answer = 0;
-//   Calculate(expression_string, answer, x_value_string);
-//   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
-// }
-// END_TEST
-//
+START_TEST(wrong_input) {
+  char expression_string[256] = "2l2";
+  char *x_value_string = "";
+  double right_answer = 4.0;
+  double answer = 0;
+  Calculate(expression_string, &answer, x_value_string);
+  ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
+}
+END_TEST
+
 // START_TEST() {
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
@@ -250,7 +250,7 @@ Suite *backend_suite(void) {
   tcase_add_test(tc_core, acos_test);
   tcase_add_test(tc_core, atan_test);
   tcase_add_test(tc_core, ln_test);
-  // tcase_add_test(tc_core,);
+  tcase_add_test(tc_core, wrong_input);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);
@@ -259,6 +259,7 @@ Suite *backend_suite(void) {
 
   return s;
 }
+
 int main(void) {
   int no_failed = 0;
   Suite *s;

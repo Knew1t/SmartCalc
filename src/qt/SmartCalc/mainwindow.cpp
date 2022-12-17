@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
   ui->Display_2->setText("");
   ui->X_Display->setText("");
   ui->X_Display->setAlignment(Qt::AlignRight);
-  ui->Display->setText("tan(x)");
+  ui->Display->setText("");
   ui->Display->setAlignment(Qt::AlignRight);
   ui->Display->setFocus();
   ui->Display->setFocusPolicy(Qt::ClickFocus);
@@ -29,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
   connect(ui->button_plus, SIGNAL(released()), this, SLOT(plusPressed()));
   ui->button_plus->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_minus, SIGNAL(released()), this, SLOT(minusPressed()));
+  ui->button_mod->setFocusPolicy(Qt::NoFocus);
+  connect(ui->button_mod, SIGNAL(released()), this, SLOT(ModPressed()));
   ui->button_minus->setFocusPolicy(Qt::NoFocus);
   connect(ui->button_open_parent, SIGNAL(released()), this,
           SLOT(openParentPressed()));
@@ -123,6 +125,7 @@ void MainWindow::dividePressed() {
 void MainWindow::XorPressed() { ui->Display->insertPlainText("^"); }
 
 void MainWindow::xPressed() { ui->Display->insertPlainText("x"); }
+void MainWindow::ModPressed() { ui->Display->insertPlainText("mod"); }
 
 //=================================================
 void MainWindow::GraphButtonPressed() {
@@ -145,7 +148,7 @@ void MainWindow::equalPressed() {
     ui->Display_2->setAlignment(Qt::AlignRight);
     ui->Display_2->moveCursor(QTextCursor::End);
   } else {
-    ui->Display_2->setText("Achtung!");
+    ui->Display_2->setText("error.");
     ui->Display_2->setAlignment(Qt::AlignRight);
     ui->Display_2->moveCursor(QTextCursor::End);
   }

@@ -42,6 +42,7 @@ private slots:
   void GraphButtonPressed();
   void xPressed();
   void XorPressed();
+  void ModPressed();
 
 private:
   Ui::MainWindow *ui;

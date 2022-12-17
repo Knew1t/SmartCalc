@@ -10,7 +10,7 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
-    // PrintRPNLine(rpn_line_head);
+    PrintRPNLine(rpn_line_head);
     if (x_flag == 1) {
       x_value = atof(x_string_value);
       x_ptr = &x_value;
@@ -200,34 +200,28 @@ int ParseMathExpression(LexemeList *rpn_line_head, char input_string[255]) {
 }
 
 int CompareToStackOperator(LexemeList *head, char operator[]) {
-  int priority = 0;
+  int current_operator_priority = 0;
   int stack_operator_priority = 0;
-  GetPriority(&priority, operator);
+  GetPriority(&current_operator_priority, operator);
   GetPriority(&stack_operator_priority, head->lexeme);
-  return priority < stack_operator_priority;
+  return current_operator_priority <= stack_operator_priority;
 }
 
 void GetPriority(int *priority, const char *operator) {
-  if (*operator== '-') {
-    *priority = 1;
-  }
-  if (*operator== '+') {
-    *priority = 2;
-  }
-  if (*operator== 'm') {
-    *priority = 3;
-  }
-  if (*operator== '/') {
-    *priority = 4;
-  }
-  if (*operator== '*') {
-    *priority = 5;
-  }
   if (*operator== '^') {
-    *priority = 6;
-  }
-  if (*operator== '~') {
-    *priority = 7;
+    *priority = 0;
+  } else if (*operator== '-') {
+    *priority = 1;
+  } else if (*operator== '+') {
+    *priority = 1;
+  } else if (*operator== 'm') {
+    *priority = 2;
+  } else if (*operator== '/') {
+    *priority = 3;
+  } else if (*operator== '*') {
+    *priority = 3;
+  } else if (*operator== '~') {
+    *priority = 4;
   }
 }
 
@@ -554,6 +548,6 @@ double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
   (*lexeme_pointer)->number = *result_value;
   // printf("number = %lf\n", (*lexeme_pointer)->number);
   // printf("result_value = %lf\n", *result_value);
-  
+
   return 0;
 }
