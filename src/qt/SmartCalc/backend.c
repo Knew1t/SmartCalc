@@ -2,6 +2,9 @@
 
 int Calculate(char input_string[256], double *answer, char *x_string_value) {
   int error = IsInputCorrect(input_string);
+  // IsInputCorrect() = 0 - okay
+  // IsInputCorrect() = 1 - input is a number => do nothing
+  // IsInputCorrect() = 2 - input is wrong => return error
   int x_flag = IsXPresent(input_string, x_string_value);
   double x_value = 0;
   double *x_ptr = NULL;
@@ -53,21 +56,6 @@ int IsInputCorrect(char input_string[]) {
   if (return_value == 0) {
     return_value = CountBrackets(input_string);
   }
-  return return_value;
-}
-
-int IsXPresent(char input_string[], char *x_string_value) {
-  bool return_value = 0;
-  char *ptr_to_symbol = input_string;
-  while (*ptr_to_symbol != '\0') {
-    if (*ptr_to_symbol == 'x') {
-      return_value = 1;
-      break;
-    }
-    ++ptr_to_symbol;
-  }
-  if (return_value == 1 && (*x_string_value == '\0'))
-    return_value = 2;
   return return_value;
 }
 
@@ -140,10 +128,10 @@ int CheckForWrongSymbols(char input_string[]) {
     } else if (IsOperator(ptr_to_symbol)) {
       char *lexeme_finder = ptr_to_symbol;
       if (lexeme_finder == input_string) {
-        error_flag = CheckLexemeNextToOperator(lexeme_finder, input_string) &&
+        error_flag = !CheckLexemeNextToOperator(lexeme_finder, input_string) &&
                      *lexeme_finder != '*' && *lexeme_finder != '/' &&
                      *lexeme_finder != 'm' && *lexeme_finder != '^';
-        error_flag = !error_flag ? 0 : 2;
+        error_flag = error_flag ? 0 : 2;
       } else {
         error_flag =
             !CheckLexemeNextToOperator(lexeme_finder, input_string) &&
@@ -193,6 +181,21 @@ int CheckLexemePreviousToOperator(char *lexeme_finder, char input_string[]) {
     }
   }
   return error_flag;
+}
+
+int IsXPresent(char input_string[], char *x_string_value) {
+  bool return_value = 0;
+  char *ptr_to_symbol = input_string;
+  while (*ptr_to_symbol != '\0') {
+    if (*ptr_to_symbol == 'x') {
+      return_value = 1;
+      break;
+    }
+    ++ptr_to_symbol;
+  }
+  if (return_value == 1 && (*x_string_value == '\0'))
+    return_value = 2;
+  return return_value;
 }
 
 double EvaluateExpression(LexemeList **head) {
