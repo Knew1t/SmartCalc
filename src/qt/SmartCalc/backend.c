@@ -13,6 +13,7 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
+    PrintRPNLine(rpn_line_head);
     if (x_flag == 1) {
       x_value = atof(x_string_value);
       x_ptr = &x_value;
@@ -92,6 +93,7 @@ int CheckForWrongSymbols(char input_string[]) {
         error_flag = 2;
         break;
       }
+    } else if (*ptr_to_symbol == ' ') {
     } else if (*ptr_to_symbol == '(') {
       char *lexeme_finder = ptr_to_symbol + 1;
       while (*lexeme_finder == ' ') {
