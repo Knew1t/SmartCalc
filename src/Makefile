@@ -36,3 +36,4 @@ clean:
 	rm -rf *a.out *.o
 	rm -rf *.dSYM run_tests
 	@rm *.gcno *.gcda run_tests_for_coverage
+	@rm -rf *report
