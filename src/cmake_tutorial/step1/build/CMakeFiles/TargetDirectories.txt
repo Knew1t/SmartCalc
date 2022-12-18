@@ -1,3 +1,0 @@
-/Users/longshot/projects/SmartCalc/src/cmake_tutorial/step1/build/CMakeFiles/tutorial.dir
-/Users/longshot/projects/SmartCalc/src/cmake_tutorial/step1/build/CMakeFiles/edit_cache.dir
-/Users/longshot/projects/SmartCalc/src/cmake_tutorial/step1/build/CMakeFiles/rebuild_cache.dir
