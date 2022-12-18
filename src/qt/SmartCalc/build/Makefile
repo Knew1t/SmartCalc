@@ -130,6 +130,19 @@ SmartCalc/fast:
 .PHONY : SmartCalc/fast
 
 #=============================================================================
+# Target rules for targets named test
+
+# Build rule for target.
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
+.PHONY : test
+
+# fast build rule for target.
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+#=============================================================================
 # Target rules for targets named SmartCalc_autogen
 
 # Build rule for target.
@@ -141,6 +154,19 @@ SmartCalc_autogen: cmake_check_build_system
 SmartCalc_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartCalc_autogen.dir/build.make CMakeFiles/SmartCalc_autogen.dir/build
 .PHONY : SmartCalc_autogen/fast
+
+#=============================================================================
+# Target rules for targets named test_autogen
+
+# Build rule for target.
+test_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_autogen
+.PHONY : test_autogen
+
+# fast build rule for target.
+test_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_autogen.dir/build.make CMakeFiles/test_autogen.dir/build
+.PHONY : test_autogen/fast
 
 SmartCalc_autogen/mocs_compilation.o: SmartCalc_autogen/mocs_compilation.cpp.o
 .PHONY : SmartCalc_autogen/mocs_compilation.o
@@ -172,6 +198,7 @@ backend.o: backend.c.o
 # target to build an object file
 backend.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartCalc.dir/build.make CMakeFiles/SmartCalc.dir/backend.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/backend.c.o
 .PHONY : backend.c.o
 
 backend.i: backend.c.i
@@ -180,6 +207,7 @@ backend.i: backend.c.i
 # target to preprocess a source file
 backend.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartCalc.dir/build.make CMakeFiles/SmartCalc.dir/backend.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/backend.c.i
 .PHONY : backend.c.i
 
 backend.s: backend.c.s
@@ -188,6 +216,7 @@ backend.s: backend.c.s
 # target to generate assembly for a file
 backend.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartCalc.dir/build.make CMakeFiles/SmartCalc.dir/backend.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/backend.c.s
 .PHONY : backend.c.s
 
 chart.o: chart.cpp.o
@@ -286,6 +315,54 @@ qcustomplot.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SmartCalc.dir/build.make CMakeFiles/SmartCalc.dir/qcustomplot.cpp.s
 .PHONY : qcustomplot.cpp.s
 
+test_autogen/mocs_compilation.o: test_autogen/mocs_compilation.cpp.o
+.PHONY : test_autogen/mocs_compilation.o
+
+# target to build an object file
+test_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.o
+.PHONY : test_autogen/mocs_compilation.cpp.o
+
+test_autogen/mocs_compilation.i: test_autogen/mocs_compilation.cpp.i
+.PHONY : test_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+test_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.i
+.PHONY : test_autogen/mocs_compilation.cpp.i
+
+test_autogen/mocs_compilation.s: test_autogen/mocs_compilation.cpp.s
+.PHONY : test_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+test_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test_autogen/mocs_compilation.cpp.s
+.PHONY : test_autogen/mocs_compilation.cpp.s
+
+tests/test_main.o: tests/test_main.c.o
+.PHONY : tests/test_main.o
+
+# target to build an object file
+tests/test_main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test_main.c.o
+.PHONY : tests/test_main.c.o
+
+tests/test_main.i: tests/test_main.c.i
+.PHONY : tests/test_main.i
+
+# target to preprocess a source file
+tests/test_main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test_main.c.i
+.PHONY : tests/test_main.c.i
+
+tests/test_main.s: tests/test_main.c.s
+.PHONY : tests/test_main.s
+
+# target to generate assembly for a file
+tests/test_main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test_main.c.s
+.PHONY : tests/test_main.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -295,7 +372,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SmartCalc_autogen"
+	@echo "... test_autogen"
 	@echo "... SmartCalc"
+	@echo "... test"
 	@echo "... SmartCalc_autogen/mocs_compilation.o"
 	@echo "... SmartCalc_autogen/mocs_compilation.i"
 	@echo "... SmartCalc_autogen/mocs_compilation.s"
@@ -314,6 +393,12 @@ help:
 	@echo "... qcustomplot.o"
 	@echo "... qcustomplot.i"
 	@echo "... qcustomplot.s"
+	@echo "... test_autogen/mocs_compilation.o"
+	@echo "... test_autogen/mocs_compilation.i"
+	@echo "... test_autogen/mocs_compilation.s"
+	@echo "... tests/test_main.o"
+	@echo "... tests/test_main.i"
+	@echo "... tests/test_main.s"
 .PHONY : help
 
 

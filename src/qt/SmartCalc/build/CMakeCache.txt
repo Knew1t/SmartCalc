@@ -14,6 +14,12 @@
 # EXTERNAL cache entries
 ########################
 
+//The directory containing a CMake configuration file for CHECK.
+CHECK_DIR:PATH=CHECK_DIR-NOTFOUND
+
+//Path to a library.
+CHECK_LIB:FILEPATH=CHECK_LIB-NOTFOUND
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=CMAKE_ADDR2LINE-NOTFOUND
 
@@ -287,6 +293,9 @@ SmartCalc_SOURCE_DIR:STATIC=/Users/longshot/projects/SmartCalc/src/qt/SmartCalc
 
 //Path to a library.
 WrapOpenGL_AGL:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/AGL.framework
+
+//The directory containing a CMake configuration file for libcheck.
+libcheck_DIR:PATH=libcheck_DIR-NOTFOUND
 
 
 ########################

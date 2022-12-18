@@ -19,16 +19,19 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS PrintSupport)
+# find_package(PkgConfig REQUIRED)
+# find_library(CHECK_LIB chek)
+# find_package(CHECK libcheck)
 
 # set(PROJECT_SOURCES main.cpp mainwindow.cpp backend.c mainwindow.h backend.h
 # mainwindow.ui )
 
 add_compile_options(-g)
-# add_compile_options(-lm)
-# add_compile_options(-fsanitize=address link_options(-fsanitize=address)
+# add_compile_options(-lm) add_compile_options(-fsanitize=address
+# link_options(-fsanitize=address)
 
 add_executable(
-  SmartCalc
+  ${PROJECT_NAME}
   main.cpp
   mainwindow.ui
   mainwindow.cpp
@@ -40,6 +43,11 @@ add_executable(
   chart.cpp
   qcustomplot.cpp
   qcustomplot.h)
+
+add_executable(test tests/test_main.c tests/test_main.h backend.c
+                         backend.h)
+target_link_libraries(test check)
+
 
 # if(${QT_VERSION_MAJOR} GREATER_EQUAL 6) qt_add_executable(SmartCalc
 # MANUAL_FINALIZATION ${PROJECT_SOURCES} ) Define target properties for Android
