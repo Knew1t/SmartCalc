@@ -13,7 +13,7 @@ int Calculate(char input_string[256], double *answer, char *x_string_value) {
     LexemeList *rpn_line_head = NULL;
     CreateLinkedList(&rpn_line_head);
     ParseMathExpression(rpn_line_head, input_string);
-    PrintRPNLine(rpn_line_head);
+    // PrintRPNLine(rpn_line_head);
     if (x_flag == 1) {
       x_value = atof(x_string_value);
       x_ptr = &x_value;
@@ -87,7 +87,7 @@ int CheckForWrongSymbols(char input_string[]) {
                  ptr_to_symbol != input_string) {
         ptr_to_symbol += 2;
         char *lexeme_finder = ptr_to_symbol;
-        error_flag = CheckLexemeNextToOperator(lexeme_finder, input_string);
+        error_flag = CheckLexemeNextToOperator(lexeme_finder);
       } else if (*ptr_to_symbol == 'x') {
       } else {
         error_flag = 2;
@@ -108,11 +108,11 @@ int CheckForWrongSymbols(char input_string[]) {
       }
       if (*lexeme_finder == '(')
         error_flag = 2;
-      lexeme_finder = ptr_to_symbol+1;
+      lexeme_finder = ptr_to_symbol + 1;
       while (*lexeme_finder == ' ') {
         ++lexeme_finder;
       }
-      if(IsDigit(lexeme_finder))
+      if (IsDigit(lexeme_finder))
         error_flag = 2;
     } else if (*ptr_to_symbol == '.') {
       if ((!IsDigit(ptr_to_symbol + 1) || *(ptr_to_symbol + 1) == '.') ||
@@ -130,13 +130,13 @@ int CheckForWrongSymbols(char input_string[]) {
     } else if (IsOperator(ptr_to_symbol)) {
       char *lexeme_finder = ptr_to_symbol;
       if (lexeme_finder == input_string) {
-        error_flag = !CheckLexemeNextToOperator(lexeme_finder, input_string) &&
+        error_flag = !CheckLexemeNextToOperator(lexeme_finder) &&
                      *lexeme_finder != '*' && *lexeme_finder != '/' &&
                      *lexeme_finder != 'm' && *lexeme_finder != '^';
         error_flag = error_flag ? 0 : 2;
       } else {
         error_flag =
-            !CheckLexemeNextToOperator(lexeme_finder, input_string) &&
+            !CheckLexemeNextToOperator(lexeme_finder) &&
             !CheckLexemePreviousToOperator(lexeme_finder, input_string);
         error_flag = !error_flag ? 2 : 0;
       }
@@ -147,10 +147,9 @@ int CheckForWrongSymbols(char input_string[]) {
   return error_flag;
 }
 
-int CheckLexemeNextToOperator(char *lexeme_finder, char input_string[]) {
+int CheckLexemeNextToOperator(char *lexeme_finder) {
   int error_flag = 0;
-  char save_oper = *lexeme_finder;
-  while (!error_flag && *lexeme_finder!='\0') {
+  while (!error_flag && *lexeme_finder != '\0') {
     ++lexeme_finder;
     if (*lexeme_finder == ' ') {
     } else if (IsDigit(lexeme_finder) || IsFunction(lexeme_finder) ||
@@ -204,7 +203,7 @@ double EvaluateExpression(LexemeList **head) {
   double result_value = 0;
   while ((*head)->link_next != NULL) {
     LexemeList *lexeme_pointer = *head;
-    FindFirstFunctionOrOperator(&lexeme_pointer, head);
+    FindFirstFunctionOrOperator(&lexeme_pointer);
     CalculatePreviousNodes(&result_value, &lexeme_pointer, head);
   }
   return result_value;
@@ -483,7 +482,6 @@ bool IsFunction(char const *lexeme) {
 }
 
 int CountBrackets(char input_string[]) {
-  int return_value = 0;
   short open_bracket_count = 0;
   short close_bracket_count = 0;
   for (char *ptr = input_string;
@@ -515,8 +513,7 @@ bool CheckIfUnary(char *pointer_to_symbol, char input_string[]) {
   return return_value;
 }
 
-void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer,
-                                 LexemeList **head) {
+void FindFirstFunctionOrOperator(LexemeList **lexeme_pointer) {
   while (IsDigit((*lexeme_pointer)->lexeme) ||
          *((*lexeme_pointer)->lexeme) == 'x') {
     (*lexeme_pointer) = (*lexeme_pointer)->link_next;
@@ -529,9 +526,6 @@ bool ConvertStringsToNumbers(LexemeList *rpn_line_head, double *x_ptr) {
   while (rpn_line_head != NULL) {
     if (IsDigit(rpn_line_head->lexeme)) {
       rpn_line_head->number = atof(rpn_line_head->lexeme);
-      double tmp_num = rpn_line_head->number;
-      // printf("after conversion = %lf\n",tmp_num);
-      // if (tmp_num - round(tmp_num) < 1e-6){}
     }
     if (*(rpn_line_head->lexeme) == 'x') {
       rpn_line_head->number = *x_ptr;
@@ -544,7 +538,6 @@ bool ConvertStringsToNumbers(LexemeList *rpn_line_head, double *x_ptr) {
 double CalculatePreviousNodes(double *result_value, LexemeList **lexeme_pointer,
                               LexemeList **head) {
   double second_value_holder = (*lexeme_pointer)->link_previous->number;
-  LexemeList *pointer_to_operation_node = *lexeme_pointer;
   char *operator=(*lexeme_pointer)->lexeme;
   LexemeList *node_to_be_deleted = NULL;
   if (*operator== '-') {
