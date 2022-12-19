@@ -21,7 +21,7 @@ all: install tests
 install:
 	mkdir ../build
 	cmake -S . ../build
-	# cmake --build ../build
+	cmake --build ../build
 
 uninstall:
 	rm -rf ../build
@@ -45,7 +45,7 @@ test:
 clean:
 	rm -rf *a.out *.o
 	rm -rf *.dSYM run_tests
-	# rm -rf html latex
-	@rm *.gcno *.gcda run_tests_for_coverage
-	@rm -rf *report
+	rm -rf report 
+	rm -rf report.info
+	rm *.gcno *.gcda 
 
