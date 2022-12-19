@@ -1,9 +1,10 @@
 #include "backend.h"
 /*! \mainpage Drawing Shapes
  *
- * 
- * This is a Calculator. It evaluates expressions and draws graphs based on them.
-*/
+ *
+ * This is a Calculator. It evaluates expressions and draws graphs based on
+ * them.
+ */
 
 int Calculate(char input_string[256], double *answer, char *x_string_value) {
   int error = IsInputCorrect(input_string);
@@ -49,7 +50,7 @@ int IsInputCorrect(char input_string[]) {
   int return_value = 0;
   // check if only numbers
   for (char *ptr = input_string; *ptr != '\0'; ++ptr) {
-    if (IsDigit(ptr)) {
+    if (IsDigit(ptr) && *ptr != 'x') {
       return_value = 1;
     } else {
       return_value = 0;
@@ -94,6 +95,18 @@ int CheckForWrongSymbols(char input_string[]) {
         char *lexeme_finder = ptr_to_symbol;
         error_flag = CheckLexemeNextToOperator(lexeme_finder);
       } else if (*ptr_to_symbol == 'x') {
+        char *lexeme_finder = ptr_to_symbol + 1;
+        while (*lexeme_finder == ' ') {
+          ++lexeme_finder;
+        }
+        if (IsDigit(lexeme_finder))
+          error_flag = 2;
+        lexeme_finder = ptr_to_symbol - 1;
+        while (*lexeme_finder == ' ') {
+          --lexeme_finder;
+        }
+        if (IsDigit(lexeme_finder))
+          error_flag = 2;
       } else {
         error_flag = 2;
         break;
@@ -124,7 +137,7 @@ int CheckForWrongSymbols(char input_string[]) {
           !IsDigit(ptr_to_symbol - 1) || *(ptr_to_symbol - 1) == '.') {
         error_flag = 2;
       }
-    } else if (IsDigit(ptr_to_symbol)) {
+    } else if (IsDigit(ptr_to_symbol) && *ptr_to_symbol != 'x') {
       char *lexeme_finder = ptr_to_symbol + 1;
       while (*lexeme_finder == ' ' || IsDigit(lexeme_finder)) {
         ++lexeme_finder;

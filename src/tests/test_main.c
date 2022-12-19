@@ -21,6 +21,36 @@ START_TEST(x_test) {
 }
 END_TEST
 
+START_TEST(wrong_x_test) {
+  char expression_string[256] = "1234.9824x";
+  char *x_value_string = "89812.1246";
+  double answer = 0;
+  int error_output = Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_x_test_2) {
+  char expression_string[256] = "x3";
+  char *x_value_string = "89812.1246";
+  double answer = 0;
+  int error_output = Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
+START_TEST(wrong_x_test_3) {
+  char expression_string[256] = "xxx";
+  char *x_value_string = "89812.1246";
+  double answer = 0;
+  int error_output = Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
 START_TEST(extensive_arithmetic_test) {
   char expression_string[256] = "1.2+2.3-4.5+6.7-9.8-2.3*10.11/12.13";
   char *x_value_string = "";
@@ -559,6 +589,9 @@ Suite *backend_suite(void) {
   tcase_add_test(tc_core, x_test);
 
   //
+  tcase_add_test(tc_core, wrong_x_test);
+  tcase_add_test(tc_core, wrong_x_test_2);
+  tcase_add_test(tc_core, wrong_x_test_3);
   tcase_add_test(tc_core, wrong_input_1);
   tcase_add_test(tc_core, wrong_input_2);
   tcase_add_test(tc_core, wrong_input_3);
