@@ -1,5 +1,9 @@
 #include "backend.h"
-
+/*! \mainpage Drawing Shapes
+ *
+ * 
+ * This is a Calculator. It evaluates expressions and draws graphs based on them.
+*/
 
 int Calculate(char input_string[256], double *answer, char *x_string_value) {
   int error = IsInputCorrect(input_string);
