@@ -39,7 +39,7 @@ int IsInputCorrect(char input_string[]) {
   // IsInputCorrect = 0 - okay
   // IsInputCorrect = 1 - input is a number => do nothing
   // IsInputCorrect = 2 - input is wrong => return error
-  if (*input_string == '\0')
+  if (*input_string == '\0' || strlen(input_string) > 255)
     return 2;
   int return_value = 0;
   // check if only numbers

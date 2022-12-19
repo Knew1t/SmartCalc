@@ -22,10 +22,10 @@ START_TEST(extensive_arithmetic_test) {
 END_TEST
 
 START_TEST(extensive_arithmetic_test_2) {
-  char expression_string[256] = "tan( 3.764) ^sin( 9.445-sin( 7.2889 /  8.0438 -cos( sin(cos( "
-                 "tan(8.4448))) - 4.482)  )  / tan(cos(cos(sin(cos( "
-                 "cos(2.003)) )  ) / 0.1315) ))  -  8.8453/ 0.3612";
-  printf("\n%s\n", expression_string);
+  char expression_string[256] =
+      "tan( 3.764) ^sin( 9.445-sin( 7.2889 /  8.0438 -cos( sin(cos( "
+      "tan(8.4448))) - 4.482)  )  / tan(cos(cos(sin(cos( "
+      "cos(2.003)) )  ) / 0.1315) ))  -  8.8453/ 0.3612";
   char *x_value_string = "";
   double right_answer = -23.76667454586336;
   double answer = 0;
@@ -72,7 +72,6 @@ START_TEST(unary_minus_sin_test) {
   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
-
 
 START_TEST(multiply_test) {
   char expression_string[256] = "1234.98234*89812.12456";
@@ -126,7 +125,7 @@ END_TEST
 START_TEST(mod_test) {
   char expression_string[256] = "1235.432mod12398793.234";
   char *x_value_string = "";
-  double right_answer = fmod(1235.432,12398793.234);
+  double right_answer = fmod(1235.432, 12398793.234);
   double answer = 0;
   Calculate(expression_string, &answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
@@ -136,13 +135,12 @@ END_TEST
 START_TEST(mod_test_2) {
   char expression_string[256] = "1235.432mod12398793.234 * 37";
   char *x_value_string = "";
-  double right_answer = fmod(1235.432,12398793.234*37);
+  double right_answer = fmod(1235.432, 12398793.234 * 37);
   double answer = 0;
   Calculate(expression_string, &answer, x_value_string);
   ck_assert_double_eq_tol(right_answer, answer, TEST_EPS);
 }
 END_TEST
-
 
 START_TEST(sin_test) {
   char expression_string[256] = "sin(1.98087)";
@@ -443,6 +441,20 @@ START_TEST(wrong_input_20) {
 }
 END_TEST
 
+START_TEST(wrong_input_21) {
+  char expression_string[256] =
+      "123456789012345678901234567890123456789012345678901234567890123456789012"
+      "345678901234567890123456789012345678901234567890123456789012345678901234"
+      "567890123456789012345678901234567890123456789012345678901234567890123456"
+      "7890123456789012345678901234567890123456";
+  char *x_value_string = "";
+  double answer = 0;
+  int error_output = Calculate(expression_string, &answer, x_value_string);
+  int expected_error_output = 2;
+  ck_assert_int_eq(expected_error_output, error_output);
+}
+END_TEST
+
 // START_TEST() {
 //   char expression_string[256] = "2+2";
 //   char *x_value_string = "";
@@ -556,6 +568,7 @@ Suite *backend_suite(void) {
   tcase_add_test(tc_core, wrong_input_18);
   tcase_add_test(tc_core, wrong_input_19);
   tcase_add_test(tc_core, wrong_input_20);
+  tcase_add_test(tc_core, wrong_input_21); // > 255
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);
   // tcase_add_test(tc_core,);
