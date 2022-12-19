@@ -1,5 +1,6 @@
 #include "backend.h"
 
+
 int Calculate(char input_string[256], double *answer, char *x_string_value) {
   int error = IsInputCorrect(input_string);
   // IsInputCorrect() = 0 - okay
@@ -440,10 +441,6 @@ void PrintRPNLine(LexemeList *rpn_line_head) {
   printf("\n");
 }
 
-void ErrorOutput(char input_string[], char *error_string) {
-  memset(input_string, 0, sizeof(char) * 256);
-  strcat(input_string, error_string);
-}
 bool CheckIfAllocationFailed(void *ptr) {
   if (ptr == NULL)
     exit(FAILURE);
